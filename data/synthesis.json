@@ -1379,6 +1379,11 @@
         "raw": "艾克网 / IP网",
         "standard": "艾课网 / U渠道 / 艾聘网",
         "note": "按艾奇先生现场 PPT 照片（s3-2-03《艾奇在线产品服务矩阵》）校正。"
+      },
+      {
+        "raw": "Day 2：微图AJ / 彭丽 / 光头老刘 / 彭丹 / 中天骄 / Wingsee / 兰书 / 陆浩 / 玉博 / Vary夏 / 华道勇",
+        "standard": "WaytoAGI (AJ) / 冷洪利（光头牛哥） / 彭涛 / 钟添娇 / Winseed / 岚叔 / 路浩 / 玉伯 / Berryxia / 拔刀刘",
+        "note": "Day 2（11/22）官网议程与现场 PPT 实拍联合校订（注：「光头牛哥」「沈老」分别为冷洪利与 Berryxia 真实社区署名）。"
       }
     ],
     "terms": [
@@ -2017,11 +2022,11 @@
     },
     {
       "id": "res-2",
-      "item": "GEO 创收与提效工作台（Workbench）开源源码 & 创造者计划 VIP",
+      "item": "《如何打造属于自己的超级 Agent 工作台》在线 PPT（含 7 分钟录屏）& Floatboat「GEO 内容生产线」工作台",
       "provider": "谭少卿（Floatboat）",
       "talkId": "s2-tanshaoqing",
-      "category": "源码与平台权益",
-      "how": "在参会群内领取（源码需运行在 Floatboat 产品环境内），配套次日下午实操课讲解与 Flowpaas 分成权益。"
+      "category": "课件与工作台",
+      "how": "在线 PPT（含 7 分钟真机录屏，按 V 键播放）：https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk ；「GEO 内容生产线」在线体验：https://floatboat.ai/workbenchstore/geo-content-pipeline ；另可在大会群领取开源源码与创造者计划 VIP。"
     },
     {
       "id": "res-3",

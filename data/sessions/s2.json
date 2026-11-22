@@ -1,5 +1,7 @@
 {
   "id": "s2",
+  "day": 1,
+  "date": "2026-11-21",
   "title": "上午场②",
   "subtitle": "海外GPT流量 · 通用Agent OS · 城市语料",
   "time": "10:27–11:31",
@@ -449,8 +451,14 @@
       "qa": [],
       "resources": [
         {
-          "item": "GEO 创收与提效工作台（Workbench）源码",
-          "how": "加入大会微信群领取，源码开源但需运行在 Floatboat 内，次日下午实操课将详解构建与使用"
+          "item": "《如何打造属于自己的超级 Agent 工作台》在线 PPT（含 7 分钟真机实操录屏）",
+          "how": "已由谭少卿分享至参会群：点开链接即可在线查看（电脑按 V 键或点第 5 页/最后一页右上角按钮直接播放 7 分钟录屏，点击图片与二维码可放大）",
+          "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk"
+        },
+        {
+          "item": "Floatboat「GEO 内容生产线」工作台（在线体验版）",
+          "how": "演讲现场演示的同款工作台已上线开放体验，一站式搞定 GEO 内容生产与品牌监测（源码亦可加入大会群获取并在 Floatboat 中运行）",
+          "url": "https://floatboat.ai/workbenchstore/geo-content-pipeline"
         },
         {
           "item": "创造者计划 VIP 权益",
