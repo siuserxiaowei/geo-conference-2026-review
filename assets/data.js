@@ -1,5 +1,5 @@
 window.GEO_DATA = {
-  "generatedAt": "2026-11-22T04:07:59.330Z",
+  "generatedAt": "2026-11-22T06:12:14.871Z",
   "sessions": [
     {
       "id": "s1",
