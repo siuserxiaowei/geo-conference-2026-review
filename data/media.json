@@ -1,0 +1,146 @@
+[
+  {
+    "id": "wb-s1",
+    "file": "assets/img/wb-s1.jpg",
+    "kind": "whiteboard",
+    "title": "上午场① AI 总结导图（开场 · 媒体 · 数据 · AI原生团队）",
+    "sessionId": "s1",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 生成，含语音识别误差，如“绩优/GU”即 GEO）"
+  },
+  {
+    "id": "wb-s2",
+    "file": "assets/img/wb-s2.jpg",
+    "kind": "whiteboard",
+    "title": "上午场② AI 总结导图（海外SEO/GEO · 超级Agent · 城市语料）",
+    "sessionId": "s2",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 生成，含语音识别误差，如“绩优/GU”即 GEO）"
+  },
+  {
+    "id": "wb-s3",
+    "file": "assets/img/wb-s3.jpg",
+    "kind": "whiteboard",
+    "title": "下午场① AI 总结导图（品牌实践 · 词包策划 · 落地实战 · 媒体与圆桌）",
+    "sessionId": "s3",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 生成，含语音识别误差，如“绩优/GU”即 GEO）"
+  },
+  {
+    "id": "wb-s4",
+    "file": "assets/img/wb-s4.jpg",
+    "kind": "whiteboard",
+    "title": "下午场② AI 总结导图（AI新机会 · 全域治理 · 经营落地 · 快分享）",
+    "sessionId": "s4",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 生成，含语音识别误差，如“绩优/GU”即 GEO）"
+  },
+  {
+    "id": "wb-s4-yangpan",
+    "file": "assets/img/wb-s4-yangpan.jpg",
+    "kind": "whiteboard",
+    "title": "杨攀《从 AI 发展趋势中寻找新机会》AI 总结导图",
+    "sessionId": "s4",
+    "talkId": "s4-yang-gang",
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 生成，含语音识别误差，如“绩优/GU”即 GEO）"
+  },
+  {
+    "id": "fig-Q8XCbrVMfonsnQxPS3ycVMkWnUg",
+    "file": "assets/img/fig-Q8XCbrVMfonsnQxPS3ycVMkWnUg.png",
+    "kind": "figure",
+    "title": "大模型五大内容偏好说明表",
+    "sessionId": "s1",
+    "talkId": "s1-renqiang",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-XQY0bWJHIoAMEBxBbNrcOaAonPd",
+    "file": "assets/img/fig-XQY0bWJHIoAMEBxBbNrcOaAonPd.png",
+    "kind": "figure",
+    "title": "AI 原生工作流重构核心框架",
+    "sessionId": "s1",
+    "talkId": "s1-zhangxinmin",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-CyFQbQNjto0gKXx0pXHc7xfWnNc",
+    "file": "assets/img/fig-CyFQbQNjto0gKXx0pXHc7xfWnNc.png",
+    "kind": "figure",
+    "title": "品牌方六大核心 GEO 需求一览",
+    "sessionId": "s3",
+    "talkId": "s3-1",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-NXwRb136YoacTZxaNvLcBLfpnTf",
+    "file": "assets/img/fig-NXwRb136YoacTZxaNvLcBLfpnTf.png",
+    "kind": "figure",
+    "title": "GEO 服务商客户签约部门占比",
+    "sessionId": "s3",
+    "talkId": "s3-1",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-ZsKUbL2YRoGSiFxPPe8ciCpxnYd",
+    "file": "assets/img/fig-ZsKUbL2YRoGSiFxPPe8ciCpxnYd.png",
+    "kind": "figure",
+    "title": "GEO 精细化运营核心流程",
+    "sessionId": "s3",
+    "talkId": "s3-3",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-E98pbbXz3o17D5xOX2icZfnJn8e",
+    "file": "assets/img/fig-E98pbbXz3o17D5xOX2icZfnJn8e.png",
+    "kind": "figure",
+    "title": "2025–2026 年 APP 行业核心数据对比",
+    "sessionId": "s4",
+    "talkId": "s4-yang-gang",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-URhXbPilJoVmBwx32igctayBn0f",
+    "file": "assets/img/fig-URhXbPilJoVmBwx32igctayBn0f.png",
+    "kind": "figure",
+    "title": "AI 时代企业核心发展方向",
+    "sessionId": "s4",
+    "talkId": "s4-yang-gang",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-AR4dbhfP0oMaaFxZkeKcNsIZnSg",
+    "file": "assets/img/fig-AR4dbhfP0oMaaFxZkeKcNsIZnSg.png",
+    "kind": "figure",
+    "title": "AI 时代前后软件分发模式对比",
+    "sessionId": "s4",
+    "talkId": "s4-yang-gang",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-U2uSbyVm3o4sawxzlQBcH2m9nfc",
+    "file": "assets/img/fig-U2uSbyVm3o4sawxzlQBcH2m9nfc.png",
+    "kind": "figure",
+    "title": "AI 时代不可被模型替代的高价值赛道",
+    "sessionId": "s4",
+    "talkId": "s4-yang-gang",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-HKmMbrVW4oUIbwxTrUNcG7UmnHg",
+    "file": "assets/img/fig-HKmMbrVW4oUIbwxTrUNcG7UmnHg.png",
+    "kind": "figure",
+    "title": "AI 时代创业产品迭代节奏",
+    "sessionId": "s4",
+    "talkId": "s4-yang-gang",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-OJPgbg15TocHNgxKByecAqb3nph",
+    "file": "assets/img/fig-OJPgbg15TocHNgxKByecAqb3nph.png",
+    "kind": "figure",
+    "title": "GEO 标准化服务全流程",
+    "sessionId": "s4",
+    "talkId": "s4-gao-jun",
+    "caption": "飞书智能纪要 AI 生成配图"
+  }
+]

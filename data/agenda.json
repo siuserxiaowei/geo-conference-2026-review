@@ -1,0 +1,135 @@
+{
+  "source": "https://hui.ailingdaoli.com/",
+  "date": "2026-11-21",
+  "title": "DAY 1 · 11月21日官方议程",
+  "slots": [
+    {
+      "slot": "08:30–08:45",
+      "speaker": "姚金刚 · 乔向阳",
+      "org": "大会发起人（GEOFlow创始人 / 知名AI自媒体人）",
+      "title": "先导课",
+      "sessionId": "s1",
+      "talkId": null
+    },
+    {
+      "slot": "08:45–09:15",
+      "speaker": "任强",
+      "org": "北京日报社京报移动副总经理、北京日报智源GEO负责人",
+      "title": "主流媒体在 AI 答案时代的内容价值与可信表达",
+      "sessionId": "s1",
+      "talkId": "s1-renqiang"
+    },
+    {
+      "slot": "09:17–09:47",
+      "speaker": "拔刀刘",
+      "org": "AIDSO 爱搜 AI 合伙人",
+      "title": "数据底座驱动 GEO：从监控到增长的实战方法论",
+      "sessionId": "s1",
+      "talkId": "s1-badaoliu"
+    },
+    {
+      "slot": "09:49–10:19",
+      "speaker": "张栖铭",
+      "org": "BotLearn 联合创始人",
+      "title": "AI 原生研发指南：如何构建 AI Native 团队",
+      "sessionId": "s1",
+      "talkId": "s1-zhangxinmin"
+    },
+    {
+      "slot": "10:30–11:00",
+      "speaker": "哥飞",
+      "org": "海外 SEO 专家 ·「哥飞的朋友们」社群主理人",
+      "title": "如何另辟蹊径同时获取 SEO 和 GEO 流量",
+      "sessionId": "s2",
+      "talkId": "s2-gefei"
+    },
+    {
+      "slot": "11:02–11:32",
+      "speaker": "谭少卿",
+      "org": "Floatboat 创始人兼 CEO",
+      "title": "如何打造属于自己的超级 Agent",
+      "sessionId": "s2",
+      "talkId": "s2-tanshaoqing"
+    },
+    {
+      "slot": "11:34–12:04",
+      "speaker": "张伟方",
+      "org": "宁波日报报业集团副总编辑、甬派董事长",
+      "title": "城市语料如何赋能 GEO，城市语料行业标准建设启动暨第三届全国 GEO 大会召开城市发布",
+      "sessionId": "s2",
+      "talkId": "s2-renzong"
+    },
+    {
+      "slot": "14:00–14:30",
+      "speaker": "刘树勋",
+      "org": "智推时代联合创始人",
+      "title": "品牌企业如何做好 GEO：内容建设与增长实践",
+      "sessionId": "s3",
+      "talkId": "s3-1"
+    },
+    {
+      "slot": "14:32–15:02",
+      "speaker": "艾奇先生",
+      "org": "艾奇在线创始人 · 资深互联网营销实战专家",
+      "title": "从关键词到高维场景，AI 时代 GEO 全场景词包策划方法论",
+      "sessionId": "s3",
+      "talkId": "s3-2"
+    },
+    {
+      "slot": "15:04–15:34",
+      "speaker": "苍何",
+      "org": "微软 MVP · 前排 GEO 研究院主任 · AI KOL",
+      "title": "GEO 落地服务实战",
+      "sessionId": "s3",
+      "talkId": "s3-3"
+    },
+    {
+      "slot": "15:36–15:56",
+      "speaker": "岳琦",
+      "org": "每经科技首席产品官（每日经济新闻旗下）· 资深财经媒体人",
+      "title": "当 GEO 成为信任基建，品牌怎么做专业媒体式传播？",
+      "sessionId": "s3",
+      "talkId": "s3-4"
+    },
+    {
+      "slot": "15:58–16:28",
+      "speaker": "吕推、张莹莹、安美奇（主持：岳琦）",
+      "org": "吕推：芥末推创始人 · 鲸戈环球创投董事长 / 张莹莹：成长最美创始人兼CEO · HOCOMO传媒创始人兼CEO / 安美奇：答案时代创始人 · 十年互联网营销增长操盘手",
+      "title": "GEO 圆桌分享",
+      "sessionId": "s3",
+      "talkId": "s3-panel"
+    },
+    {
+      "slot": "16:40–17:10",
+      "speaker": "杨攀",
+      "org": "Bilink 创始人",
+      "title": "从 AI 发展趋势中寻找新机会",
+      "sessionId": "s4",
+      "talkId": "s4-yang-gang"
+    },
+    {
+      "slot": "17:12–17:42",
+      "speaker": "高军",
+      "org": "媒介匣创始人 & CEO",
+      "title": "从优化到治理：全域 GEO 时代的品牌营销操作系统",
+      "sessionId": "s4",
+      "talkId": "s4-gao-jun"
+    },
+    {
+      "slot": "17:44–18:14",
+      "speaker": "陈峥",
+      "org": "欧博东方 CEO",
+      "title": "经营增长视角下的 GEO：从战略到组织落地",
+      "sessionId": "s4",
+      "talkId": "s4-chen-zheng"
+    },
+    {
+      "slot": "现场加场（5分钟/人）",
+      "speaker": "周小乔 / 福波 / 周小鸟 / 杭州张总",
+      "org": "云溪公司 / 阿里云万网·万小智 / 个人 / 杭州二次创业团队",
+      "title": "现场 5 分钟快分享（4 位嘉宾）",
+      "sessionId": "s4",
+      "talkId": "s4-zhou-xiaoqiao"
+    }
+  ]
+}

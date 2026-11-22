@@ -8,7 +8,15 @@
     return;
   }
 
-  const { sessions, synthesis, generatedAt } = DATA;
+  const {
+    sessions,
+    synthesis,
+    media = [],
+    agenda = { slots: [] },
+    photos = { items: [] },
+    generatedAt,
+  } = DATA;
+  const photoItems = photos.items || [];
 
   const TOPIC_MAP = new Map();
   for (const t of synthesis.topics) TOPIC_MAP.set(t.id, t);
@@ -75,6 +83,20 @@
     return `<span class="${cls}">${esc(KIND_LABEL[kind] || kind)}</span>`;
   }
 
+  function cutText(str, max) {
+    const s = String(str || '').trim();
+    return s.length > max ? s.slice(0, max) + '…' : s;
+  }
+
+  function kpShortLabel(text) {
+    const s = String(text || '').trim();
+    const colonIdx = s.search(/[：:]/);
+    if (colonIdx > 0 && colonIdx <= 26) {
+      return s.slice(0, colonIdx);
+    }
+    return cutText(s, 22);
+  }
+
   // LocalStorage state helpers
   function loadState(key, fallback) {
     try {
@@ -132,6 +154,52 @@
     document.body.removeChild(ta);
   }
 
+  // Lightbox
+  const lightboxEl = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxStage = document.getElementById('lightboxStage');
+  const lightboxZoomBtn = document.getElementById('lightboxZoomBtn');
+  const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+
+  function openLightbox(src, alt, caption) {
+    if (!lightboxEl) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightboxImg.classList.remove('is-zoomed');
+    lightboxCaption.textContent = caption ? `${alt} — ${caption}` : alt || '';
+    lightboxEl.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightboxEl || lightboxEl.hidden) return;
+    lightboxEl.hidden = true;
+    lightboxImg.src = '';
+    lightboxImg.classList.remove('is-zoomed');
+    document.body.style.overflow = '';
+  }
+
+  if (lightboxZoomBtn) {
+    lightboxZoomBtn.addEventListener('click', () => {
+      lightboxImg.classList.toggle('is-zoomed');
+    });
+  }
+  if (lightboxImg) {
+    lightboxImg.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lightboxImg.classList.toggle('is-zoomed');
+    });
+  }
+  if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+  }
+  if (lightboxStage) {
+    lightboxStage.addEventListener('click', (e) => {
+      if (e.target === lightboxStage) closeLightbox();
+    });
+  }
+
   // Navigation structure
   const NAV_GROUPS = [
     {
@@ -161,6 +229,7 @@
     {
       label: '工具箱',
       items: [
+        { route: '#/gallery', label: '图集', badge: `${media.length + photoItems.length}` },
         { route: '#/resources', label: '会后物料', badge: `${synthesis.resources.length}` },
         { route: '#/glossary', label: '术语与纠错', badge: 'ASR' },
       ],
@@ -219,7 +288,8 @@
     }
     for (const t of s.talks || []) {
       const route = `#/talk/${t.id}`;
-      addIndex('嘉宾', `${t.speaker} · ${t.org}`, `${t.title} ${t.bio} ${t.oneLiner}`, route, s.title);
+      addIndex('嘉宾', `${t.speaker} · ${t.org}`, `${t.title} ${t.bio} ${t.oneLiner}`, route, t.agendaSlot || s.title);
+      for (const nv of t.narrative || []) addIndex('论证脉络', `${t.speaker} · ${nv.heading}`, nv.text, route, nv.ts);
       for (const kp of t.keyPoints || []) addIndex('要点', `${t.speaker}：${t.title}`, kp.text, route, kp.ts);
       for (const m of t.methods || []) addIndex('方法', `${t.speaker} · ${m.name}`, (m.steps || []).join(' '), route, s.title);
       for (const d of t.data || []) addIndex('数据', `${t.speaker} · ${d.value}`, d.label, route, d.ts);
@@ -227,7 +297,7 @@
       for (const q of t.quotes || []) addIndex('原话', `${t.speaker} 原声`, q.text, route, q.ts);
       for (const qa of t.qa || []) addIndex('问答', `${t.speaker} 问答`, `${qa.q} ${qa.a}`, route, qa.ts);
       for (const r of t.resources || []) addIndex('资源', `${t.speaker} · ${r.item}`, r.how, route, s.title);
-      for (const u of t.uncertain || []) addIndex('核实备注', `${t.speaker} 存疑核实`, u, route, s.title);
+      for (const u of t.uncertain || []) addIndex('核实备注', `${t.speaker} 核实备注`, u, route, s.title);
     }
   }
   for (const tp of synthesis.topics) {
@@ -254,6 +324,19 @@
   for (const ck of synthesis.checklist) {
     addIndex('清单', `${ck.category} · ${ck.text}`, ck.detail, '#/checklist', ck.category);
   }
+  for (const m of media) {
+    addIndex('图集', m.title, m.caption, m.talkId ? `#/talk/${m.talkId}` : '#/gallery', m.kind === 'whiteboard' ? '总结导图' : 'AI配图');
+  }
+  for (const p of photoItems) {
+    const tk = p.talkId ? TALK_MAP.get(p.talkId) : null;
+    addIndex(
+      '现场照',
+      `${tk ? tk.speaker + ' · ' : ''}现场照片 (${p.takenAt || ''})`,
+      `${p.caption || ''} ${p.slideText || ''}`,
+      p.talkId ? `#/talk/${p.talkId}` : '#/gallery',
+      `${p.sessionId || ''} · ${p.photographer || ''}`
+    );
+  }
 
   function highlightMatch(text, query) {
     const q = query.trim();
@@ -274,6 +357,96 @@
     return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
   }
 
+  const PHOTO_KIND_LABEL = {
+    speaker: '讲者特写',
+    stage: '现场演讲',
+    slide: '现场 PPT',
+    panel: '圆桌现场',
+    scene: '会场实景',
+    audience: '台下观众',
+  };
+
+  function speakerPortrait(talkId) {
+    return (
+      photoItems.find((p) => p.talkId === talkId && p.kind === 'speaker') ||
+      photoItems.find((p) => p.talkId === talkId && (p.kind === 'panel' || p.kind === 'stage')) ||
+      photoItems.find((p) => p.talkId === talkId) ||
+      null
+    );
+  }
+
+  function renderPhotoCredit() {
+    if (!photoItems.length) return '';
+    const srcUrl = photos.source || 'https://www.xxpie.com/m/album?id=6afeda1730285548f60b41b5&source=SHARE_LINK&r=9951';
+    const credit = photos.credit || '现场照片：享像派照片直播 · 摄影 文化致胜、刘宇琪';
+    return `<p class="photo-credit">${esc(credit)} · <a href="${esc(srcUrl)}" target="_blank" rel="noopener">查看原始直播相册（含 Day1/Day2）↗</a></p>`;
+  }
+
+  function renderPhotoCard(p, showTalkLink = true) {
+    const talk = p.talkId ? TALK_MAP.get(p.talkId) : null;
+    const kindTag = PHOTO_KIND_LABEL[p.kind] || '现场照片';
+    const fullCaption = `${p.caption || ''}（${p.takenAt || ''} · 摄影：${p.photographer || ''}）`;
+    return `
+      <figure class="card photo-card" style="margin:0">
+        <div class="media-thumb-wrap is-photo">
+          <img
+            class="zoomable"
+            src="${esc(p.thumb)}"
+            data-full="${esc(p.file)}"
+            alt="${esc(p.caption)}"
+            data-caption="${esc(fullCaption)}"
+            loading="lazy"
+            decoding="async"
+          >
+          <span class="media-zoom-hint">点击大图</span>
+        </div>
+        <div class="photo-card-body">
+          <div class="photo-card-meta">
+            <div style="display:flex;gap:0.3rem;align-items:center;flex-wrap:wrap">
+              <span class="tag ${p.kind === 'slide' ? 'tag-accent' : ''}">${esc(kindTag)}</span>
+              ${p.takenAt ? `<span class="tag">${esc(p.takenAt)}</span>` : ''}
+            </div>
+            ${showTalkLink && talk ? `<a class="tag" href="#/talk/${esc(talk.id)}">${esc(talk.speaker)} →</a>` : ''}
+          </div>
+          <figcaption>${esc(p.caption)}</figcaption>
+        </div>
+        ${
+          p.slideText
+            ? `<div class="slide-text">
+                <div class="slide-text-label">现场 PPT 要点</div>
+                <div class="slide-text-body">${esc(p.slideText).replace(/\n/g, '<br>')}</div>
+              </div>`
+            : ''
+        }
+      </figure>`;
+  }
+
+  function renderMediaCard(m, isThumbSquare = true) {
+    const talk = m.talkId ? TALK_MAP.get(m.talkId) : null;
+    const kindTag = m.kind === 'whiteboard' ? '总结导图' : 'AI配图';
+    return `
+      <figure class="media-card" style="margin:0">
+        <div class="media-thumb-wrap${isThumbSquare ? ' is-square' : ''}">
+          <img
+            class="zoomable"
+            src="${esc(m.file)}"
+            alt="${esc(m.title)}"
+            data-caption="${esc(m.caption)}"
+            loading="lazy"
+          >
+          <span class="media-zoom-hint">点击放大</span>
+        </div>
+        <div class="media-caption">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:0.4rem">
+            <span class="tag ${m.kind === 'whiteboard' ? 'tag-accent' : ''}">${esc(kindTag)}</span>
+            ${talk ? `<a class="tag" href="#/talk/${esc(talk.id)}">${esc(talk.speaker)} →</a>` : ''}
+          </div>
+          <strong>${esc(m.title)}</strong>
+          <figcaption>${esc(m.caption)}</figcaption>
+        </div>
+      </figure>`;
+  }
+
   // Page Renderers
   function renderHome() {
     const { overview, dataWall, paths } = synthesis;
@@ -281,6 +454,36 @@
     const pathChecks = loadState('paths', {});
     const showAllData = loadState('homeShowAllData', false);
     const wallItems = showAllData ? dataWall : dataWall.slice(0, 12);
+    const sessionWhiteboards = media.filter((m) => m.kind === 'whiteboard' && !m.talkId);
+    const groupPhoto =
+      photoItems.find((p) => p.file.includes('scene-s2-02')) ||
+      photoItems.find((p) => p.kind === 'scene' && /合影/.test(p.caption || ''));
+    const panoramaPhoto =
+      photoItems.find((p) => p.file.includes('scene-s1-03')) ||
+      photoItems.find((p) => p.sessionId === 's1' && p.kind === 'scene' && /全景/.test(p.caption || ''));
+    const heroPhotos = [groupPhoto, panoramaPhoto].filter(Boolean);
+    const highlightPool = [];
+    const seenPickIds = new Set();
+    const tryPushHighlight = (p) => {
+      if (p && !seenPickIds.has(p.id)) {
+        seenPickIds.add(p.id);
+        highlightPool.push(p);
+      }
+    };
+    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s1-01')));
+    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s1-04')));
+    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s2-01')));
+    for (const sid of ['s1', 's2', 's3', 's4']) {
+      tryPushHighlight(
+        photoItems.find((p) => p.sessionId === sid && (p.kind === 'panel' || p.kind === 'stage' || p.kind === 'speaker'))
+      );
+    }
+    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s4-05')));
+    for (const p of photoItems) {
+      if (highlightPool.length >= 8) break;
+      tryPushHighlight(p);
+    }
+    const highlights = highlightPool.slice(0, 8);
 
     return `
     <div class="page-wide">
@@ -288,7 +491,7 @@
         <div class="masthead-kicker">
           <span>2026·11·21 · 深圳</span>
           <span>第二届中国 GEO 大会</span>
-          <span>白昼四大场次 · 逐字稿深读复盘</span>
+          <span>官网议程校准 · 逐字稿精读 · 飞书导图</span>
         </div>
         <h1>${esc(overview.title)}</h1>
         <p class="masthead-sub">${esc(overview.subtitle)} — ${esc(overview.positioning)}</p>
@@ -304,6 +507,32 @@
           <span class="tag tag-accent">会前107问高频TOP</span>
           ${(overview.topConcerns || []).map((c) => `<span class="tag">${esc(c)}</span>`).join('')}
         </div>
+        ${
+          heroPhotos.length
+            ? `<div class="home-hero-photo">
+                ${heroPhotos
+                  .map(
+                    (hp) => `
+                  <figure>
+                    <div class="media-thumb-wrap is-photo">
+                      <img
+                        class="zoomable"
+                        src="${esc(hp.thumb)}"
+                        data-full="${esc(hp.file)}"
+                        alt="${esc(hp.caption)}"
+                        data-caption="${esc(hp.caption)}（${esc(hp.takenAt)} · 摄影：${esc(hp.photographer)}）"
+                        loading="lazy"
+                        decoding="async"
+                      >
+                      <span class="media-zoom-hint">点击大图</span>
+                    </div>
+                    <figcaption>${esc(hp.caption)}</figcaption>
+                  </figure>`
+                  )
+                  .join('')}
+              </div>`
+            : ''
+        }
       </header>
 
       <section class="reveal reveal-d1">
@@ -326,6 +555,64 @@
       </section>
 
       <section class="reveal reveal-d2">
+        <div class="section-head">
+          <h2>官方议程（Day 1 · 11月21日）</h2>
+          <a class="tag" href="${esc(agenda.source)}" target="_blank" rel="noopener">官网来源：hui.ailingdaoli.com ↗</a>
+        </div>
+        <div class="table-wrap">
+          <table class="agenda-table">
+            <thead>
+              <tr>
+                <th>议程时段</th>
+                <th>嘉宾</th>
+                <th>官方身份</th>
+                <th>官方分享题目</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${(agenda.slots || [])
+                .map((row) => {
+                  const target = row.talkId ? `#/talk/${row.talkId}` : '#/sessions';
+                  return `
+                  <tr class="is-clickable" onclick="location.hash='${esc(target)}'">
+                    <td class="agenda-slot">${esc(row.slot)}</td>
+                    <td style="font-weight:700;white-space:nowrap"><a href="${esc(target)}">${esc(row.speaker)}</a></td>
+                    <td style="color:var(--muted);font-size:0.84rem">${esc(row.org)}</td>
+                    <td><a href="${esc(target)}" style="font-weight:500">${esc(row.title)}</a></td>
+                  </tr>`;
+                })
+                .join('')}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="reveal reveal-d3">
+        <div class="section-head">
+          <h2>飞书 AI 总结导图（4 场总览）</h2>
+          <a class="tag tag-accent" href="#/gallery">查看全部 ${media.length + photoItems.length} 张图集 →</a>
+        </div>
+        <div class="wb-grid">
+          ${sessionWhiteboards.map((m) => renderMediaCard(m, true)).join('')}
+        </div>
+      </section>
+
+      ${
+        highlights.length
+          ? `<section class="reveal reveal-d3">
+              <div class="section-head">
+                <h2>现场掠影（${highlights.length}/${photoItems.length}）</h2>
+                <a class="tag tag-accent" href="#/gallery">浏览全部 ${photoItems.length} 张现场照片 →</a>
+              </div>
+              <div class="photo-grid">
+                ${highlights.map((p) => renderPhotoCard(p, true)).join('')}
+              </div>
+              ${renderPhotoCredit()}
+            </section>`
+          : ''
+      }
+
+      <section class="reveal reveal-d3">
         <div class="section-head">
           <h2>学习路径入口</h2>
           <a class="tag" href="#/paths">进入全部路径与打卡 →</a>
@@ -351,10 +638,10 @@
         </div>
       </section>
 
-      <section class="reveal reveal-d3">
+      <section class="reveal reveal-d4">
         <div class="section-head">
           <h2>全天时间轴 · 四大场次 18 场分享</h2>
-          <a class="tag" href="#/sessions">查看场次笔记与主持串场 →</a>
+          <a class="tag" href="#/sessions">查看场次导图与主持串场 →</a>
         </div>
         ${sessions
           .map(
@@ -366,21 +653,26 @@
             </div>
             <div class="talk-grid">
               ${(s.talks || [])
-                .map(
-                  (t) => `
+                .map((t) => {
+                  const av = speakerPortrait(t.id);
+                  return `
                 <a class="card card-link" href="#/talk/${esc(t.id)}">
                   <div class="talk-card-top">
-                    <span class="talk-speaker">${esc(t.speaker)}</span>
+                    <span class="talk-speaker-wrap">
+                      ${av ? `<img class="talk-avatar" src="${esc(av.thumb)}" alt="${esc(t.speaker)}" loading="lazy" decoding="async">` : ''}
+                      <span class="talk-speaker">${esc(t.speaker)}</span>
+                    </span>
                     ${kindBadge(t.kind)}
                   </div>
                   <div class="talk-org">${esc(t.org)}</div>
-                  <p class="talk-oneliner">${esc(t.oneLiner)}</p>
+                  <div style="font-weight:600;font-size:0.9rem;margin:0.2rem 0">${esc(t.title)}</div>
+                  <p class="talk-oneliner" style="color:var(--muted)">${esc(t.oneLiner)}</p>
                   <div class="talk-card-top">
-                    <span class="talk-time">${esc(t.start)}–${esc(t.end)}</span>
+                    <span class="talk-time">议程 ${esc(t.agendaSlot || '')} · 录音 ${esc(t.start)}–${esc(t.end)}</span>
                     ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">待核实</span>' : ''}
                   </div>
-                </a>`
-                )
+                </a>`;
+                })
                 .join('')}
             </div>
           </div>`
@@ -422,7 +714,7 @@
 
       <section class="reveal reveal-d5" style="margin-top:1.75rem">
         <details class="editorial-details">
-          <summary>嘉宾与产品名单核实说明（以逐字稿自述为准）</summary>
+          <summary>嘉宾名单与资料核实说明（以官网议程 hui.ailingdaoli.com 为准）</summary>
           <ul>
             ${(overview.nameAuditNotice || []).map((line) => `<li>${esc(line)}</li>`).join('')}
           </ul>
@@ -435,22 +727,71 @@
     return `
     <div class="page-wide">
       <div class="page-header reveal">
-        <div class="page-kicker">全天四大场次 · 按时间顺序浏览</div>
+        <div class="page-kicker">全天四大场次 · 飞书画板导图 + 嘉宾列表</div>
         <h1>场次与嘉宾目录</h1>
-        <p class="page-desc">共收录 4 场 18 个讲者单元（13 场主题演讲 + 1 场三人圆桌 + 4 位五分钟快分享）。展开各场“串联与花絮”可查看费曼作业、合影及会场突发细节。<span class="ts-perm-note">点击 ▶ 时间戳可跳飞书原声（需飞书权限）</span></p>
+        <p class="page-desc">共收录 4 场 18 个讲者单元（13 场主题演讲 + 1 场三人圆桌 + 4 位五分钟快分享）。每场先提供飞书智能纪要总结导图（可点击放大），展开「串联与花絮」可查看先导课与现场细节。<span class="ts-perm-note">▶ 时间戳需飞书权限</span></p>
       </div>
       ${sessions
-        .map(
-          (s) => `
+        .map((s) => {
+          const wb = media.find((m) => m.sessionId === s.id && m.kind === 'whiteboard' && !m.talkId);
+          const cover =
+            photoItems.find((p) => p.sessionId === s.id && p.kind === 'scene') ||
+            photoItems.find((p) => p.sessionId === s.id && (p.kind === 'panel' || p.kind === 'stage' || p.kind === 'speaker'));
+          return `
         <section class="session-block reveal">
           <div class="session-banner">
             <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
             <span class="session-banner-meta">${esc(s.time)} · 妙记 ${esc(s.miaojiId)}</span>
           </div>
           ${
+            wb || cover
+              ? `<div class="${wb && cover ? 'session-visual-row' : ''}" style="${!(wb && cover) ? 'margin-bottom:0.85rem' : ''}">
+                  ${
+                    wb
+                      ? `<figure class="card" style="margin:0;padding:0.85rem">
+                          <img
+                            class="session-wb-img zoomable"
+                            src="${esc(wb.file)}"
+                            alt="${esc(wb.title)}"
+                            data-caption="${esc(wb.caption)}"
+                            loading="lazy"
+                            decoding="async"
+                          >
+                          <figcaption style="margin-top:0.5rem;font-size:0.8rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.4rem">
+                            <span><strong>${esc(wb.title)}</strong> — ${esc(wb.caption)}</span>
+                            <span class="tag">点击大图可缩放预览</span>
+                          </figcaption>
+                        </figure>`
+                      : ''
+                  }
+                  ${
+                    cover
+                      ? `<figure class="card session-cover-card">
+                          <div class="media-thumb-wrap is-photo">
+                            <img
+                              class="zoomable"
+                              src="${esc(cover.thumb)}"
+                              data-full="${esc(cover.file)}"
+                              alt="${esc(cover.caption)}"
+                              data-caption="${esc(cover.caption)}（${esc(cover.takenAt)} · 摄影：${esc(cover.photographer)}）"
+                              loading="lazy"
+                              decoding="async"
+                            >
+                            <span class="media-zoom-hint">点击高清大图</span>
+                          </div>
+                          <figcaption style="margin-top:0.55rem;font-size:0.8rem;color:var(--muted);line-height:1.45">
+                            <span class="tag" style="margin-right:0.35rem">本场现场封面</span>${esc(cover.caption)}
+                          </figcaption>
+                        </figure>`
+                      : ''
+                  }
+                </div>`
+              : ''
+          }
+          ${
             (s.sessionNotes || []).length
               ? `<details class="editorial-details">
-                  <summary>本场主持串场、互动与现场花絮（${s.sessionNotes.length} 条）</summary>
+                  <summary>本场先导课、主持串场与现场花絮（${s.sessionNotes.length} 条）</summary>
                   <ul>
                     ${s.sessionNotes
                       .map((n) => `<li>${esc(n.text)} ${tsAnchor(s.miaojiId, n.ts, false)}</li>`)
@@ -461,30 +802,128 @@
           }
           <div class="talk-grid">
             ${(s.talks || [])
-              .map(
-                (t) => `
+              .map((t) => {
+                const av = speakerPortrait(t.id);
+                return `
               <article class="card card-link" onclick="location.hash='#/talk/${esc(t.id)}'" style="cursor:pointer">
                 <div class="talk-card-top">
-                  <a class="talk-speaker" href="#/talk/${esc(t.id)}">${esc(t.speaker)}</a>
+                  <span class="talk-speaker-wrap">
+                    ${av ? `<img class="talk-avatar" src="${esc(av.thumb)}" alt="${esc(t.speaker)}" loading="lazy" decoding="async">` : ''}
+                    <a class="talk-speaker" href="#/talk/${esc(t.id)}">${esc(t.speaker)}</a>
+                  </span>
                   <div style="display:flex;gap:0.3rem;align-items:center">
                     ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">待核实</span>' : ''}
                     ${kindBadge(t.kind)}
                   </div>
                 </div>
-                <div class="talk-org">${esc(t.org)} · <span class="talk-time">${esc(t.start)}–${esc(t.end)}</span></div>
+                <div class="talk-org">${esc(t.org)}</div>
+                <div class="talk-time" style="margin-bottom:0.35rem">议程 ${esc(t.agendaSlot || '')} · 录音 ${esc(t.start)}–${esc(t.end)}</div>
                 <div style="font-weight:600;font-size:0.93rem;margin-bottom:0.3rem">${esc(t.title)}</div>
                 <p class="talk-oneliner">${esc(t.oneLiner)}</p>
                 <div class="tag-row" onclick="event.stopPropagation()">
                   ${(t.tags || []).map(tagBadge).join('')}
                 </div>
-              </article>`
-              )
+              </article>`;
+              })
               .join('')}
           </div>
-        </section>`
-        )
+        </section>`;
+        })
         .join('')}
     </div>`;
+  }
+
+  function renderMindmap(t) {
+    const kps = (t.keyPoints || []).slice(0, 8);
+    const methods = t.methods || [];
+    const dataItems = t.data || [];
+    const cases = t.cases || [];
+
+    const branches = [];
+    if (kps.length) {
+      branches.push({
+        label: '核心要点',
+        html: kps
+          .map(
+            (kp, idx) =>
+              `<li class="mm-leaf"><button type="button" class="mm-node-btn mm-jump" data-target="kp-${idx}">${String(idx + 1).padStart(2, '0')} · ${esc(kpShortLabel(kp.text))}</button></li>`
+          )
+          .join(''),
+      });
+    }
+    if (methods.length) {
+      branches.push({
+        label: '方法论',
+        html: methods
+          .map(
+            (m, idx) => `
+            <li class="mm-leaf">
+              <details>
+                <summary class="mm-node-btn" style="display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;list-style:none">
+                  <span>${esc(m.name)}</span>
+                  <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--accent)">(${(m.steps || []).length}步 ▾)</span>
+                </summary>
+                <div class="mm-substeps">
+                  ${(m.steps || []).map((st, si) => `<div>${si + 1}. ${esc(st)}</div>`).join('')}
+                  <div style="margin-top:0.2rem"><button type="button" class="tag tag-accent mm-jump" data-target="method-${idx}" style="border-width:1px">定位到正文字段 ↓</button></div>
+                </div>
+              </details>
+            </li>`
+          )
+          .join(''),
+      });
+    }
+    if (dataItems.length) {
+      branches.push({
+        label: '关键数据',
+        html: dataItems
+          .map(
+            (d, idx) =>
+              `<li class="mm-leaf"><button type="button" class="mm-node-btn mm-jump" data-target="data-${idx}"><strong style="color:var(--accent)">${esc(d.value)}</strong> · ${esc(cutText(d.label, 16))}</button></li>`
+          )
+          .join(''),
+      });
+    }
+    if (cases.length) {
+      branches.push({
+        label: '案例',
+        html: cases
+          .map(
+            (c, idx) =>
+              `<li class="mm-leaf"><button type="button" class="mm-node-btn mm-jump" data-target="case-${idx}">${esc(c.title)}</button></li>`
+          )
+          .join(''),
+      });
+    }
+
+    if (!branches.length) return '';
+
+    return `
+      <section class="reveal reveal-d2">
+        <div class="section-head">
+          <h2>观点导图</h2>
+          <span class="section-sub">点击节点跳转对应细节，方法论节点可展开步骤</span>
+        </div>
+        <div class="mindmap-wrap">
+          <div class="mm-tree">
+            <div class="mm-root">
+              <small>${esc(t.speaker)} · ${esc(t.agendaSlot || '')}</small>
+              ${esc(t.title)}
+            </div>
+            <div class="mm-branches">
+              ${branches
+                .map(
+                  (b) => `
+                <div class="mm-branch">
+                  <div class="mm-branch-label">${esc(b.label)}</div>
+                  <ul class="mm-leaves">${b.html}</ul>
+                </div>`
+                )
+                .join('')}
+            </div>
+          </div>
+        </div>
+      </section>`;
   }
 
   function renderTalkDetail(talkId) {
@@ -494,6 +933,9 @@
     const sess = SESSION_MAP.get(t.sessionId);
     const prevTalk = t.indexInSession > 0 ? sess.talks[t.indexInSession - 1] : null;
     const nextTalk = t.indexInSession < sess.talks.length - 1 ? sess.talks[t.indexInSession + 1] : null;
+    const talkMedia = media.filter((m) => m.talkId === t.id);
+    const talkPhotos = photoItems.filter((p) => p.talkId === t.id);
+    const portrait = speakerPortrait(t.id);
 
     return `
     <div class="page-narrow">
@@ -505,15 +947,32 @@
         <div class="talk-card-top">
           <div style="display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center">
             ${kindBadge(t.kind)}
-            ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">姓名/机构待核实</span>' : ''}
+            ${t.agendaSlot ? `<span class="tag">议程 ${esc(t.agendaSlot)}</span>` : ''}
+            ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">部分信息待核实</span>' : ''}
             ${tsAnchor(t.miaojiId, t.start, true)}
           </div>
-          <span class="talk-time">${esc(t.start)} – ${esc(t.end)}</span>
+          <span class="talk-time">录音 ${esc(t.start)} – ${esc(t.end)}</span>
         </div>
-        <h1 style="font-family:var(--font-serif);font-size:clamp(1.45rem,3.4vw,2.15rem);margin:0.65rem 0 0.35rem;line-height:1.25">${esc(t.title)}</h1>
-        <div style="font-size:1rem;font-weight:700">${esc(t.speaker)} <span style="font-weight:400;color:var(--muted)">· ${esc(t.org)}</span></div>
-        <p class="talk-bio">${esc(t.bio)}</p>
-        <div class="tag-row">${(t.tags || []).map(tagBadge).join('')}</div>
+        <div class="talk-hero-head">
+          ${
+            portrait
+              ? `<img
+                  class="talk-portrait zoomable"
+                  src="${esc(portrait.thumb)}"
+                  data-full="${esc(portrait.file)}"
+                  alt="${esc(t.speaker)}"
+                  data-caption="${esc(portrait.caption || t.speaker)}（${esc(portrait.takenAt || '')} · 摄影：${esc(portrait.photographer || '')}）"
+                  decoding="async"
+                >`
+              : ''
+          }
+          <div class="talk-hero-head-main">
+            <h1 style="font-family:var(--font-serif);font-size:clamp(1.45rem,3.4vw,2.15rem);margin:0 0 0.35rem;line-height:1.25">${esc(t.title)}</h1>
+            <div style="font-size:1rem;font-weight:700">${esc(t.speaker)} <span style="font-weight:400;color:var(--muted)">· ${esc(t.org)}</span></div>
+            <p class="talk-bio">${esc(t.bio)}</p>
+            <div class="tag-row">${(t.tags || []).map(tagBadge).join('')}</div>
+          </div>
+        </div>
       </article>
 
       <div class="oneliner-box reveal reveal-d1">
@@ -521,7 +980,63 @@
         ${esc(t.oneLiner)}
       </div>
 
-      <section class="reveal reveal-d2">
+      ${
+        (t.narrative || []).length
+          ? `<section class="reveal reveal-d1">
+              <div class="section-head">
+                <h2>论证脉络（${t.narrative.length} 段精读）</h2>
+                <span class="section-sub">还原逐字稿起承转合与核心推演</span>
+              </div>
+              <div class="narrative-list">
+                ${t.narrative
+                  .map(
+                    (nv, idx) => `
+                  <article class="narrative-item">
+                    <div class="narrative-head">
+                      <strong>${String(idx + 1).padStart(2, '0')} · ${esc(nv.heading)}</strong>
+                      ${tsAnchor(t.miaojiId, nv.ts, false)}
+                    </div>
+                    <p>${esc(nv.text)}</p>
+                  </article>`
+                  )
+                  .join('')}
+              </div>
+            </section>`
+          : ''
+      }
+
+      ${renderMindmap(t)}
+
+      ${
+        talkMedia.length
+          ? `<section class="reveal reveal-d2">
+              <div class="section-head">
+                <h2>图解（${talkMedia.length}）</h2>
+                <span class="section-sub">来自飞书智能纪要配图/画板 · 点击可放大</span>
+              </div>
+              <div class="figure-grid">
+                ${talkMedia.map((m) => renderMediaCard(m, false)).join('')}
+              </div>
+            </section>`
+          : ''
+      }
+
+      ${
+        talkPhotos.length
+          ? `<section class="reveal reveal-d2">
+              <div class="section-head">
+                <h2>现场照片（${talkPhotos.length}）</h2>
+                <span class="section-sub">现场直拍与大屏 PPT 逐字摘录 · 点击看高清大图</span>
+              </div>
+              <div class="photo-grid">
+                ${talkPhotos.map((p) => renderPhotoCard(p, false)).join('')}
+              </div>
+              ${renderPhotoCredit()}
+            </section>`
+          : ''
+      }
+
+      <section class="reveal reveal-d3">
         <div class="section-head">
           <h2>核心要点（${(t.keyPoints || []).length}）</h2>
           <span class="section-sub">点击 ▶ 时间戳跳原声（需飞书权限）</span>
@@ -530,7 +1045,7 @@
           ${(t.keyPoints || [])
             .map(
               (kp, idx) => `
-            <li class="kp-item">
+            <li class="kp-item" id="kp-${idx}">
               <span class="kp-idx">${String(idx + 1).padStart(2, '0')}</span>
               <div class="kp-body">
                 <span>${esc(kp.text)}</span>
@@ -544,13 +1059,13 @@
 
       ${
         (t.methods || []).length
-          ? `<section class="reveal reveal-d3">
+          ? `<section>
               <div class="section-head"><h2>方法论与操作步骤</h2></div>
               <div style="display:flex;flex-direction:column;gap:0.85rem">
                 ${t.methods
                   .map(
-                    (m) => `
-                  <div class="card">
+                    (m, idx) => `
+                  <div class="card" id="method-${idx}">
                     <h3 style="font-family:var(--font-serif);margin:0;font-size:1.08rem">${esc(m.name)}</h3>
                     <ol class="method-steps">
                       ${(m.steps || []).map((st) => `<li><span>${esc(st)}</span></li>`).join('')}
@@ -570,8 +1085,8 @@
               <div class="data-wall">
                 ${t.data
                   .map(
-                    (d) => `
-                  <div class="data-card">
+                    (d, idx) => `
+                  <div class="data-card" id="data-${idx}">
                     <div>
                       <div class="data-num">${esc(d.value)}</div>
                       <div class="data-label">${esc(d.label)}</div>
@@ -595,8 +1110,8 @@
               <div style="display:flex;flex-direction:column;gap:0.75rem">
                 ${t.cases
                   .map(
-                    (c) => `
-                  <div class="card">
+                    (c, idx) => `
+                  <div class="card" id="case-${idx}">
                     <div class="talk-card-top">
                       <strong>${esc(c.title)}</strong>
                       ${tsAnchor(t.miaojiId, c.ts, false)}
@@ -724,6 +1239,68 @@
               </a>`
         }
       </nav>
+    </div>`;
+  }
+
+  function renderGallery() {
+    return `
+    <div class="page-wide">
+      <div class="page-header reveal">
+        <div class="page-kicker">可视化资产全览 · ${media.length} 张飞书导图/配图 + ${photoItems.length} 张现场直拍照片</div>
+        <h1>导图与现场图集（${media.length + photoItems.length}）</h1>
+        <p class="page-desc">上方汇总全天四场飞书智能纪要生成的总结画板导图及关键图表（注：飞书 AI 原生图中个别音译误词如“绩优/GU”请结合站内文本对照）；下方收录精选大会现场照片与高清 PPT 大屏文字摘录。<span class="ts-perm-note">点击任意图片可打开高清大图缩放</span></p>
+      </div>
+
+      <section class="reveal">
+        <div class="section-head">
+          <h2>一、飞书总结导图与 AI 配图（${media.length}）</h2>
+          <span class="section-sub">5 张总结导图 + 11 张分主题图解</span>
+        </div>
+        ${sessions
+          .map((s) => {
+            const items = media.filter((m) => m.sessionId === s.id);
+            if (!items.length) return '';
+            return `
+            <div class="session-block">
+              <div class="session-banner">
+                <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
+                <span class="session-banner-meta">${items.length} 张图表</span>
+              </div>
+              <div class="figure-grid">
+                ${items.map((m) => renderMediaCard(m, m.kind === 'whiteboard')).join('')}
+              </div>
+            </div>`;
+          })
+          .join('')}
+      </section>
+
+      ${
+        photoItems.length
+          ? `<section class="reveal reveal-d1" style="margin-top:2rem">
+              <div class="section-head">
+                <h2>二、现场照片（${photoItems.length}）</h2>
+                <span class="section-sub">按四大场次归档 · 含讲者特写、PPT 大屏与全场实景</span>
+              </div>
+              ${renderPhotoCredit()}
+              ${sessions
+                .map((s) => {
+                  const sPhotos = photoItems.filter((p) => p.sessionId === s.id);
+                  if (!sPhotos.length) return '';
+                  return `
+                  <div class="session-block" style="margin-top:1rem">
+                    <div class="session-banner">
+                      <span class="session-banner-title">${esc(s.title)} · 现场直拍</span>
+                      <span class="session-banner-meta">${sPhotos.length} 张精选 · ${esc(s.time)}</span>
+                    </div>
+                    <div class="photo-grid">
+                      ${sPhotos.map((p) => renderPhotoCard(p, true)).join('')}
+                    </div>
+                  </div>`;
+                })
+                .join('')}
+            </section>`
+          : ''
+      }
     </div>`;
   }
 
@@ -1171,7 +1748,7 @@
       <div class="page-header reveal">
         <div class="page-kicker">读懂专业黑话与恢复语音错字</div>
         <h1>术语词典与 ASR 纠错对照表</h1>
-        <p class="page-desc">飞书语音转写将大量专业词汇识为同音错字，本页完整记录原文误写与规范术语，供复盘及听原声时对照。</p>
+        <p class="page-desc">飞书语音转写将大量人名和专业词汇识为同音错字，本页完整记录原文误写与官网议程/规范术语，供复盘及听原声时对照。</p>
       </div>
 
       <section class="reveal reveal-d1">
@@ -1183,8 +1760,8 @@
           <table class="asr-table">
             <thead>
               <tr>
-                <th style="width:28%">纪要/逐字稿原误写</th>
-                <th style="width:20%">规范写法</th>
+                <th style="width:30%">纪要/逐字稿原误写</th>
+                <th style="width:24%">规范写法</th>
                 <th>说明与上下文</th>
               </tr>
             </thead>
@@ -1274,6 +1851,9 @@
     } else if (hash === '#/glossary') {
       html = renderGlossary();
       pageTitle = '术语与ASR纠错';
+    } else if (hash === '#/gallery') {
+      html = renderGallery();
+      pageTitle = '导图与图解图集';
     } else {
       html = renderHome();
       pageTitle = '全景首页';
@@ -1283,7 +1863,6 @@
     document.title = `${pageTitle} · 2026 GEO 大会复盘手记`;
     renderNav(hash);
 
-    // Close mobile menu & search on navigation
     const drawer = document.getElementById('mobileDrawer');
     const toggle = document.getElementById('menuToggle');
     if (drawer) drawer.hidden = true;
@@ -1296,6 +1875,32 @@
 
   // Event delegation for interactive components
   document.getElementById('app').addEventListener('click', (e) => {
+    const zoomImg = e.target.closest('img.zoomable');
+    if (zoomImg) {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(
+        zoomImg.getAttribute('data-full') || zoomImg.getAttribute('src'),
+        zoomImg.getAttribute('alt'),
+        zoomImg.getAttribute('data-caption')
+      );
+      return;
+    }
+
+    const mmJump = e.target.closest('.mm-jump');
+    if (mmJump) {
+      const targetId = mmJump.getAttribute('data-target');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetEl.style.outline = '2px solid var(--accent)';
+        setTimeout(() => {
+          targetEl.style.outline = '';
+        }, 1400);
+      }
+      return;
+    }
+
     const toggleDataBtn = e.target.closest('#toggleAllDataBtn');
     if (toggleDataBtn) {
       const cur = loadState('homeShowAllData', false);
@@ -1440,6 +2045,10 @@
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      if (lightboxEl && !lightboxEl.hidden) {
+        closeLightbox();
+        return;
+      }
       searchResults.hidden = true;
       searchInput.blur();
     } else if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
@@ -1459,7 +2068,7 @@
   if (footerMeta && generatedAt) {
     const dt = new Date(generatedAt);
     const formatted = Number.isNaN(dt.getTime()) ? generatedAt : dt.toLocaleString('zh-CN', { hour12: false });
-    footerMeta.textContent = `数据生成时间：${formatted} · 覆盖 ${sessions.length} 场次 · ${TALK_MAP.size} 讲者单元`;
+    footerMeta.textContent = `数据生成时间：${formatted} · 覆盖 ${sessions.length} 场次 · ${TALK_MAP.size} 讲者单元 · ${media.length} 张图解导图 · ${photoItems.length} 张现场照片`;
   }
 
   window.addEventListener('hashchange', route);
