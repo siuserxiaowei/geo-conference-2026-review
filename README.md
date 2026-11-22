@@ -55,6 +55,14 @@ bash scripts/fetch_sources.sh
 node scripts/build-data.mjs && node scripts/validate.mjs
 ```
 
+## 作者与联系
+
+- **整理制作**：siuser小伟
+- **X / Twitter**：[@_HIT_SZ_](https://x.com/_HIT_SZ_)
+- **微信**：`siuserxiaowei`
+
+<img src="assets/contact/wechat-qrcode.jpg" width="160" alt="siuser小伟的微信二维码">
+
 ## 免责声明
 
 内容基于官网议程并整理自飞书智能纪要与语音转写，可能存在个别口播数字或产品拼写识别误差，请以现场与飞书妙记原声为准。

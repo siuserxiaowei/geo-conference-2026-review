@@ -127,6 +127,59 @@
     }, 2000);
   }
 
+  function splitClauses(text, seps) {
+    const out = [];
+    const openChars = '“「『（(《【';
+    const closeChars = '”」』）)》】';
+    let depth = 0;
+    let buf = '';
+    for (const ch of String(text || '')) {
+      if (openChars.includes(ch)) depth += 1;
+      else if (closeChars.includes(ch)) depth = Math.max(0, depth - 1);
+      if (depth === 0 && seps.includes(ch)) {
+        if (ch !== '；') buf += ch;
+        const trimmed = buf.trim();
+        if (trimmed) out.push(trimmed);
+        buf = '';
+      } else {
+        buf += ch;
+      }
+    }
+    const tail = buf.trim();
+    if (tail) out.push(tail);
+    return out;
+  }
+
+  function highlightInline(escaped) {
+    const withNums = escaped.replace(
+      /(&#?\w+;)|((?<![A-Za-z0-9])\d[\d,.]*(?:\s*(?:%|万|亿|倍|次|家|人|年|个月|月|日|天|小时|分钟|秒|元|美元|篇|条|款|位|项|端口|平台|个|成))?)/g,
+      (m, ent, num) => (ent ? ent : `<b class="nar-num">${num}</b>`)
+    );
+    return withNums.replace(/(“[^”]+”|「[^」]+」)/g, '<span class="nar-quote">$1</span>');
+  }
+
+  function formatNarrative(text) {
+    const sentences = splitClauses(text, ['。', '！', '？']);
+    if (!sentences.length) return '';
+    const lead = sentences[0];
+    const points = [];
+    for (let i = 1; i < sentences.length; i++) {
+      for (const piece of splitClauses(sentences[i], ['；'])) {
+        points.push(piece);
+      }
+    }
+    const conclusionRe = /^(据此|由此|因此|所以|最终|最后|综上|进而|为此)/;
+    const pointsHtml = points.length
+      ? `<ul class="nar-points">${points
+          .map((p) => {
+            const cls = conclusionRe.test(p) ? ' class="is-conclusion"' : '';
+            return `<li${cls}>${highlightInline(esc(p))}</li>`;
+          })
+          .join('')}</ul>`
+      : '';
+    return `<p class="nar-lead">${highlightInline(esc(lead))}</p>${pointsHtml}`;
+  }
+
   function copyText(text, okMsg = '已复制') {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(
@@ -993,10 +1046,13 @@
                     (nv, idx) => `
                   <article class="narrative-item">
                     <div class="narrative-head">
-                      <strong>${String(idx + 1).padStart(2, '0')} · ${esc(nv.heading)}</strong>
+                      <div class="nar-title">
+                        <span class="nar-idx">${String(idx + 1).padStart(2, '0')}</span>
+                        <strong>${esc(nv.heading)}</strong>
+                      </div>
                       ${tsAnchor(t.miaojiId, nv.ts, false)}
                     </div>
-                    <p>${esc(nv.text)}</p>
+                    ${formatNarrative(nv.text)}
                   </article>`
                   )
                   .join('')}
@@ -2060,6 +2116,31 @@
   document.addEventListener('click', (e) => {
     if (!e.target.closest('#searchWrap')) {
       searchResults.hidden = true;
+    }
+
+    const scrollBtn = e.target.closest('[data-scroll-contact]');
+    if (scrollBtn) {
+      e.preventDefault();
+      document.getElementById('authorCard')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const wechatBtn = e.target.closest('.copy-wechat');
+    if (wechatBtn) {
+      e.preventDefault();
+      const val = wechatBtn.getAttribute('data-copy-text') || 'siuserxiaowei';
+      copyText(val, `已复制微信号：${val}`);
+      return;
+    }
+
+    const qrImg = e.target.closest('img.wechat-qr');
+    if (qrImg) {
+      e.preventDefault();
+      openLightbox(
+        qrImg.getAttribute('src'),
+        qrImg.getAttribute('alt') || '微信二维码',
+        '微信号 siuserxiaowei · 微信扫码添加好友'
+      );
     }
   });
 
