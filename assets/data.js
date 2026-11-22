@@ -1,5 +1,5 @@
 window.GEO_DATA = {
-  "generatedAt": "2026-11-22T11:04:02.366Z",
+  "generatedAt": "2026-11-22T14:59:49.956Z",
   "sessions": [
     {
       "id": "s1",
@@ -1918,6 +1918,11 @@ window.GEO_DATA = {
           ],
           "resources": [
             {
+              "item": "《从关键词到高维场景：AI 时代 GEO 全场景词包策划方法论》完整 PDF（26 页）",
+              "how": "已收入本站 PPT 课件区，可直接在线逐页预览或下载完整 PDF",
+              "url": "assets/ppt/s3-2/slides.pdf"
+            },
+            {
               "item": "全场景GEO拓词Skill提示词",
               "how": "会后发送至参会群，输入一句话即可直接拓展全场景词包"
             },
@@ -2126,6 +2131,11 @@ window.GEO_DATA = {
           ],
           "qa": [],
           "resources": [
+            {
+              "item": "《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件 PDF（42 页）",
+              "how": "由嘉宾分享 PPTX 无损转 PDF，已收入本站 PPT 课件区支持逐页预览与下载",
+              "url": "assets/ppt/s3-3/slides.pdf"
+            },
             {
               "item": "LookBody平台GEO品牌诊断工具",
               "how": "已上线公开使用（累计20多万使用量），可免费检测品牌或产品在AI搜索中的可见度"
@@ -3955,16 +3965,19 @@ window.GEO_DATA = {
           "qa": [],
           "resources": [
             {
-              "item": "AJ 个人主页与本次大会 HTML 版完整 PPT（aaaaaaaaj.com）",
-              "how": "演讲结尾公布域名（7 个 a 加 1 个 j 加 .com），内含本次分享 72 页完整 PPT（含细节小字）、个人审美偏好与收藏工具"
+              "item": "《能力溢出之后，我们做什么》完整 72 页 HTML 在线课件",
+              "how": "AJ 老师本次大会完整 HTML 互动课件，可在线逐页查看所有细节小字与引用案例",
+              "url": "https://www.waytoagi.com/ai-capability-overflow/"
             },
             {
-              "item": "开源 ADHD Skill、漫画日报 Skill 与设计字典（Design.md）",
-              "how": "已在 WaytoAGI 开源社区及个人主页公开，可用于规范文档可读性与锁死 Vibe Coding 网页风格"
+              "item": "AJ 个人网站（aaaaaaaj.com）",
+              "how": "7 个 a 加 1 个 j 加 .com，收录本次演讲、开源 ADHD Skill、漫画日报 Skill、设计字典（Design.md）与个人审美清单",
+              "url": "https://aaaaaaaj.com"
             },
             {
-              "item": "WaytoAGI 开源知识库、免费共学训练营与京蓉 OPC 实体社区",
-              "how": "访问开源知识库或前往北京魔术 OPC 社区、成都科梦 OPC 社区及每月 52 城线下切磋大会；每两周六视频号同步直播《未来微世界》前沿开发者分享"
+              "item": "WaytoAGI 社区开源知识库（飞书 Wiki）",
+              "how": "千万级用户 AI 开源知识库、只收作业不收费的共学训练营、京蓉 OPC 实体社区及双周六《未来微世界》直播入口",
+              "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
             }
           ],
           "tags": [
@@ -4201,6 +4214,11 @@ window.GEO_DATA = {
           ],
           "qa": [],
           "resources": [
+            {
+              "item": "《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件 PDF（52 页）",
+              "how": "光头牛哥 · 冷洪利大会完整 52 页实战 PPT（由原 PPTX 无损转 PDF），已收入本站课件区支持逐页预览与下载",
+              "url": "assets/ppt/s5-lenghongli/slides.pdf"
+            },
             {
               "item": "自研豆包信源监控与视频矩阵一键生成/预约发布系统",
               "how": "基于 Codex 与命令行研发，填入企业品牌与基础资料即可一键生成七图图文、翻页视频与深度脚本视频并支持定时排期发布"
@@ -4457,7 +4475,7 @@ window.GEO_DATA = {
       "day": 2,
       "date": "2026-11-22",
       "title": "Day2 上午场②",
-      "subtitle": "海外信源与联盟营销 · Agent 视角 GEO · 2.3 亿次海外数据实测",
+      "subtitle": "钟添娇 · 岚叔 · 路浩 · 中午高能实战答疑",
       "time": "10:35–12:13",
       "miaojiId": "obcndumm54rc15woybk8483g",
       "sessionNotes": [
@@ -5083,6 +5101,192 @@ window.GEO_DATA = {
             "数据口径与口述/PPT 细微差异：演讲口述 01:04:52 称“2.4 亿条提词采集数据”，PPT 封面标“2.3 亿次 AI 回答”，01:13:00 口述涉及“23 亿引用数据”；PPT（#090）清晰标注头部品牌每周涨跌“3~9个点 / 周”及澳洲门窗品牌“两周从 2.5% 涨到 40% 以上”（10-29 至 11-12）、面霜“36%~45%”，而逐字稿口述将该门窗案例误识为“两个月”“点击率 2.5% 涨到 40%”、面霜识作“30 到 45”，均已按现场 PPT 图表核正。",
             "1000 万 vs 1.2 万等 ASR 错词纠偏：已按 PPT 封面、议程及术语纠错表将路浩姓名同音误识及‘1.2 万个细分品类’识作‘1001.2 万个’、‘GA4’识作‘JFOR’、‘Perplexity’识作‘popularity’、‘Grok’识作‘Groko’、‘ChatGPT’多处同音误识、‘Reddit’识作‘RATE’、‘SharkNinja/石头科技/LVMH/个人智能体’谐音误识全面校正；另 01:13:05‘川的’疑指 Tranco 网站排名、01:16:25‘Mood 和 AOOV’疑指游戏 Mod/攻略类别、01:34:15‘Crowdash’疑指某海外传统营销数据巨头，已保持谨慎并注记待核。"
           ]
+        },
+        {
+          "id": "s6-qa-noon",
+          "kind": "qa",
+          "agendaSlot": "12:44–13:44（中午实战答疑）",
+          "speaker": "姚金刚 · 乔向阳及现场嘉宾",
+          "org": "大会发起人（GEOFlow 创始人 / 向阳乔木）与一线实战从业者",
+          "bio": "午休间隙（12:44–13:44）围绕会前 107 问与现场痛点展开的高能闭门答疑，实录补全自开源社区精校全本（renzheng0415/china-geo-conference-2026）。",
+          "title": "中午高能实战答疑：工业代理防截胡、过度营销判定、强合规脱敏与教育机构转白帽",
+          "start": "12:44:00",
+          "end": "13:44:00",
+          "nameConfidence": "high",
+          "sourceUrl": "https://github.com/renzheng0415/china-geo-conference-2026/blob/main/%E4%B8%AD%E5%9B%BD%E7%AC%AC%E4%BA%8C%E5%B1%8AGEO%E5%A4%A7%E4%BC%9A%EF%BC%88%E4%B8%A4%E5%A4%A9%E5%AE%8C%E6%95%B4%E7%B2%BE%E6%A0%A1%E5%8E%9F%E6%96%87%EF%BC%89-2026-11-21-22.md",
+          "sourceLabel": "精校原文",
+          "tags": [
+            "method",
+            "content-sources",
+            "compliance-evidence",
+            "provider-ops"
+          ],
+          "oneLiner": "GEO 避坑的四把钥匙：代理商须用搜索首位与承接官网守住二次搜索流量；防“过度营销”不看发稿总量而看信息增益与数字证据；强合规行业可用抽象统计数据与 AI 专属结构化目录破局；旧水文打法失效后须回归《定位》、沉淀万字级证据知识库并按薄弱词定向投放。",
+          "narrative": [
+            {
+              "heading": "工业代理商防原厂截胡：守住二次搜索首位，区分原厂营销强弱",
+              "ts": "12:44:00",
+              "text": "针对工业制造业代理商与集成商“投了原厂品牌词后反而替原厂引流、线索被截胡”的现实痛点，答疑团队直言给大牌导流很难完全避免，核心解法在于把控用户被 AI 推荐后的第二步动作；当用户转去百度或谷歌复核该品牌时，代理商必须通过竞价广告或 SEO 确保前三名特别是第一名都是自己的承接站点，并搭建带有自家联系电话的品牌承接官网；实战嘉宾亦补充行业差异：若原厂是上市公司或强势大牌，小厂硬抢品牌词几乎无解，但若是芯片等原厂本身不做营销的品类，谁先被豆包抓取到联系方式谁就能直接拿到采购单。"
+            },
+            {
+              "heading": "“过度营销”如何判定：量级不是标准，数字证据与信息增益才是解药",
+              "ts": "13:02:00",
+              "text": "针对会前高频提问“每天多平台发多少篇会被大模型标为过度营销/自吹”，姚金刚明确指出发稿量级本身没有固定红线，真正决定生死的是定向补量与低同质化；企业应先按各 AI 平台的实时表现锁定薄弱词，再针对该平台偏好的体裁（短视频或长文）做差异化补缺，而非盲目铺量；更重要的是用具体数字替代空洞形容词（如写“600 人到场”而非“很多人参加盛会”），把每一条数字事实沉淀进企业知识库，让每篇文章具备大模型原本不知道的“信息增益”——当单篇文章同时做到结构化、高可信度与高信息密度、帮大模型省去二次检索算力时，就会成为高引用信源而非自吹垃圾文。"
+            },
+            {
+              "heading": "律师等强合规行业破局：抽象统计指标 + 隐藏 AI 博客目录 + 公开数据评测",
+              "ts": "13:15:00",
+              "text": "面对个人律师“客户姓名、看守所与法院须严格脱敏，导致个案证据不可见、也难做榜单”的两难，答疑给出三条合规路径；首先是个案脱敏但统计公开——全年办案量（如 1000 个案例）、细分领域办案数、胜诉/申诉率、投诉率、执业年限、荣誉证书及累计创造的经济价值均无需脱敏，足以构成高门槛证据矩阵；其次是出海独立站验证过的技术方案——在官网保留给真人看的常规博客外，额外建立一个不对用户前台展示、但允许大模型抓取的结构化指南目录（纯摘要与事实格式），兼顾前台合规克制与 AI 可读性；此外仍可抓取竞品律师官网公开信息，在自身优势维度输出合规评测内容。"
+            },
+            {
+              "heading": "在职研究生机构转白帽路线：回归《定位》、打磨万字知识库与高低竞争分层投放",
+              "ts": "13:28:00",
+              "text": "一家教育机构自述上半年靠“郑州帮”批量水文买三方账号在豆包与 DeepSeek 拿到排名、下半年却全面掉零；姚金刚给出从黑帽转白帽的四步重建方案：第一步重读《定位》，在龙头环伺的赛道里找到细分差异化心智并用自身优势打对手劣势；第二步花一到两个月沉淀企业专属证据知识库（上市公司往往达十几万字、单产品线亦须一万多字，逐条记录专利、学员验证、真实案例与客诉数据）；第三步用 GEOFlow 及一键复刻 UI Skill 对标 AI 高引用同行重构官网结构；第四步执行精准分层投放——只补薄弱词、表现已稳的词暂停省算力，低竞争少供给词铺素人自媒体与抖音长脚本，高竞争大词则定向投放北京日报等高权重付费媒体。"
+            }
+          ],
+          "keyPoints": [
+            {
+              "text": "工业代理商做 GEO 必然产生原厂品牌溢出，核心止损点在于承接“AI 推荐 → 百度/谷歌二次搜索”链路，确保搜索前 1–3 名及承接电话归属自己。",
+              "ts": "12:48:00"
+            },
+            {
+              "text": "芯片等不自建营销的强势原厂反而存在代理商红利——深圳芯片代理商因联系方式被豆包抓取，直接获得来自豆包的采购询盘。",
+              "ts": "12:56:00"
+            },
+            {
+              "text": "大模型判定“过度营销”不看日均发稿总量，而看内容同质化程度、是否围绕薄弱词按平台偏好定向补量，以及观点背后有无可核查的数字化证据。",
+              "ts": "13:02:00"
+            },
+            {
+              "text": "用具体数字消灭形容词：“600 人到场”是有效证据，“很多人参加盛会”对大模型毫无意义。",
+              "ts": "13:05:00"
+            },
+            {
+              "text": "“信息增益”是高质量 GEO 内容的核心标准：提供大模型预训练知识中尚未掌握的新事实，且单篇即可结构化答完用户意图，帮模型节省推理与检索算力。",
+              "ts": "13:08:00"
+            },
+            {
+              "text": "强合规律师行业可通过“个案脱敏、统计量化”构造证据：总案例数、细分领域案例数、胜诉/申诉率、投诉率、从业年限、奖项证书与创造的经济价值均可合法公开。",
+              "ts": "13:18:00"
+            },
+            {
+              "text": "出海独立站实操经验：当用户反感营销感强的 AI 文时，可在官网增设前台不可见但对 AI 爬虫开放的结构化指南目录，实现“真人体验”与“AI 可读”解耦。",
+              "ts": "13:21:00"
+            },
+            {
+              "text": "2026 年上半年“郑州帮”买三方账号批量铺水文的打法虽曾短期见效，但下半年已在豆包与 DeepSeek 普遍失效，必须转向白帽证据体系。",
+              "ts": "13:28:00"
+            },
+            {
+              "text": "企业级证据知识库值得打磨 1–2 个月：大型企业常沉淀至十几万字，单条产品线至少 1 万字以上原始证据（专利、案例、学员反馈、客诉）。",
+              "ts": "13:33:00"
+            },
+            {
+              "text": "分层定向投放原则：表现已达标的词停投省算力，仅追薄弱词；内容供给少的低竞争词用素人自媒体与抖音脚本打，高竞争大词靠北京日报等高权重媒体攻。",
+              "ts": "13:39:00"
+            }
+          ],
+          "methods": [
+            {
+              "name": "黑帽水文转白帽 GEO 四步重建法",
+              "steps": [
+                "重读《定位》：梳理目标受众与细分场景，找到对抗龙头品牌的 1–5 项真实差异化优势。",
+                "沉淀证据知识库（1–2 个月）：按单产品线 1 万字+标准，用具体数字整理案例、专利、学员核验与客诉数据。",
+                "重构 AI 友好官网：扒取行业内 AI 高引用标杆官网，借助 GEOFlow 与复刻 Skill 对标其页面与代码结构。",
+                "按竞争度分层定向投放：稳词停投、薄弱词补投；低竞争词铺素人自媒体/抖音长脚本，高竞争词投权威付费媒体。"
+              ],
+              "ts": "13:31:00"
+            },
+            {
+              "name": "强合规行业（律师/医疗等）三重脱敏可见策略",
+              "steps": [
+                "把个案隐私抽象为统计指标：办案总数、胜诉率、申诉率、投诉率、执业年限与累计标的额。",
+                "前台与 AI 读物分轨：官网保留克制真人版，另建隐藏目录存放面向大模型抽取的结构化指南。",
+                "基于竞品官网公开信息，围绕自身合规优势维度输出可核查的第三方评测对比。"
+              ],
+              "ts": "13:18:00"
+            }
+          ],
+          "data": [
+            {
+              "value": "十几万字 / 1万字+",
+              "label": "上市公司全品牌知识库体量常达十几万字，单产品线原始证据知识库建议打磨至 1 万字以上",
+              "ts": "13:33:00"
+            },
+            {
+              "value": "1–2 个月",
+              "label": "中小企业从零梳理并打磨高质量企业原始证据知识库的建议投入周期",
+              "ts": "13:33:00"
+            },
+            {
+              "value": "100 个网站/人",
+              "label": "传统 SEO 时代河北玻璃钢产业单个销售自建 100 个承接站防截胡的历史镜像",
+              "ts": "12:50:00"
+            }
+          ],
+          "cases": [
+            {
+              "title": "深圳芯片代理商借豆包抓取联系方式直接获客",
+              "detail": "由于芯片原厂供不应求、自己不做市场营销，代理商在公开网络留下清晰业务信息与联系方式后，直接通过豆包获得终端采购询盘。",
+              "ts": "12:56:00"
+            },
+            {
+              "title": "海外 Shopify 独立站双博客目录分轨",
+              "detail": "面对美国消费者对 AI 营销文的抵触，在保留原生博客的同时新建前台隐藏、纯 ChatGPT 可读摘要格式的 guide 目录，成功被 ChatGPT 引用。",
+              "ts": "13:21:00"
+            },
+            {
+              "title": "在职研究生教育机构“郑州帮”水文归零教训",
+              "detail": "上半年买三方账号批量铺垃圾文在豆包与 DeepSeek 曾短暂霸榜，下半年排名彻底消失，被迫重回定位、万字知识库与官网基建。",
+              "ts": "13:28:00"
+            }
+          ],
+          "quotes": [
+            {
+              "text": "不要看量级，量不重要；用具体数字构造的事实就不是自吹，按缺口定向补量就不叫过度营销。",
+              "ts": "13:02:00"
+            },
+            {
+              "text": "所谓信息增益，就是你这篇文章里的关键事实大模型原本不知道，而且一篇文章就能结构化答完用户问题、帮它省算力。",
+              "ts": "13:08:00"
+            }
+          ],
+          "qa": [
+            {
+              "q": "工业制造业代理商/集成商做 GEO 时，如何避免替原厂白白导流、被原厂抢走转化？",
+              "a": "完全避免品牌溢出很难，核心是守住用户看到 AI 推荐后的“百度/谷歌二次搜索”入口：通过竞价与 SEO 占稳品牌词前 1–3 名，并建好留自家电话的承接官网；若原厂是不做营销的紧俏上游（如部分芯片厂），代理商反而有先发承接红利。",
+              "ts": "12:48:00"
+            },
+            {
+              "q": "每天多平台发多少内容会被大模型判定为“过度营销”或自吹？",
+              "a": "没有固定数量红线。关键是降低同质化、围绕薄弱词按各平台偏好定向投放，并用大量具体数字事实与“信息增益”替代空泛形容词。",
+              "ts": "13:02:00"
+            },
+            {
+              "q": "个人律师受强合规脱敏要求限制、不能暴露客户与法院细节，如何兼顾 AI 可见度与榜单合规？",
+              "a": "可将个案抽象为无需脱敏的统计证据（总办案数、胜诉率、涉案金额、执业年限、奖项）；也可借鉴海外独立站做法增设前台隐藏、仅对 AI 可读的结构化指南目录，并基于同行官网公开信息做优势维度评测。",
+              "ts": "13:18:00"
+            },
+            {
+              "q": "在职研究生机构上半年用“郑州帮”批量水文有效、下半年归零，接下来怎么转向白帽？",
+              "a": "四步走：重读《定位》找细分差异化优势 → 花 1–2 个月建单产品线 1 万字+原始证据知识库 → 对标行业高引用官网重构页面 → 只补薄弱词，低竞争词投素人/抖音脚本，高竞争词投高权重付费媒体。",
+              "ts": "13:31:00"
+            }
+          ],
+          "resources": [
+            {
+              "item": "两天 21.7 万字完整精校逐字稿开源仓库（含本场中午实战答疑全文）",
+              "how": "来自社区开源整理 renzheng0415/china-geo-conference-2026，可在线直读完整问答逐字原话",
+              "url": "https://github.com/renzheng0415/china-geo-conference-2026"
+            },
+            {
+              "item": "GEOFlow 及官网 UI 一键复刻 Skill",
+              "how": "答疑现场提及可用于对照行业高引用官网快速复刻 AI 友好型官网页面与代码结构"
+            }
+          ],
+          "uncertain": [
+            "本单元补充自开源社区精校逐字稿（12:44–13:44），现场飞书妙记未录此段，时间戳为当日现场墙钟时间。"
+          ]
         }
       ]
     },
@@ -5091,7 +5295,7 @@ window.GEO_DATA = {
       "day": 2,
       "date": "2026-11-22",
       "title": "Day2 下午场①",
-      "subtitle": "AI产品增长 · X平台内容变现 · 下午实操预告",
+      "subtitle": "玉伯 · Berryxia · 拔刀刘（爱搜 AI 实操课）",
       "time": "14:01–15:01",
       "miaojiId": "obcndxun8o272fw45291hcg5",
       "sessionNotes": [
@@ -5546,6 +5750,210 @@ window.GEO_DATA = {
             "00:51:03 逐字稿记作开源数字人 Skills“签了 200 万 star”，显著高于其现场 PPT 白纸黑字标注的“GitHub Star 6600+ · 10+ 个开源项目”，系口误或语音识别将“一两千 Star”误识所致，正文及数据条目已按核实口径修正。",
             "00:34:20 与 00:46:22 提及的合作品牌与赛事，部分名称已在现场 PPT 照片清晰实证——包括“字节、腾讯、网易、YouMind、Renoise 等”以及“Trickle 黑客松最佳应用创新奖”“腾讯 OpenClaw 龙虾大赛特等奖”（纠正逐字稿中“U-MINE”“雷诺”“Triple”等误识）；其余口述提及的“U-WEAR”“U26”及“OPT 5.5”“Windows MCP”等工具/产品准确拼写尚待核实。",
             "00:53:20 提及的日常编码提效工具“Clap / Codec”经上下文确认指代 Claude 与 Codex；“极优”“CEO”“sales”等分别据语境校正为 GEO、个人 SEO 及 Skills。"
+          ]
+        },
+        {
+          "id": "s7-badaoliu-prac",
+          "kind": "talk",
+          "agendaSlot": "15:10–16:08（实操课）",
+          "speaker": "拔刀刘",
+          "org": "AIDSO 爱搜 AI 合伙人",
+          "bio": "十余年搜索与数据产品实战背景，AIDSO 爱搜 AI 合伙人；Day 2 下午（原定 15:45，现场于 15:10–16:08 提前开展）进行约 1 小时真机演示，逐一拆解四大 GEO 监测模块与国内 9 平台/海外 7 端口底层机制。实录补全自开源精校全本（renzheng0415/china-geo-conference-2026）并结合现场实拍大屏核验。",
+          "title": "实操课：AIDSO 爱搜 AI 四大监测模块演示与主流平台底层机制揭秘",
+          "start": "15:10:00",
+          "end": "16:08:00",
+          "nameConfidence": "high",
+          "sourceUrl": "https://github.com/renzheng0415/china-geo-conference-2026/blob/main/%E4%B8%AD%E5%9B%BD%E7%AC%AC%E4%BA%8C%E5%B1%8AGEO%E5%A4%A7%E4%BC%9A%EF%BC%88%E4%B8%A4%E5%A4%A9%E5%AE%8C%E6%95%B4%E7%B2%BE%E6%A0%A1%E5%8E%9F%E6%96%87%EF%BC%89-2026-11-21-22.md",
+          "sourceLabel": "精校原文",
+          "tags": [
+            "measurement",
+            "ai-selection",
+            "ecommerce-overseas",
+            "method"
+          ],
+          "oneLiner": "通过实时搜索、AI 电商诊断、品牌快照诊断与周期监测四大模块现场真机跑数，完整揭秘豆包/DeepSeek/元宝/千问/文心/小红书点点及海外 ChatGPT 的查询改写、挂卡落地页差异与算力收缩下的离线直答规律。",
+          "narrative": [
+            {
+              "heading": "实时搜索真机拆解：社媒热度映射、查询改写词与 6 大国内平台底层差异",
+              "ts": "15:15:00",
+              "text": "拔刀刘首先在真机演示覆盖国内 9 平台 14 端口（网页+手机双端、快速+专家双模式）的「实时搜索」模块，通过社媒搜索指数映射 AI 提问热度，并自动拆解紫色自有品牌词与蓝色竞品词；他现场以“冲锋衣推荐”揭示 AI 检索核心机制——模型会先将用户原问改写为多个搜索关键词再去拉取网页，因此内容覆盖改写词维度极易被命中；更关键的是六大平台实测差异显著：豆包手机端该例 11 个信源 100% 来自抖音视频且直链抖音购买页（年终后豆包已不再直接返回发布时间字段）；DeepSeek 近期在改写词中显式加入 `site:zhihu.com` 单独索引知乎，且保留引用角标与发布时间（3 天前至年初老文均有）；元宝网页与手机双端均出京东商品卡但点击落入搜索聚合页、尾部推视频号；千问仅手机端出淘宝直购卡且强依赖个人淘宝授权（不露出引用来源，极难黑盒优化）；文心单次回答平均露出高达 21 张商品卡（京东为主、偶见拼多多）；小红书点点触发的 AI 摘要 99% 以上仅索引站内笔记且下划线词支持二次站内搜索。"
+            },
+            {
+              "heading": "三类特殊提问实测：本地生活抖音团购卡、算力吃紧下的零检索直答与 DSO×GEO 联动",
+              "ts": "15:30:00",
+              "text": "除电商推荐题外，拔刀刘展示了三类高频边缘场景的底层行为变化；第一类是本地生活提问（如“深圳福田区适合家庭聚餐的餐厅推荐”），豆包不仅文字引用百度地图商家页，还直接挂出跳转抖音团购的本地商家卡片；第二类是“怎么选择装修公司”等非决策通识题与“治疗脚气用什么药”等医疗功效题，前者不露出具体品牌、后者仅给药物成分名，且近几个月受全行业算力吃紧影响，连早期激进索引一两百网页的 Kimi 现在遇到通识题也优先用预训练知识零检索直答以省算力；第三类是豆包手机端回答尾部普遍挂载抖音推荐视频，这直接印证了“DSO（抖音站内搜索）+ GEO 联动”的技术底座价值。"
+            },
+            {
+              "heading": "AI 电商诊断（茅台真机实盘）：三层提及率、挂卡率公式与无水印 PDF 交付",
+              "ts": "15:40:00",
+              "text": "第二个模块「AI 电商诊断」专为电商商家打造，输入商品名即可自动推演用户问法并支持单次或多次监测；现场以茅台实测 5 问题 × 5 平台共 25 次对话，其中 7 次露出商品卡（商品卡提及率 28%、平均排名 2.5 名，与现场大屏实拍数据严丝合缝）；拔刀刘清晰辨析了容易混淆的指标口径：商品 SOV 以全部露出品牌总数为分母、挂卡率以“提及你品牌名的总次数”为分母且以“同时挂出商品卡次数”为分子，同时从品牌、单品、具体店铺链接三层拆解并自动横向对比竞品（如五粮液）；极具服务商口碑的功能是支持一键导出不含爱搜品牌水印的白标 PDF 报告，方便乙方直接作为专业洞察交付客户。"
+            },
+            {
+              "heading": "品牌快照诊断 vs 周期监测：舆情溯源、作品发文追踪与红黑策略闭环",
+              "ts": "15:50:00",
+              "text": "第三模块「品牌诊断」是单日快照，把原始数据“矿石”加工为象限定位图（右上角领先、气泡大小代表提及次数、颜色深浅映射舆情风险）、分平台梯队建议与负面词云溯源（如点击茅台“假酒多”或“溢价高”可直接定位到具体文章与原对话）；实测引用源分布亦极具实操参考：茅台类目下元宝以公众号与京东为主、千问中夸克占 36% 而公众号仅 19%、豆包中抖音占 66.89%–75%（部分电商类目超 97%）；第四模块「品牌监测」则按日周期留存数据，支持按意图分组追踪周趋势，并提供「添加追踪」盯住竞品爆文以及「添加作品」批量录入自家发文链接，直接验收哪些平台、哪些发文被 AI 引用，并支持日报/周报订阅与原始数据导出二次加工。"
+            },
+            {
+              "heading": "海外 119 国 7 端口彩蛋：ChatGPT 慷慨直链官网订购页，独立站成为必选项",
+              "ts": "16:04:00",
+              "text": "压轴一分钟拔刀刘演示了爱搜新上线的海外 GEO 监测能力，目前已覆盖 119 个国家和地区及 7 大海外 AI 端口（ChatGPT、Google AI Mode、Google AI Overview、Gemini、Perplexity、Microsoft Copilot、Grok）；现场演示提问“最好用的 Instagram DM 自动化工具”时，ChatGPT 不仅列出品牌，还直接附带可跳转官网订购页的超链接，官网后台可直接精准归因来自 ChatGPT 的订阅转化；对比国内封闭生态，拔刀刘强调海外平台流量分发极其慷慨，独立站与品牌官网是出海 GEO 不可或缺的必选项。"
+            }
+          ],
+          "keyPoints": [
+            {
+              "text": "爱搜 GEO 监测覆盖国内 9 大主流 AI 平台、14 个端口（网页端 + 手机端，含小红书点点），并区分快速模式与深度思考专家模式。",
+              "ts": "15:12:00"
+            },
+            {
+              "text": "AI 检索会先把用户原问改写为多个搜索关键词再拉取网页；抓取官方查询改写词并反哺内容维度，可大幅提升被检索命中率。",
+              "ts": "15:18:00"
+            },
+            {
+              "text": "DeepSeek 近期引用知乎激增的底层原因：其在查询改写词中显式注入了 `site:zhihu.com` 语法，过往在知乎深耕评测与口碑的品牌第一时间受益。",
+              "ts": "15:23:00"
+            },
+            {
+              "text": "各平台电商商品卡差异巨大：豆包（仅手机端，直链抖音购买页）、千问（仅手机端，淘宝直购但强个性化且不露信源）、元宝（双端露出京东但落入搜索聚合页）、文心（平均单答露出 21 张卡，远高于豆包/千问/元宝的 4–5 张）。",
+              "ts": "15:26:00"
+            },
+            {
+              "text": "小红书点点站内 AI 摘要 99% 以上仅索引小红书站内笔记，且摘要内带下划线的品牌/词汇支持点击触发站内二次搜索。",
+              "ts": "15:29:00"
+            },
+            {
+              "text": "受算力吃紧影响，连早期每次抓取一两百网页的 Kimi 如今对通识类与医疗功效类问题也普遍启用预训练知识零检索直答，不露出引用源与品牌。",
+              "ts": "15:34:00"
+            },
+            {
+              "text": "本地生活类问题在豆包手机端同时触发百度地图文字引用与抖音团购本地商家卡片，再次印证 DSO + GEO 联动价值。",
+              "ts": "15:31:00"
+            },
+            {
+              "text": "电商诊断三层拆解（品牌 / 单品 / 商品卡链接）+ 挂卡率定义（露出商品卡次数 ÷ 露出品牌名总次数），支持导出无爱搜水印的白标 PDF 报告。",
+              "ts": "15:43:00"
+            },
+            {
+              "text": "茅台真机诊断实测信源结构：千问中夸克占 36%、公众号仅 19%；豆包中抖音占 66.89%–75%（部分电商垂类高达 97%+）；负面词云可直接穿透至源文章做舆情修复。",
+              "ts": "15:54:00"
+            },
+            {
+              "text": "周期监测「添加作品」功能可批量录入自家已发文章/视频链接，直接统计各渠道发文被哪些 AI 平台与问题实际引用，形成策略迭代闭环。",
+              "ts": "16:00:00"
+            },
+            {
+              "text": "海外版覆盖 119 国/地区与 7 大端口（ChatGPT、Google AI Mode/Overview、Gemini、Perplexity、Copilot、Grok）。",
+              "ts": "16:04:00"
+            },
+            {
+              "text": "海外 ChatGPT 会直接露出品牌官网订购页链接并支持后台精准归因，因此在海外做 GEO 独立站/官网是必选项。",
+              "ts": "16:06:00"
+            }
+          ],
+          "methods": [
+            {
+              "name": "AIDSO 爱搜 AI 四大监测模块闭环工作流",
+              "steps": [
+                "实时搜索：按单个问题查社媒映射热度、官方查询改写词、各平台商品卡与引用信源，摸清平台底层偏好。",
+                "AI 电商诊断：输入商品名测 3 层提及率（品牌/单品/链接）、商品 SOV 与挂卡率，导出无水印 PDF 报告。",
+                "品牌快照诊断：生成全平台象限图、AI 可见度短板、负面词云溯源与 Top10 域名分布，锁定优先级。",
+                "品牌周期监测：按意图分组每日追踪趋势，通过「添加追踪」盯竞品爆文、「添加作品」验收自家发文引用率并订阅日/周报。"
+              ],
+              "ts": "15:56:00"
+            }
+          ],
+          "data": [
+            {
+              "value": "9 平台 / 14 端口",
+              "label": "爱搜国内 GEO 监测覆盖范围（含网页/手机双端与快速/专家双模式）",
+              "ts": "15:12:00"
+            },
+            {
+              "value": "11 / 11（100%）",
+              "label": "豆包手机端“冲锋衣推荐”实测 11 个引用来源全部来自抖音视频",
+              "ts": "15:20:00"
+            },
+            {
+              "value": "21 张 vs 4–5 张",
+              "label": "百度文心单次回答平均露出 21 个商品卡，豆包/千问/元宝通常为 4–5 个",
+              "ts": "15:28:00"
+            },
+            {
+              "value": "99%+",
+              "label": "小红书点点 AI 摘要索引站内自有笔记的比例",
+              "ts": "15:29:00"
+            },
+            {
+              "value": "28%（7/25）/ 2.5名",
+              "label": "茅台 5 问 × 5 平台真机实测商品卡提及率 28%、平均提及排名 2.5 名",
+              "ts": "15:42:00"
+            },
+            {
+              "value": "夸克 36% / 公众号 19%",
+              "label": "茅台诊断实测千问平台引用域名占比（元宝亦不再仅依赖公众号）",
+              "ts": "15:54:00"
+            },
+            {
+              "value": "66.89% – 97%+",
+              "label": "豆包平台引用抖音内容占比（常规 66.89%–75%，部分电商类目超 97%）",
+              "ts": "15:55:00"
+            },
+            {
+              "value": "119 国 / 7 端口",
+              "label": "爱搜海外版监测覆盖国家地区与主流海外 AI 平台数量",
+              "ts": "16:04:00"
+            }
+          ],
+          "cases": [
+            {
+              "title": "“冲锋衣推荐”六平台横评与 DeepSeek `site:zhihu.com` 揭秘",
+              "detail": "通过同一问题对比豆包/DeepSeek/元宝/千问/文心/小红书点点，实证 DeepSeek 改写词主动附加 `site:zhihu.com`，某过去三年在知乎深耕评测的品牌借此第一时间跃升第一梯队。",
+              "ts": "15:23:00"
+            },
+            {
+              "title": "茅台 × 五粮液真机全流程诊断演示",
+              "detail": "现场跑通电商诊断（茅台 28% 商品卡提及率、2.5 均排）与品牌诊断（右上角象限领先、点击“假酒多/溢价高”负面词直达源文章）。",
+              "ts": "15:42:00"
+            },
+            {
+              "title": "本地餐饮“深圳福田区家庭聚餐”豆包双源联动",
+              "detail": "豆包在文字区抓取百度地图商家介绍，在卡片区挂出抖音团购商家页，打通本地生活转化链路。",
+              "ts": "15:31:00"
+            },
+            {
+              "title": "海外“Instagram DM 自动化工具”ChatGPT 直链订购页",
+              "detail": "ChatGPT 在回答中直接附带品牌官网订购链接，用户点击即可完成订阅并在独立站后台精准归因。",
+              "ts": "16:05:00"
+            }
+          ],
+          "quotes": [
+            {
+              "text": "DeepSeek 最近引用知乎变多，是因为它在查询改写词前面直接加了 `site:zhihu.com`。",
+              "ts": "15:23:00"
+            },
+            {
+              "text": "原始数据相当于是矿石，你能炼出哪些金属，靠的是把数据加工成可交付的洞察报告。",
+              "ts": "15:50:00"
+            },
+            {
+              "text": "海外平台非常慷慨，ChatGPT 直接把你的品牌官网订购页露出来，所以做出海独立站是必选项。",
+              "ts": "16:05:00"
+            }
+          ],
+          "qa": [],
+          "resources": [
+            {
+              "item": "AIDSO 爱搜 AI 平台（国内 9 平台 + 海外 119 国监测，geo.aidso.com）",
+              "how": "参会报名手机号已开通 7 天高级版试用；海外版试用与定制可对接爱搜工作人员",
+              "url": "https://geo.aidso.com"
+            },
+            {
+              "item": "两天 21.7 万字完整精校逐字稿（含本场 1 小时实操课全文）",
+              "how": "来自社区开源仓库 renzheng0415/china-geo-conference-2026，可在线查阅完整演示口播",
+              "url": "https://github.com/renzheng0415/china-geo-conference-2026"
+            }
+          ],
+          "uncertain": [
+            "本场实操课文字补全自开源社区精校逐字稿（15:10–16:08），并已与享像派现场 15:15–15:44 实拍大屏（茅台 28% / 2.5 名）交叉核验。"
           ]
         }
       ]
@@ -7567,27 +7975,39 @@ window.GEO_DATA = {
     "resources": [
       {
         "id": "res-1",
-        "item": "全场景 GEO 拓词 Skill 提示词与方法论白皮书",
+        "item": "艾奇先生《GEO 全场景词包策划方法论》完整 PDF（26 页）& 拓词 Skill",
         "provider": "艾奇先生（艾奇在线）",
         "talkId": "s3-2",
-        "category": "提示词与文档",
-        "how": "在大会参会群内下发，输入一句话即可批量生成 20–100+ 全维度场景词包。"
+        "category": "课件与工作台",
+        "how": "完整 26 页大会 PDF 课件已上线本站支持逐页预览与下载；配套全场景 GEO 拓词 Skill 提示词与白皮书在大会参会群下发。",
+        "url": "assets/ppt/s3-2/slides.pdf",
+        "linkLabel": "下载 26 页完整 PDF ↗"
       },
       {
         "id": "res-2",
-        "item": "《如何打造属于自己的超级 Agent 工作台》在线 PPT（含 7 分钟录屏）& Floatboat「GEO 内容生产线」工作台",
+        "item": "谭少卿《如何打造属于自己的超级 Agent 工作台》在线 PPT（含 7 分钟录屏）&「GEO 内容生产线」",
         "provider": "谭少卿（Floatboat）",
         "talkId": "s2-tanshaoqing",
         "category": "课件与工作台",
-        "how": "在线 PPT（含 7 分钟真机录屏，按 V 键播放）：https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk ；「GEO 内容生产线」在线体验：https://floatboat.ai/workbenchstore/geo-content-pipeline ；另可在大会群领取开源源码与创造者计划 VIP。"
+        "how": "点开在线 PPT 直接观看（内嵌 7 分钟真机录屏，电脑按 V 键或点第 5 页/末页右上角播放）；「GEO 内容生产线」工作台已开放体验。",
+        "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk",
+        "linkLabel": "在线查看完整 PPT ↗",
+        "extraLinks": [
+          {
+            "label": "体验「GEO 内容生产线」↗",
+            "url": "https://floatboat.ai/workbenchstore/geo-content-pipeline"
+          }
+        ]
       },
       {
         "id": "res-3",
-        "item": "爱搜平台高级版 7 天试用、海外监控试用 &《电商维度分析报告》（脱敏版）",
+        "item": "爱搜 AI 高级版 7 天试用、海外 119 国监控 & Day 2 下午 1 小时实操课精读",
         "provider": "拔刀刘（AIDSO 爱搜 AI）",
-        "talkId": "s1-badaoliu",
+        "talkId": "s7-badaoliu-prac",
         "category": "数据与监测工具",
-        "how": "已为报名手机号自动开通 7 天高级版试用；未开通者、申请海外 119 国监控试用或索要《电商维度分析报告》可联系爱搜现场工作人员，并关注次日下午 1 小时全流程实操演示课。"
+        "how": "已为报名手机号自动开通 7 天高级版试用；Day 2 下午 1 小时四大监测模块实操课与平台底层机制揭秘已完整补录入站。",
+        "url": "https://geo.aidso.com",
+        "linkLabel": "访问爱搜 AI 平台 ↗"
       },
       {
         "id": "res-4",
@@ -7647,11 +8067,13 @@ window.GEO_DATA = {
       },
       {
         "id": "res-11",
-        "item": "LookBody 免费 GEO 品牌诊断工具 & 苍何粉丝群",
+        "item": "苍何《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件（42 页）& LookBody 免费诊断",
         "provider": "苍何（前排科技 CTO / 前排 GEO 研究院主任）",
         "talkId": "s3-3",
-        "category": "诊断与社群",
-        "how": "LookBody 上已上线免费诊断工具（20 万+使用量），并在大会参会群内接入苍何粉丝交流群。"
+        "category": "课件与工作台",
+        "how": "完整 42 页实战避坑版 PPT 已转 PDF 上线本站逐页查阅；LookBody 上线免费诊断工具（20 万+使用量），并在参会群接入苍何粉丝群。",
+        "url": "assets/ppt/s3-3/slides.pdf",
+        "linkLabel": "下载 42 页完整 PDF ↗"
       },
       {
         "id": "res-12",
@@ -7660,6 +8082,46 @@ window.GEO_DATA = {
         "talkId": "s3-panel",
         "category": "公开课与合作",
         "how": "会前 107 个提问中未覆盖完的问题将在会后通过参会群公开课形式继续解答；具备 GEO 课程研发能力的讲师可与芥末推对接分销。"
+      },
+      {
+        "id": "res-13",
+        "item": "中国第二届 GEO 大会两天 21.7 万字完整精校逐字稿（GitHub 开源仓库）",
+        "provider": "开源社区整理（renzheng0415）",
+        "talkId": "s6-qa-noon",
+        "category": "开源逐字稿全本",
+        "how": "约 21.7 万字纯转写精校逐字稿，剔除暖场杂音并校对全部嘉宾与专有名词，补全 Day 2 中午高能实战答疑与拔刀刘下午实操课全文。",
+        "url": "https://github.com/renzheng0415/china-geo-conference-2026",
+        "linkLabel": "访问 GitHub 完整精校原文 ↗"
+      },
+      {
+        "id": "res-14",
+        "item": "AJ《能力溢出之后，我们做什么》72 页 HTML 在线课件、个人网站 & WaytoAGI 知识库",
+        "provider": "AJ（WaytoAGI 创始人）",
+        "talkId": "s5-aj",
+        "category": "课件与工作台",
+        "how": "本次大会 72 页 HTML 互动版 PPT、个人主页（aaaaaaaj.com，含开源 ADHD Skill / Design.md）与千万级用户 WaytoAGI 飞书知识库全部开放直达。",
+        "url": "https://www.waytoagi.com/ai-capability-overflow/",
+        "linkLabel": "在线看 72 页 HTML 课件 ↗",
+        "extraLinks": [
+          {
+            "label": "AJ 个人网站（aaaaaaaj.com）↗",
+            "url": "https://aaaaaaaj.com"
+          },
+          {
+            "label": "WaytoAGI 社区知识库 ↗",
+            "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
+          }
+        ]
+      },
+      {
+        "id": "res-15",
+        "item": "冷洪利（光头牛哥）《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件（52 页）",
+        "provider": "冷洪利 / 光头牛哥（曝光率 GEO 创始人）",
+        "talkId": "s5-lenghongli",
+        "category": "课件与工作台",
+        "how": "完整 52 页实战 PPT 已无损转 PDF 上线本站，支持逐页高清放大预览与整份 PDF 下载。",
+        "url": "assets/ppt/s5-lenghongli/slides.pdf",
+        "linkLabel": "下载 52 页完整 PDF ↗"
       }
     ]
   },
@@ -8118,6 +8580,16 @@ window.GEO_DATA = {
       },
       {
         "day": 2,
+        "slot": "12:44–13:44",
+        "speaker": "姚金刚 · 乔向阳等",
+        "org": "大会发起人及现场嘉宾",
+        "title": "中午高能实战答疑场（工业代理 / 过度营销 / 强合规脱敏 / 教育转白帽）",
+        "sessionId": "s6",
+        "talkId": "s6-qa-noon",
+        "note": "午休加场闭门答疑，已由开源精校全本（renzheng0415）补全精读"
+      },
+      {
+        "day": 2,
         "slot": "12:05–12:35",
         "speaker": "玉伯",
         "org": "YouMind 创始人 & CEO",
@@ -8162,8 +8634,8 @@ window.GEO_DATA = {
         "org": "AIDSO 爱搜 AI 合伙人",
         "title": "爱搜AI + GEO实操",
         "sessionId": "s7",
-        "talkId": null,
-        "note": "实操课未提供录音 · 课件/录屏位预留（现场 15:15 提前开讲，图集已收实拍）"
+        "talkId": "s7-badaoliu-prac",
+        "note": "已由开源精校全本补全 15:10–16:08 四大模块实操精读，并联动 3 张现场实拍"
       },
       {
         "day": 2,
@@ -10197,9 +10669,9 @@ window.GEO_DATA = {
         "thumb": "assets/photos/thumb/scene-s7-prac-01.jpg",
         "w": 1400,
         "h": 933,
-        "kind": "scene",
+        "kind": "stage",
         "sessionId": "s7",
-        "talkId": null,
+        "talkId": "s7-badaoliu-prac",
         "takenAt": "15:15",
         "photographer": "刘宇琪",
         "caption": "「实操课：爱搜AI + GEO（拔刀刘）」——中场休息后议程提前切入实操环节，AIDSO 爱搜 AI 合伙人拔刀刘在台前实操席现场操作笔记本电脑带练演示",
@@ -10212,9 +10684,9 @@ window.GEO_DATA = {
         "thumb": "assets/photos/thumb/scene-s7-prac-02.jpg",
         "w": 1400,
         "h": 933,
-        "kind": "scene",
+        "kind": "slide",
         "sessionId": "s7",
-        "talkId": null,
+        "talkId": "s7-badaoliu-prac",
         "takenAt": "15:42",
         "photographer": "刘宇琪",
         "caption": "「实操课：爱搜AI + GEO（拔刀刘）」——现场大屏实时演示 geo.aidso.com「品牌商品提及」监测看板，横向拆解习酒、茅台、汾酒等品牌卡提及率与 Top1/Top3 提及率",
@@ -10227,9 +10699,9 @@ window.GEO_DATA = {
         "thumb": "assets/photos/thumb/scene-s7-prac-03.jpg",
         "w": 1400,
         "h": 933,
-        "kind": "scene",
+        "kind": "stage",
         "sessionId": "s7",
-        "talkId": null,
+        "talkId": "s7-badaoliu-prac",
         "takenAt": "15:44",
         "photographer": "刘宇琪",
         "caption": "「实操课：爱搜AI + GEO（拔刀刘）」——拔刀刘在实操席演示与主会场全景，台下参会者打开电脑对照同步实操（前景工作人员电脑亦可见当日议程排期表）",
@@ -10317,10 +10789,88 @@ window.GEO_DATA = {
         "status": "pending"
       },
       "s3-2": {
-        "status": "pending"
+        "status": "ready",
+        "title": "《从关键词到高维场景：AI 时代 GEO 全场景词包策划方法论》完整课件（26 页）",
+        "pdf": "assets/ppt/s3-2/slides.pdf",
+        "pages": [
+          "assets/ppt/s3-2/slide-01.jpg",
+          "assets/ppt/s3-2/slide-02.jpg",
+          "assets/ppt/s3-2/slide-03.jpg",
+          "assets/ppt/s3-2/slide-04.jpg",
+          "assets/ppt/s3-2/slide-05.jpg",
+          "assets/ppt/s3-2/slide-06.jpg",
+          "assets/ppt/s3-2/slide-07.jpg",
+          "assets/ppt/s3-2/slide-08.jpg",
+          "assets/ppt/s3-2/slide-09.jpg",
+          "assets/ppt/s3-2/slide-10.jpg",
+          "assets/ppt/s3-2/slide-11.jpg",
+          "assets/ppt/s3-2/slide-12.jpg",
+          "assets/ppt/s3-2/slide-13.jpg",
+          "assets/ppt/s3-2/slide-14.jpg",
+          "assets/ppt/s3-2/slide-15.jpg",
+          "assets/ppt/s3-2/slide-16.jpg",
+          "assets/ppt/s3-2/slide-17.jpg",
+          "assets/ppt/s3-2/slide-18.jpg",
+          "assets/ppt/s3-2/slide-19.jpg",
+          "assets/ppt/s3-2/slide-20.jpg",
+          "assets/ppt/s3-2/slide-21.jpg",
+          "assets/ppt/s3-2/slide-22.jpg",
+          "assets/ppt/s3-2/slide-23.jpg",
+          "assets/ppt/s3-2/slide-24.jpg",
+          "assets/ppt/s3-2/slide-25.jpg",
+          "assets/ppt/s3-2/slide-26.jpg"
+        ],
+        "note": "艾奇先生（艾奇在线）2026.11.21 大会完整版 PDF，支持站内逐页高清放大与整份 PDF 下载。"
       },
       "s3-3": {
-        "status": "pending"
+        "status": "ready",
+        "title": "《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件（42 页）",
+        "pdf": "assets/ppt/s3-3/slides.pdf",
+        "pages": [
+          "assets/ppt/s3-3/slide-01.jpg",
+          "assets/ppt/s3-3/slide-02.jpg",
+          "assets/ppt/s3-3/slide-03.jpg",
+          "assets/ppt/s3-3/slide-04.jpg",
+          "assets/ppt/s3-3/slide-05.jpg",
+          "assets/ppt/s3-3/slide-06.jpg",
+          "assets/ppt/s3-3/slide-07.jpg",
+          "assets/ppt/s3-3/slide-08.jpg",
+          "assets/ppt/s3-3/slide-09.jpg",
+          "assets/ppt/s3-3/slide-10.jpg",
+          "assets/ppt/s3-3/slide-11.jpg",
+          "assets/ppt/s3-3/slide-12.jpg",
+          "assets/ppt/s3-3/slide-13.jpg",
+          "assets/ppt/s3-3/slide-14.jpg",
+          "assets/ppt/s3-3/slide-15.jpg",
+          "assets/ppt/s3-3/slide-16.jpg",
+          "assets/ppt/s3-3/slide-17.jpg",
+          "assets/ppt/s3-3/slide-18.jpg",
+          "assets/ppt/s3-3/slide-19.jpg",
+          "assets/ppt/s3-3/slide-20.jpg",
+          "assets/ppt/s3-3/slide-21.jpg",
+          "assets/ppt/s3-3/slide-22.jpg",
+          "assets/ppt/s3-3/slide-23.jpg",
+          "assets/ppt/s3-3/slide-24.jpg",
+          "assets/ppt/s3-3/slide-25.jpg",
+          "assets/ppt/s3-3/slide-26.jpg",
+          "assets/ppt/s3-3/slide-27.jpg",
+          "assets/ppt/s3-3/slide-28.jpg",
+          "assets/ppt/s3-3/slide-29.jpg",
+          "assets/ppt/s3-3/slide-30.jpg",
+          "assets/ppt/s3-3/slide-31.jpg",
+          "assets/ppt/s3-3/slide-32.jpg",
+          "assets/ppt/s3-3/slide-33.jpg",
+          "assets/ppt/s3-3/slide-34.jpg",
+          "assets/ppt/s3-3/slide-35.jpg",
+          "assets/ppt/s3-3/slide-36.jpg",
+          "assets/ppt/s3-3/slide-37.jpg",
+          "assets/ppt/s3-3/slide-38.jpg",
+          "assets/ppt/s3-3/slide-39.jpg",
+          "assets/ppt/s3-3/slide-40.jpg",
+          "assets/ppt/s3-3/slide-41.jpg",
+          "assets/ppt/s3-3/slide-42.jpg"
+        ],
+        "note": "苍何（前排科技 CTO / 前排 GEO 研究院主任）大会完整版课件（含新增实战避坑章节），由原 PPTX 无损转 PDF，支持逐页预览与下载。"
       },
       "s3-4": {
         "status": "pending"
@@ -10350,10 +10900,80 @@ window.GEO_DATA = {
         "status": "pending"
       },
       "s5-aj": {
-        "status": "pending"
+        "status": "ready",
+        "title": "《能力溢出之后，我们做什么》完整 72 页 HTML 在线课件",
+        "url": "https://www.waytoagi.com/ai-capability-overflow/",
+        "note": "AJ 老师本次大会 72 页完整 HTML 互动课件可直接在线打开；下方附 AJ 个人网站（aaaaaaaj.com）与 WaytoAGI 社区飞书知识库。",
+        "extraLinks": [
+          {
+            "label": "AJ 个人网站（aaaaaaaj.com）↗",
+            "url": "https://aaaaaaaj.com"
+          },
+          {
+            "label": "WaytoAGI 社区知识库 ↗",
+            "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
+          }
+        ]
       },
       "s5-lenghongli": {
-        "status": "pending"
+        "status": "ready",
+        "title": "《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件（52 页）",
+        "pdf": "assets/ppt/s5-lenghongli/slides.pdf",
+        "pages": [
+          "assets/ppt/s5-lenghongli/slide-01.jpg",
+          "assets/ppt/s5-lenghongli/slide-02.jpg",
+          "assets/ppt/s5-lenghongli/slide-03.jpg",
+          "assets/ppt/s5-lenghongli/slide-04.jpg",
+          "assets/ppt/s5-lenghongli/slide-05.jpg",
+          "assets/ppt/s5-lenghongli/slide-06.jpg",
+          "assets/ppt/s5-lenghongli/slide-07.jpg",
+          "assets/ppt/s5-lenghongli/slide-08.jpg",
+          "assets/ppt/s5-lenghongli/slide-09.jpg",
+          "assets/ppt/s5-lenghongli/slide-10.jpg",
+          "assets/ppt/s5-lenghongli/slide-11.jpg",
+          "assets/ppt/s5-lenghongli/slide-12.jpg",
+          "assets/ppt/s5-lenghongli/slide-13.jpg",
+          "assets/ppt/s5-lenghongli/slide-14.jpg",
+          "assets/ppt/s5-lenghongli/slide-15.jpg",
+          "assets/ppt/s5-lenghongli/slide-16.jpg",
+          "assets/ppt/s5-lenghongli/slide-17.jpg",
+          "assets/ppt/s5-lenghongli/slide-18.jpg",
+          "assets/ppt/s5-lenghongli/slide-19.jpg",
+          "assets/ppt/s5-lenghongli/slide-20.jpg",
+          "assets/ppt/s5-lenghongli/slide-21.jpg",
+          "assets/ppt/s5-lenghongli/slide-22.jpg",
+          "assets/ppt/s5-lenghongli/slide-23.jpg",
+          "assets/ppt/s5-lenghongli/slide-24.jpg",
+          "assets/ppt/s5-lenghongli/slide-25.jpg",
+          "assets/ppt/s5-lenghongli/slide-26.jpg",
+          "assets/ppt/s5-lenghongli/slide-27.jpg",
+          "assets/ppt/s5-lenghongli/slide-28.jpg",
+          "assets/ppt/s5-lenghongli/slide-29.jpg",
+          "assets/ppt/s5-lenghongli/slide-30.jpg",
+          "assets/ppt/s5-lenghongli/slide-31.jpg",
+          "assets/ppt/s5-lenghongli/slide-32.jpg",
+          "assets/ppt/s5-lenghongli/slide-33.jpg",
+          "assets/ppt/s5-lenghongli/slide-34.jpg",
+          "assets/ppt/s5-lenghongli/slide-35.jpg",
+          "assets/ppt/s5-lenghongli/slide-36.jpg",
+          "assets/ppt/s5-lenghongli/slide-37.jpg",
+          "assets/ppt/s5-lenghongli/slide-38.jpg",
+          "assets/ppt/s5-lenghongli/slide-39.jpg",
+          "assets/ppt/s5-lenghongli/slide-40.jpg",
+          "assets/ppt/s5-lenghongli/slide-41.jpg",
+          "assets/ppt/s5-lenghongli/slide-42.jpg",
+          "assets/ppt/s5-lenghongli/slide-43.jpg",
+          "assets/ppt/s5-lenghongli/slide-44.jpg",
+          "assets/ppt/s5-lenghongli/slide-45.jpg",
+          "assets/ppt/s5-lenghongli/slide-46.jpg",
+          "assets/ppt/s5-lenghongli/slide-47.jpg",
+          "assets/ppt/s5-lenghongli/slide-48.jpg",
+          "assets/ppt/s5-lenghongli/slide-49.jpg",
+          "assets/ppt/s5-lenghongli/slide-50.jpg",
+          "assets/ppt/s5-lenghongli/slide-51.jpg",
+          "assets/ppt/s5-lenghongli/slide-52.jpg"
+        ],
+        "note": "冷洪利（光头牛哥 / 曝光率 GEO）大会完整 52 页实战 PPT（由原 PPTX 无损转 PDF），点击任意页可高清放大或下载完整 PDF。"
       },
       "s5-pengtao": {
         "status": "pending"
@@ -10372,6 +10992,12 @@ window.GEO_DATA = {
       },
       "s7-berryxia": {
         "status": "pending"
+      },
+      "s6-qa-noon": {
+        "status": "pending"
+      },
+      "s7-badaoliu-prac": {
+        "status": "pending"
       }
     },
     "practice": [
@@ -10379,8 +11005,16 @@ window.GEO_DATA = {
         "id": "d2-prac-aisou",
         "title": "爱搜AI + GEO实操",
         "speaker": "拔刀刘",
-        "slot": "15:45–16:45",
-        "status": "pending"
+        "slot": "15:10–16:08（原定 15:45）",
+        "status": "ready",
+        "talkId": "s7-badaoliu-prac",
+        "note": "已补全 1 小时完整真机演示复盘（含四大模块、DeepSeek site:zhihu.com、茅台 28% 挂卡实测与海外 119 国）及 3 张现场大屏实拍",
+        "extraLinks": [
+          {
+            "label": "阅读本场开源精校原文 ↗",
+            "url": "https://github.com/renzheng0415/china-geo-conference-2026"
+          }
+        ]
       },
       {
         "id": "d2-prac-floatboat",
@@ -10404,15 +11038,19 @@ window.GEO_DATA = {
   },
   "day2": {
     "overview": {
-      "title": "Day 2 · 11月22日：出海增长 × 信源建设 × 个人IP 专场",
+      "title": "Day 2 · 11月22日：出海增长 × 信源建设 × 个人IP × 实操专场",
       "date": "2026 年 11 月 22 日（周日）",
-      "recorded": "3 段录音 · 8 场正式演讲（上午① s5 · 上午② s6 · 下午① s7，另收录 52 张 Day 2 现场照片）",
+      "recorded": "3 场飞书录音（8 讲）+ 开源精校全本补全中午答疑与拔刀刘下午实操课（共 10 单元）· 52 张现场实拍",
+      "fullTranscriptRepo": {
+        "label": "查看两天 21.7 万字完整精校逐字稿（GitHub 开源仓库）↗",
+        "url": "https://github.com/renzheng0415/china-geo-conference-2026"
+      },
       "notRecorded": [
         "大尤（原官网排期 14:00）：上午大屏更新日程及全天 453 张照片、录音均未见登台",
         "圆桌分享（原排 15:04 余一/彭超/谭少卿；上午大屏曾改排彭超）：14:58 主持宣布直接转入实操，未在现场发生",
-        "两场 GEO 实操课（拔刀刘、谭少卿）与 17:50 大会答疑：实操未提供录音，已收录 6 张实操课现场实拍并预留课件/录屏位"
+        "Floatboat + GEO 实操（16:09 现场开展）与 17:50 尾场答疑无录音；拔刀刘「爱搜 AI + GEO 实操」及「中午高能实战答疑」已借开源精校全本完整补齐"
       ],
-      "practice": "15:45–17:47 两场 GEO 实操（现场于 15:15–16:50 提前开展，未提供录音）"
+      "practice": "下午两场实操：爱搜 AI 实操（s7-badaoliu-prac 已补全精读）+ Floatboat 实操（工作台与 7 分钟录屏 PPT 已上线）"
     },
     "themes": [
       {
@@ -10580,6 +11218,13 @@ window.GEO_DATA = {
         "speaker": "Berryxia",
         "talkId": "s7-berryxia",
         "ts": "00:46:11"
+      },
+      {
+        "value": "21 张 vs 4–5 张",
+        "label": "拔刀刘实操课真机实测：百度文心平均单答露出 21 张商品卡，豆包/千问/元宝 4–5 张；DeepSeek 主动注入 site:zhihu.com",
+        "speaker": "拔刀刘",
+        "talkId": "s7-badaoliu-prac",
+        "ts": "15:28:00"
       }
     ],
     "quotes": [
@@ -10630,6 +11275,12 @@ window.GEO_DATA = {
         "speaker": "Berryxia",
         "talkId": "s7-berryxia",
         "ts": "00:51:46"
+      },
+      {
+        "text": "不要看量级，量不重要；用具体数字构造的事实就不是自吹，按缺口定向补量就不叫过度营销。",
+        "speaker": "姚金刚",
+        "talkId": "s6-qa-noon",
+        "ts": "13:02:00"
       }
     ]
   }

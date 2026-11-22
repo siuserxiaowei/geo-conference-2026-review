@@ -221,16 +221,19 @@
       "qa": [],
       "resources": [
         {
-          "item": "AJ 个人主页与本次大会 HTML 版完整 PPT（aaaaaaaaj.com）",
-          "how": "演讲结尾公布域名（7 个 a 加 1 个 j 加 .com），内含本次分享 72 页完整 PPT（含细节小字）、个人审美偏好与收藏工具"
+          "item": "《能力溢出之后，我们做什么》完整 72 页 HTML 在线课件",
+          "how": "AJ 老师本次大会完整 HTML 互动课件，可在线逐页查看所有细节小字与引用案例",
+          "url": "https://www.waytoagi.com/ai-capability-overflow/"
         },
         {
-          "item": "开源 ADHD Skill、漫画日报 Skill 与设计字典（Design.md）",
-          "how": "已在 WaytoAGI 开源社区及个人主页公开，可用于规范文档可读性与锁死 Vibe Coding 网页风格"
+          "item": "AJ 个人网站（aaaaaaaj.com）",
+          "how": "7 个 a 加 1 个 j 加 .com，收录本次演讲、开源 ADHD Skill、漫画日报 Skill、设计字典（Design.md）与个人审美清单",
+          "url": "https://aaaaaaaj.com"
         },
         {
-          "item": "WaytoAGI 开源知识库、免费共学训练营与京蓉 OPC 实体社区",
-          "how": "访问开源知识库或前往北京魔术 OPC 社区、成都科梦 OPC 社区及每月 52 城线下切磋大会；每两周六视频号同步直播《未来微世界》前沿开发者分享"
+          "item": "WaytoAGI 社区开源知识库（飞书 Wiki）",
+          "how": "千万级用户 AI 开源知识库、只收作业不收费的共学训练营、京蓉 OPC 实体社区及双周六《未来微世界》直播入口",
+          "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
         }
       ],
       "tags": [
@@ -467,6 +470,11 @@
       ],
       "qa": [],
       "resources": [
+        {
+          "item": "《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件 PDF（52 页）",
+          "how": "光头牛哥 · 冷洪利大会完整 52 页实战 PPT（由原 PPTX 无损转 PDF），已收入本站课件区支持逐页预览与下载",
+          "url": "assets/ppt/s5-lenghongli/slides.pdf"
+        },
         {
           "item": "自研豆包信源监控与视频矩阵一键生成/预约发布系统",
           "how": "基于 Codex 与命令行研发，填入企业品牌与基础资料即可一键生成七图图文、翻页视频与深度脚本视频并支持定时排期发布"

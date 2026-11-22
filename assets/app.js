@@ -45,6 +45,7 @@
     talk: '主题演讲',
     panel: '圆桌对话',
     lightning: '5分钟快分享',
+    qa: '实战答疑',
   };
 
   function esc(val) {
@@ -70,10 +71,18 @@
     }`;
   }
 
+  function talkRefAnchor(talk, ts, showPermHint) {
+    if (!talk || !ts) return '';
+    if (talk.sourceUrl) {
+      return `<a class="ts-link" href="${esc(talk.sourceUrl)}" target="_blank" rel="noopener" title="查看 GitHub 开源精校原文">📄 ${esc(talk.sourceLabel || '精校原文')} ${esc(ts)}</a>`;
+    }
+    return tsAnchor(talk.miaojiId, ts, showPermHint);
+  }
+
   function talkTsAnchor(talkId, ts, showPermHint) {
     const talk = TALK_MAP.get(talkId);
     if (!talk || !ts) return '';
-    return tsAnchor(talk.miaojiId, ts, showPermHint);
+    return talkRefAnchor(talk, ts, showPermHint);
   }
 
   function tagBadge(topicId) {
@@ -526,6 +535,8 @@
 
     if (entry.status === 'ready') {
       const hasPages = Array.isArray(entry.pages) && entry.pages.length > 0;
+      const previewLimit = 6;
+      const hasMore = hasPages && entry.pages.length > previewLimit;
       return `
       <section class="reveal reveal-d2">
         <div class="section-head">
@@ -542,12 +553,13 @@
           </div>
           ${
             hasPages
-              ? `<div class="ppt-grid">
+              ? `<div class="ppt-grid" data-ppt-grid="${esc(t.id)}">
                   ${entry.pages
                     .map(
                       (pg, idx) => `
-                    <figure class="ppt-page-card">
-                      <img class="zoomable" src="${esc(pg)}" data-full="${esc(pg)}" alt="${esc(t.speaker)} PPT 第 ${idx + 1} 页" loading="lazy" decoding="async">
+                    <figure class="ppt-page-card${idx >= previewLimit ? ' is-hidden-slide' : ''}">
+                      <img class="zoomable" src="${esc(pg)}" data-full="${esc(pg)}" alt="${esc(t.speaker)} PPT 第 ${idx + 1} 页" data-caption="${esc(t.speaker)} 课件第 ${idx + 1} / ${entry.pages.length} 页" loading="lazy" decoding="async">
+                      <span class="ppt-page-num">${String(idx + 1).padStart(2, '0')} / ${entry.pages.length}</span>
                     </figure>`
                     )
                     .join('')}
@@ -555,8 +567,13 @@
               : ''
           }
           <div class="ppt-slot-actions">
+            ${
+              hasMore
+                ? `<button type="button" class="btn btn-outline ppt-toggle-btn" data-ppt-toggle="${esc(t.id)}" data-total="${entry.pages.length}">展开全部 ${entry.pages.length} 页课件 ↓</button>`
+                : ''
+            }
             ${entry.url ? `<a class="btn btn-accent" href="${esc(entry.url)}" target="_blank" rel="noopener noreferrer">在线查看完整 PPT ↗</a>` : ''}
-            ${entry.pdf ? `<a class="btn btn-outline" href="${esc(entry.pdf)}" target="_blank" rel="noopener noreferrer">下载完整 PDF ↗</a>` : ''}
+            ${entry.pdf ? `<a class="btn ${entry.url ? 'btn-outline' : 'btn-accent'}" href="${esc(entry.pdf)}" target="_blank" rel="noopener noreferrer">下载完整 PDF ↗</a>` : ''}
             ${extraLinksHtml}
           </div>
         </div>
@@ -713,7 +730,7 @@
         <div class="facts-strip">
           <div class="fact-cell"><div class="fact-label">时间（两天全覆盖）</div><div class="fact-val">2026 年 11 月 21–22 日（Day 1 + Day 2）</div></div>
           <div class="fact-cell"><div class="fact-label">参会规模</div><div class="fact-val">${esc(overview.scale)}</div></div>
-          <div class="fact-cell"><div class="fact-label">内容覆盖</div><div class="fact-val">共 ${sessions.length} 大场次 ${totalTalks} 讲（Day 1 18 讲 + Day 2 8 讲）· ${media.length} 张导图配图 · ${photoItems.length} 张实拍</div></div>
+          <div class="fact-cell"><div class="fact-label">内容覆盖</div><div class="fact-val">共 ${sessions.length} 大场次 ${totalTalks} 讲（Day 1 ${sessions.filter((s) => (s.day || 1) === 1).reduce((n, s) => n + s.talks.length, 0)} 讲 + Day 2 ${sessions.filter((s) => s.day === 2).reduce((n, s) => n + s.talks.length, 0)} 讲）· ${Object.values(ppt.items || {}).filter((x) => x.status === 'ready').length} 份完整课件 · ${media.length} 张导图配图 · ${photoItems.length} 张实拍</div></div>
           <div class="fact-cell"><div class="fact-label">会前收集 &amp; 下一站</div><div class="fact-val">${esc(overview.preQuestionsCount)} · ${esc(overview.nextEdition)}</div></div>
         </div>
 
@@ -786,6 +803,15 @@
                     ? `<ul class="d2-note-list">${day2.overview.notRecorded.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>`
                     : ''
                 }
+                ${
+                  day2.overview.fullTranscriptRepo
+                    ? `<div class="ppt-slot-actions" style="margin-top:0.65rem">
+                        <a class="btn btn-outline" href="${esc(day2.overview.fullTranscriptRepo.url)}" target="_blank" rel="noopener noreferrer">${esc(day2.overview.fullTranscriptRepo.label)}</a>
+                        <a class="btn btn-outline" href="#/talk/s6-qa-noon">查看中午高能实战答疑 →</a>
+                        <a class="btn btn-outline" href="#/talk/s7-badaoliu-prac">查看拔刀刘下午实操课 →</a>
+                      </div>`
+                    : ''
+                }
               </div>
 
               <div class="d2-theme-grid">
@@ -820,27 +846,28 @@
               ${
                 (ppt.practice || []).length
                   ? `<div style="margin-top:1rem">
-                      <div class="day-heading">Day 2 下午两场 GEO 实操课（课件与录屏预留位）</div>
+                      <div class="day-heading">Day 2 下午两场 GEO 实操课（精读与课件/录屏位）</div>
                       <div class="d2-practice-grid">
                         ${ppt.practice
                           .map(
                             (pr) => `
-                          <div class="ppt-slot">
+                          <div class="ppt-slot${pr.status === 'ready' ? ' is-ready' : ''}">
                             <div class="ppt-slot-head">
                               <span class="ppt-slot-icon" aria-hidden="true">🛠️</span>
                               <div>
                                 <strong>${esc(pr.title)} · ${esc(pr.speaker)}</strong>
-                                <p class="ppt-slot-note">原定 ${esc(pr.slot)} · ${esc(pr.note || '实操课未提供录音 · 课件/录屏位预留（现场实拍见下方图集）')}</p>
+                                <p class="ppt-slot-note">${esc(pr.slot)} · ${esc(pr.note || '实操课未提供录音 · 课件/录屏位预留（现场实拍见下方图集）')}</p>
                               </div>
                             </div>
                             <div class="ppt-slot-actions">
+                              ${pr.talkId ? `<a class="btn btn-accent" href="#/talk/${esc(pr.talkId)}">查看实操课完整精读 →</a>` : ''}
                               ${(pr.extraLinks || [])
                                 .map(
                                   (lk) =>
                                     `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
                                 )
                                 .join('')}
-                              <button type="button" class="btn btn-outline" data-scroll-contact>补充实操课件/录屏</button>
+                              ${pr.status === 'ready' ? '' : '<button type="button" class="btn btn-outline" data-scroll-contact>补充实操课件/录屏</button>'}
                             </div>
                           </div>`
                           )
@@ -1085,7 +1112,7 @@
       <div class="page-header reveal">
         <div class="page-kicker">两天共 ${sessions.length} 大场次 · 飞书画板导图 + 嘉宾列表</div>
         <h1>场次与嘉宾目录</h1>
-        <p class="page-desc">共收录两天 ${sessions.length} 场 ${totalTalks} 个讲者单元（Day 1 共 4 场 18 讲 + Day 2 共 3 场 8 讲）。每场提供飞书总结导图与现场封面（点击可放大），展开「串联与花絮」可查看先导课与现场议程变动。<span class="ts-perm-note">▶ 时间戳需飞书权限</span></p>
+        <p class="page-desc">共收录两天 ${sessions.length} 场 ${totalTalks} 个讲者单元（Day 1 共 4 场 ${sessions.filter((s) => (s.day || 1) === 1).reduce((n, s) => n + s.talks.length, 0)} 讲 + Day 2 共 3 场 ${sessions.filter((s) => s.day === 2).reduce((n, s) => n + s.talks.length, 0)} 讲）。每场提供飞书总结导图与现场封面（点击可放大），展开「串联与花絮」可查看先导课与现场议程变动。<span class="ts-perm-note">▶ 时间戳需飞书权限</span></p>
         <div class="day-filter" role="group" aria-label="按日期筛选场次">
           <button type="button" class="day-filter-btn is-active" data-day-filter="all">全部（${sessions.length} 场）</button>
           <button type="button" class="day-filter-btn" data-day-filter="1">Day 1 · 11/21（${dayGroups[0]?.list.length || 0} 场）</button>
@@ -1220,9 +1247,9 @@
             ${kindBadge(t.kind)}
             ${t.agendaSlot ? `<span class="tag">议程 ${esc(t.agendaSlot)}</span>` : ''}
             ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">部分信息待核实</span>' : ''}
-            ${tsAnchor(t.miaojiId, t.start, true)}
+            ${talkRefAnchor(t, t.start, true)}
           </div>
-          <span class="talk-time">录音 ${esc(t.start)} – ${esc(t.end)}</span>
+          <span class="talk-time">${t.sourceUrl ? '实录' : '录音'} ${esc(t.start)} – ${esc(t.end)}</span>
         </div>
         <div class="talk-hero-head">
           ${
@@ -1268,7 +1295,7 @@
                         <span class="nar-idx">${String(idx + 1).padStart(2, '0')}</span>
                         <strong>${esc(nv.heading)}</strong>
                       </div>
-                      ${tsAnchor(t.miaojiId, nv.ts, false)}
+                      ${talkRefAnchor(t, nv.ts, false)}
                     </div>
                     ${formatNarrative(nv.text)}
                   </article>`
@@ -1315,7 +1342,7 @@
       <section class="reveal reveal-d3">
         <div class="section-head">
           <h2>核心要点（${(t.keyPoints || []).length}）</h2>
-          <span class="section-sub">点击 ▶ 时间戳跳原声（需飞书权限）</span>
+          <span class="section-sub">${t.sourceUrl ? '点击 📄 徽标直达 GitHub 开源精校原文' : '点击 ▶ 时间戳跳原声（需飞书权限）'}</span>
         </div>
         <ol class="kp-list">
           ${(t.keyPoints || [])
@@ -1325,7 +1352,7 @@
               <span class="kp-idx">${String(idx + 1).padStart(2, '0')}</span>
               <div class="kp-body">
                 <span>${esc(kp.text)}</span>
-                <span style="margin-left:0.35rem">${tsAnchor(t.miaojiId, kp.ts, false)}</span>
+                <span style="margin-left:0.35rem">${talkRefAnchor(t, kp.ts, false)}</span>
               </div>
             </li>`
             )
@@ -1369,7 +1396,7 @@
                     </div>
                     <div class="data-foot">
                       <span>数据锚点</span>
-                      ${tsAnchor(t.miaojiId, d.ts, false)}
+                      ${talkRefAnchor(t, d.ts, false)}
                     </div>
                   </div>`
                   )
@@ -1390,7 +1417,7 @@
                   <div class="card" id="case-${idx}">
                     <div class="talk-card-top">
                       <strong>${esc(c.title)}</strong>
-                      ${tsAnchor(t.miaojiId, c.ts, false)}
+                      ${talkRefAnchor(t, c.ts, false)}
                     </div>
                     <p style="margin:0.35rem 0 0;font-size:0.92rem">${esc(c.detail)}</p>
                   </div>`
@@ -1417,7 +1444,7 @@
                     <p class="quote-text">${esc(q.text)}</p>
                     <div class="quote-foot">
                       <span>点击复制原话</span>
-                      <span onclick="event.stopPropagation()">${tsAnchor(t.miaojiId, q.ts, false)}</span>
+                      <span onclick="event.stopPropagation()">${talkRefAnchor(t, q.ts, false)}</span>
                     </div>
                   </div>`
                   )
@@ -1438,7 +1465,7 @@
                   <div class="card">
                     <div class="talk-card-top">
                       <span class="tag tag-accent">Q 现场提问</span>
-                      ${tsAnchor(t.miaojiId, item.ts, false)}
+                      ${talkRefAnchor(t, item.ts, false)}
                     </div>
                     <p style="font-weight:600;margin:0.45rem 0">${esc(item.q)}</p>
                     <p style="margin:0;font-size:0.92rem;color:var(--muted)"><strong style="color:var(--ink)">A：</strong>${esc(item.a)}</p>
@@ -2026,7 +2053,16 @@
                 </div>
                 <div class="talk-org">提供方：${esc(r.provider)}</div>
                 <p style="font-size:0.88rem;margin:0.4rem 0 0.65rem">${esc(r.how)}</p>
-                ${r.talkId ? `<a class="tag tag-accent" href="#/talk/${esc(r.talkId)}">查看对应演讲 →</a>` : ''}
+                <div class="ppt-slot-actions">
+                  ${r.url ? `<a class="btn btn-accent" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.linkLabel || '直达链接 ↗')}</a>` : ''}
+                  ${(r.extraLinks || [])
+                    .map(
+                      (lk) =>
+                        `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
+                    )
+                    .join('')}
+                  ${r.talkId ? `<a class="btn btn-outline" href="#/talk/${esc(r.talkId)}">查看对应演讲 →</a>` : ''}
+                </div>
               </article>`
               )
               .join('')}
@@ -2368,6 +2404,19 @@
   document.addEventListener('click', (e) => {
     if (!e.target.closest('#searchWrap')) {
       searchResults.hidden = true;
+    }
+
+    const pptToggle = e.target.closest('[data-ppt-toggle]');
+    if (pptToggle) {
+      e.preventDefault();
+      const tid = pptToggle.getAttribute('data-ppt-toggle');
+      const total = pptToggle.getAttribute('data-total') || '';
+      const grid = document.querySelector(`.ppt-grid[data-ppt-grid="${tid}"]`);
+      if (grid) {
+        const expanded = grid.classList.toggle('is-expanded');
+        pptToggle.textContent = expanded ? '收起多余页面 ↑' : `展开全部 ${total} 页课件 ↓`;
+      }
+      return;
     }
 
     const scrollBtn = e.target.closest('[data-scroll-contact]');

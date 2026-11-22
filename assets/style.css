@@ -2416,12 +2416,37 @@ a.tag:hover {
 }
 
 .ppt-page-card {
+  position: relative;
   margin: 0;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   overflow: hidden;
   background: #fff;
   aspect-ratio: 16 / 9;
+}
+
+.ppt-page-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ppt-page-num {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.35rem;
+  background: rgba(24, 21, 18, 0.72);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.1rem 0.38rem;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.ppt-grid:not(.is-expanded) .ppt-page-card.is-hidden-slide {
+  display: none;
 }
 
 @media (max-width: 639px) {

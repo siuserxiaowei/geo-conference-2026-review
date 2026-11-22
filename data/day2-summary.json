@@ -1,45 +1,67 @@
 {
   "overview": {
-    "title": "Day 2 · 11月22日：出海增长 × 信源建设 × 个人IP 专场",
+    "title": "Day 2 · 11月22日：出海增长 × 信源建设 × 个人IP × 实操专场",
     "date": "2026 年 11 月 22 日（周日）",
-    "recorded": "3 段录音 · 8 场正式演讲（上午① s5 · 上午② s6 · 下午① s7，另收录 52 张 Day 2 现场照片）",
+    "recorded": "3 场飞书录音（8 讲）+ 开源精校全本补全中午答疑与拔刀刘下午实操课（共 10 单元）· 52 张现场实拍",
+    "fullTranscriptRepo": {
+      "label": "查看两天 21.7 万字完整精校逐字稿（GitHub 开源仓库）↗",
+      "url": "https://github.com/renzheng0415/china-geo-conference-2026"
+    },
     "notRecorded": [
       "大尤（原官网排期 14:00）：上午大屏更新日程及全天 453 张照片、录音均未见登台",
       "圆桌分享（原排 15:04 余一/彭超/谭少卿；上午大屏曾改排彭超）：14:58 主持宣布直接转入实操，未在现场发生",
-      "两场 GEO 实操课（拔刀刘、谭少卿）与 17:50 大会答疑：实操未提供录音，已收录 6 张实操课现场实拍并预留课件/录屏位"
+      "Floatboat + GEO 实操（16:09 现场开展）与 17:50 尾场答疑无录音；拔刀刘「爱搜 AI + GEO 实操」及「中午高能实战答疑」已借开源精校全本完整补齐"
     ],
-    "practice": "15:45–17:47 两场 GEO 实操（现场于 15:15–16:50 提前开展，未提供录音）"
+    "practice": "下午两场实操：爱搜 AI 实操（s7-badaoliu-prac 已补全精读）+ Floatboat 实操（工作台与 7 分钟录屏 PPT 已上线）"
   },
   "themes": [
     {
       "title": "能力溢出与个人上下文：生产降价后什么仍不可复制？",
       "text": "大模型每两周持续外溢新能力、编码与视频生成降价，Skill 与提示词寿命变短；真正的壁垒在于沉淀开放且可被多 Agent 复用的个人上下文，并将 HTML 作为独立分发与交互母语。",
-      "refs": ["s5-aj", "s6-lanshu"]
+      "refs": [
+        "s5-aj",
+        "s6-lanshu"
+      ]
     },
     {
       "title": "国内豆包 4.19 亿月活视频矩阵：先 7 天监控，再用垂直小号",
       "text": "豆包信源 91% 关联抖音且高度偏好结构化榜单与 800–2000 字长脚本、#话题标签；实测 4 粉丝自建垂直小号信源命中率（55%）远超兼职代发（15%），激烈大词则须让位官媒。",
-      "refs": ["s5-lenghongli"]
+      "refs": [
+        "s5-lenghongli"
+      ]
     },
     {
       "title": "海外 GEO × PR × 联盟营销：从曝光到订单的商业闭环",
       "text": "海外 AI 高度采信可核查的第三方权威测评（如 ChatGPT 信源呈 50% 主流媒体 + 30% Reddit + 20% 维基分布）；结合官网参数基建、权威发稿与联盟营销承接，7 天即可见购买转化。",
-      "refs": ["s6-zhongtianjiao", "s6-luhao"]
+      "refs": [
+        "s6-zhongtianjiao",
+        "s6-luhao"
+      ]
     },
     {
       "title": "GEO 迈入 Harness Agent 时代：非 JS 极简站 + MCP Server + Skill",
       "text": "68% 用户不再点击网页、81% 靠 AI 缩窄购买选择；随着 Coding / Claw / Work / Personal 四类 Agent 成为新入口，企业需做结论前置的非 JS 站点，并自建 MCP Server 开放私有服务与交易闭环。",
-      "refs": ["s6-lanshu", "s5-aj"]
+      "refs": [
+        "s6-lanshu",
+        "s5-aj"
+      ]
     },
     {
       "title": "2.3 亿次海外回答实证与科学增长：消除方差、跑通留存复利",
       "text": "低频采样会导致 23 倍误判，带自家品牌词提问会造成 15 倍误差；无论是海外 GEO 百次采样还是 AI 产品从前 100 陌生付费用户到 SEO 工具页矩阵，最终都要回到周度迭代与续费留存复利。",
-      "refs": ["s6-luhao", "s7-yubo", "s5-pengtao"]
+      "refs": [
+        "s6-luhao",
+        "s7-yubo",
+        "s5-pengtao"
+      ]
     },
     {
       "title": "AI 一人公司与 X 平台个人 SEO：真诚利他胜过矩阵薅流量",
       "text": "先以高质量提示词与开源 Skills 免费利他建立跨圈层口碑与全网“个人 SEO”标签，哪怕遭遇封号仍可依靠真实信任重启，进而自然承接品牌长期合作、企业软件定制与咨询变现。",
-      "refs": ["s7-berryxia", "s5-pengtao"]
+      "refs": [
+        "s7-berryxia",
+        "s5-pengtao"
+      ]
     }
   ],
   "crossDay": [
@@ -158,6 +180,13 @@
       "speaker": "Berryxia",
       "talkId": "s7-berryxia",
       "ts": "00:46:11"
+    },
+    {
+      "value": "21 张 vs 4–5 张",
+      "label": "拔刀刘实操课真机实测：百度文心平均单答露出 21 张商品卡，豆包/千问/元宝 4–5 张；DeepSeek 主动注入 site:zhihu.com",
+      "speaker": "拔刀刘",
+      "talkId": "s7-badaoliu-prac",
+      "ts": "15:28:00"
     }
   ],
   "quotes": [
@@ -208,6 +237,12 @@
       "speaker": "Berryxia",
       "talkId": "s7-berryxia",
       "ts": "00:51:46"
+    },
+    {
+      "text": "不要看量级，量不重要；用具体数字构造的事实就不是自吹，按缺口定向补量就不叫过度营销。",
+      "speaker": "姚金刚",
+      "talkId": "s6-qa-noon",
+      "ts": "13:02:00"
     }
   ]
 }

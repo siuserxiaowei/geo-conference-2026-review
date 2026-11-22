@@ -67,10 +67,10 @@ Day2 上午场① 在两位大会发起人的简短先导课开场后，由三�
 - **HTML 与安全细节**：Personal Agent 找酒店时自动跨渠道对比生成 5 家最优酒店的一次性 HTML 页面；收集信用卡等敏感信息时必须单独弹出 Vibe Coding 安全网页表单而非直接丢进聊天框。
 
 #### 1.3 现场资源与智能纪要差异核对
-- **现场公开资源**：个人主页 **`aaaaaaaaj.com`**（7 个 a 加 1 个 j），内置本次 72 页完整 HTML 版 PPT、审美偏好清单与开源 ADHD Skill、漫画日报 Skill；WaytoAGI 开源知识库（训练营只收作业不收费）及双周六视频号《未来微世界》直播。
+- **现场公开资源**：个人主页 **`aaaaaaaj.com`**（7 个 a 加 1 个 j），内置本次 72 页完整 HTML 版 PPT（`waytoagi.com/ai-capability-overflow`）、审美偏好清单与开源 ADHD Skill、漫画日报 Skill；WaytoAGI 开源知识库（`waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e`，训练营只收作业不收费）及双周六视频号《未来微世界》直播。
 - **与官方议程 / 智能纪要的重大差异**：
   1. **议程题目与实际演讲完全不同**：大会官网与先导课投影议程均写着《WaytoGrowth 海外营销增长策略》（头衔“WaytoAGI 发起人”），但 AJ 现场实际讲授的是全新总结型课件《能力溢出之后，我们做什么》（PPT 署名“WaytoAGI 创始人”）。
-  2. **人名与产品名纠偏**：智能纪要将 WaytoAGI 误识为谐音机构名（甚至拆出不同写法），未识别出她口述引用的 **Claude Fable 5.2（费马大定理 1000-Agent 案例）**、**Claude Opus 5.5**、**GPT-6 Astra**、**Seedance 2.5** 与 PPT 中的 **Dots（OpenAI Personal Agent）**、**Design.md 设计字典**、**ADHD Skill** 及 **aaaaaaaaj.com** 个人主页；并将 “OpenAI 5.5 是门槛”混写，实为 PPT 第 8 页明确标注的 `CLAUDE OPUS 5.5`。
+  2. **人名与产品名纠偏**：智能纪要将 WaytoAGI 误识为谐音机构名（甚至拆出不同写法），未识别出她口述引用的 **Claude Fable 5.2（费马大定理 1000-Agent 案例）**、**Claude Opus 5.5**、**GPT-6 Astra**、**Seedance 2.5** 与 PPT 中的 **Dots（OpenAI Personal Agent）**、**Design.md 设计字典**、**ADHD Skill** 及 **aaaaaaaj.com** 个人主页；并将 “OpenAI 5.5 是门槛”混写，实为 PPT 第 8 页明确标注的 `CLAUDE OPUS 5.5`。
   3. **多处细节遗漏**：智能纪要漏掉了 Livehouse 8 支乐队视觉黑客松、龙岗穹顶代码出片、外滩 1100 ㎡长屏演唱会、北京魔术 OPC 社区 8 层楼 100+ OPC、成都科梦 OPC 科幻联动以及“录音豆生成每日漫画日报”等鲜活一线案例。
 
 ---
