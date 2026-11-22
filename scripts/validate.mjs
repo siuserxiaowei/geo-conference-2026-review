@@ -6,6 +6,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const sessionsDir = path.join(rootDir, 'data', 'sessions');
 const synthesisPath = path.join(rootDir, 'data', 'synthesis.json');
+const mediaPath = path.join(rootDir, 'data', 'media.json');
+const agendaPath = path.join(rootDir, 'data', 'agenda.json');
+const photosPath = path.join(rootDir, 'data', 'photos.json');
+const bundlePath = path.join(rootDir, 'assets', 'data.js');
 
 const VALID_TOPIC_IDS = new Set([
   'value',
@@ -19,6 +23,9 @@ const VALID_TOPIC_IDS = new Set([
   'ai-trends',
   'compliance-evidence',
 ]);
+
+const WRONG_NAME_RE =
+  /张新敏|Oraka|戈飞|戈培|拔刀流|谭少青|邵青|Frobot|Flowbot|昌河|前白科技|艾琪|爱奇在线|安美琪|杨刚|陈征|沃东方|媒介侠|智能时代联合创始人|智能时代联创|姓名待核实|每日经济新闻孵化科技公司嘉宾/;
 
 const TS_RE = /^\d{2}:\d{2}:\d{2}$/;
 const errors = [];
@@ -45,6 +52,7 @@ for (const sid of sessionIds) {
     assert(Boolean(t.id), `Missing talk id in ${sid}`);
     assert(!talkIds.has(t.id), `Duplicate talk id: ${t.id}`);
     talkIds.add(t.id);
+    assert(Boolean(t.agendaSlot), `${t.id} missing agendaSlot`);
     assert(TS_RE.test(t.start || ''), `${t.id}.start invalid: "${t.start}"`);
     assert(TS_RE.test(t.end || ''), `${t.id}.end invalid: "${t.end}"`);
     assert(Array.isArray(t.tags) && t.tags.length >= 1 && t.tags.length <= 4, `${t.id}.tags count must be 1..4`);
@@ -54,6 +62,13 @@ for (const sid of sessionIds) {
     if (t.kind === 'talk' || t.kind === 'panel') {
       assert((t.keyPoints || []).length >= 8, `${t.id} (${t.kind}) keyPoints < 8 (${(t.keyPoints || []).length})`);
       assert((t.quotes || []).length >= 2, `${t.id} (${t.kind}) quotes < 2 (${(t.quotes || []).length})`);
+      assert(Array.isArray(t.narrative) && t.narrative.length >= 4, `${t.id} (${t.kind}) narrative < 4`);
+    } else {
+      assert(Array.isArray(t.narrative) && t.narrative.length >= 2, `${t.id} (${t.kind}) narrative < 2`);
+    }
+    for (const [i, nv] of (t.narrative || []).entries()) {
+      assert(Boolean(nv.heading && nv.text), `${t.id}.narrative[${i}] missing heading/text`);
+      assert(TS_RE.test(nv.ts || ''), `${t.id}.narrative[${i}].ts invalid: "${nv.ts}"`);
     }
     for (const [i, kp] of (t.keyPoints || []).entries()) {
       assert(TS_RE.test(kp.ts || ''), `${t.id}.keyPoints[${i}].ts invalid: "${kp.ts}"`);
@@ -121,7 +136,7 @@ if (fs.existsSync(synthesisPath)) {
     assert(TS_RE.test(q.ts || ''), `quotes[${i}] invalid ts: "${q.ts}"`);
   }
 
-  const ROUTE_RE = /^#\/(debates|quiz|methods|resources|checklist|quotes|glossary|topics|sessions)$/;
+  const ROUTE_RE = /^#\/(debates|quiz|methods|resources|checklist|quotes|glossary|topics|sessions|gallery)$/;
   assert((syn.paths || []).length === 3, `paths count must be 3, got ${(syn.paths || []).length}`);
   for (const p of syn.paths || []) {
     assert((p.steps || []).length >= 6 && (p.steps || []).length <= 10, `path ${p.id} steps must be 6..10`);
@@ -143,8 +158,78 @@ if (fs.existsSync(synthesisPath)) {
   assert((syn.checklist || []).length === 15, `checklist count must be 15, got ${(syn.checklist || []).length}`);
 }
 
+assert(fs.existsSync(mediaPath), 'Missing data/media.json');
+if (fs.existsSync(mediaPath)) {
+  const media = JSON.parse(fs.readFileSync(mediaPath, 'utf-8'));
+  assert(media.length === 16, `media count must be 16, got ${media.length}`);
+  for (const m of media) {
+    const abs = path.join(rootDir, m.file);
+    assert(fs.existsSync(abs), `media file missing on disk: ${m.file}`);
+    if (m.talkId) assert(talkIds.has(m.talkId), `media ${m.id} unknown talkId: ${m.talkId}`);
+  }
+}
+
+assert(fs.existsSync(agendaPath), 'Missing data/agenda.json');
+
+assert(fs.existsSync(photosPath), 'Missing data/photos.json');
+if (fs.existsSync(photosPath)) {
+  const photos = JSON.parse(fs.readFileSync(photosPath, 'utf-8'));
+  const items = photos.items || [];
+  assert(items.length > 0, 'data/photos.json items must be non-empty');
+  const speakerStageTalks = new Set();
+  const phoneRe = /1[3-9][0-9]{9}/;
+  for (const [i, p] of items.entries()) {
+    assert(Boolean(p.id && p.file && p.thumb), `photos[${i}] missing id/file/thumb`);
+    assert(fs.existsSync(path.join(rootDir, p.file)), `photo file missing on disk: ${p.file}`);
+    assert(fs.existsSync(path.join(rootDir, p.thumb)), `photo thumb missing on disk: ${p.thumb}`);
+    if (p.talkId) {
+      assert(talkIds.has(p.talkId), `photo ${p.id} unknown talkId: ${p.talkId}`);
+      if (p.kind === 'speaker' || p.kind === 'stage') {
+        speakerStageTalks.add(p.talkId);
+      }
+    }
+    const serializedItem = JSON.stringify(p);
+    assert(!phoneRe.test(serializedItem), `Privacy leak (phone number) in photo ${p.id}`);
+    assert(!WRONG_NAME_RE.test(serializedItem), `Forbidden legacy name in photo ${p.id}`);
+  }
+  for (const s of sessions) {
+    for (const t of s.talks || []) {
+      if (t.kind === 'talk' || t.kind === 'panel') {
+        assert(
+          speakerStageTalks.has(t.id),
+          `Formal talk/panel ${t.id} missing >=1 speaker or stage photo`
+        );
+      }
+    }
+  }
+}
+
+if (fs.existsSync(bundlePath)) {
+  const rawJs = fs.readFileSync(bundlePath, 'utf-8');
+  const prefix = 'window.GEO_DATA = ';
+  assert(rawJs.startsWith(prefix), 'assets/data.js missing window.GEO_DATA prefix');
+  if (rawJs.startsWith(prefix)) {
+    const payload = JSON.parse(rawJs.slice(prefix.length).replace(/;\s*$/, ''));
+    const clone = {
+      ...payload,
+      synthesis: {
+        ...payload.synthesis,
+        glossary: undefined,
+      },
+    };
+    const serialized = JSON.stringify(clone, null, 2);
+    for (const line of serialized.split('\n')) {
+      const m = line.match(WRONG_NAME_RE);
+      if (m) {
+        errors.push(`Forbidden legacy/wrong name "${m[0]}" found outside glossary in assets/data.js: ${line.trim().slice(0, 80)}`);
+      }
+    }
+  }
+}
+
 if (errors.length > 0) {
-  console.error('Validation failed:\n' + errors.map((e) => ` - ${e}`).join('\n'));
+  console.error('Validation failed:\n' + errors.slice(0, 30).map((e) => ` - ${e}`).join('\n'));
+  if (errors.length > 30) console.error(` ... and ${errors.length - 30} more errors`);
   process.exit(1);
 }
 
