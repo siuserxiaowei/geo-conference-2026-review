@@ -1,9 +1,10 @@
 {
   "source": "https://hui.ailingdaoli.com/",
-  "date": "2026-11-21",
-  "title": "DAY 1 · 11月21日官方议程",
+  "date": "2026-11-21 – 2026-11-22",
+  "title": "官方议程（Day 1 · 11月21日 / Day 2 · 11月22日）",
   "slots": [
     {
+      "day": 1,
       "slot": "08:30–08:45",
       "speaker": "姚金刚 · 乔向阳",
       "org": "大会发起人（GEOFlow创始人 / 知名AI自媒体人）",
@@ -12,6 +13,7 @@
       "talkId": null
     },
     {
+      "day": 1,
       "slot": "08:45–09:15",
       "speaker": "任强",
       "org": "北京日报社京报移动副总经理、北京日报智源GEO负责人",
@@ -20,6 +22,7 @@
       "talkId": "s1-renqiang"
     },
     {
+      "day": 1,
       "slot": "09:17–09:47",
       "speaker": "拔刀刘",
       "org": "AIDSO 爱搜 AI 合伙人",
@@ -28,6 +31,7 @@
       "talkId": "s1-badaoliu"
     },
     {
+      "day": 1,
       "slot": "09:49–10:19",
       "speaker": "张栖铭",
       "org": "BotLearn 联合创始人",
@@ -36,6 +40,7 @@
       "talkId": "s1-zhangxinmin"
     },
     {
+      "day": 1,
       "slot": "10:30–11:00",
       "speaker": "哥飞",
       "org": "海外 SEO 专家 ·「哥飞的朋友们」社群主理人",
@@ -44,6 +49,7 @@
       "talkId": "s2-gefei"
     },
     {
+      "day": 1,
       "slot": "11:02–11:32",
       "speaker": "谭少卿",
       "org": "Floatboat 创始人兼 CEO",
@@ -52,6 +58,7 @@
       "talkId": "s2-tanshaoqing"
     },
     {
+      "day": 1,
       "slot": "11:34–12:04",
       "speaker": "张伟方",
       "org": "宁波日报报业集团副总编辑、甬派董事长",
@@ -60,6 +67,7 @@
       "talkId": "s2-renzong"
     },
     {
+      "day": 1,
       "slot": "14:00–14:30",
       "speaker": "刘树勋",
       "org": "智推时代联合创始人",
@@ -68,6 +76,7 @@
       "talkId": "s3-1"
     },
     {
+      "day": 1,
       "slot": "14:32–15:02",
       "speaker": "艾奇先生",
       "org": "艾奇在线创始人 · 资深互联网营销实战专家",
@@ -76,6 +85,7 @@
       "talkId": "s3-2"
     },
     {
+      "day": 1,
       "slot": "15:04–15:34",
       "speaker": "苍何",
       "org": "微软 MVP · 前排 GEO 研究院主任 · AI KOL",
@@ -84,6 +94,7 @@
       "talkId": "s3-3"
     },
     {
+      "day": 1,
       "slot": "15:36–15:56",
       "speaker": "岳琦",
       "org": "每经科技首席产品官（每日经济新闻旗下）· 资深财经媒体人",
@@ -92,6 +103,7 @@
       "talkId": "s3-4"
     },
     {
+      "day": 1,
       "slot": "15:58–16:28",
       "speaker": "吕推、张莹莹、安美奇（主持：岳琦）",
       "org": "吕推：芥末推创始人 · 鲸戈环球创投董事长 / 张莹莹：成长最美创始人兼CEO · HOCOMO传媒创始人兼CEO / 安美奇：答案时代创始人 · 十年互联网营销增长操盘手",
@@ -100,6 +112,7 @@
       "talkId": "s3-panel"
     },
     {
+      "day": 1,
       "slot": "16:40–17:10",
       "speaker": "杨攀",
       "org": "Bilink 创始人",
@@ -108,6 +121,7 @@
       "talkId": "s4-yang-gang"
     },
     {
+      "day": 1,
       "slot": "17:12–17:42",
       "speaker": "高军",
       "org": "媒介匣创始人 & CEO",
@@ -116,6 +130,7 @@
       "talkId": "s4-gao-jun"
     },
     {
+      "day": 1,
       "slot": "17:44–18:14",
       "speaker": "陈峥",
       "org": "欧博东方 CEO",
@@ -124,12 +139,150 @@
       "talkId": "s4-chen-zheng"
     },
     {
+      "day": 1,
       "slot": "现场加场（5分钟/人）",
       "speaker": "周小乔 / 福波 / 周小鸟 / 杭州张总",
       "org": "云溪公司 / 阿里云万网·万小智 / 个人 / 杭州二次创业团队",
       "title": "现场 5 分钟快分享（4 位嘉宾）",
       "sessionId": "s4",
       "talkId": "s4-zhou-xiaoqiao"
+    },
+    {
+      "day": 2,
+      "slot": "08:30–08:45",
+      "speaker": "姚金刚 · 乔向阳",
+      "org": "大会发起人（GEOFlow创始人 / 知名AI自媒体人）",
+      "title": "先导课",
+      "sessionId": "s5",
+      "talkId": null,
+      "note": "开场大屏投影更新版日程（含下午实操与 17:50 答疑），见 s5 花絮"
+    },
+    {
+      "day": 2,
+      "slot": "08:45–09:17",
+      "speaker": "AJ",
+      "org": "WaytoAGI 发起人（PPT 署名：创始人）",
+      "title": "WaytoGrowth 海外营销增长策略",
+      "sessionId": "s5",
+      "talkId": "s5-aj",
+      "note": "现场实际讲授《能力溢出之后，我们做什么》"
+    },
+    {
+      "day": 2,
+      "slot": "09:17–09:49",
+      "speaker": "冷洪利",
+      "org": "曝光率GEO创始人",
+      "title": "豆包 GEO 信源建设之视频矩阵",
+      "sessionId": "s5",
+      "talkId": "s5-lenghongli",
+      "note": "现场 PPT 署名「光头牛哥 · 冷洪利」"
+    },
+    {
+      "day": 2,
+      "slot": "09:49–10:21",
+      "speaker": "彭涛",
+      "org": "HiAPI 创始人 & CEO",
+      "title": "AI 产品的海外增长策略",
+      "sessionId": "s5",
+      "talkId": "s5-pengtao"
+    },
+    {
+      "day": 2,
+      "slot": "10:21–10:51",
+      "speaker": "钟添娇",
+      "org": "41财经 & Winseed 创始人",
+      "title": "从流量争夺到答案争夺：AI时代品牌营销基础设施的重构",
+      "sessionId": "s6",
+      "talkId": "s6-zhongtianjiao"
+    },
+    {
+      "day": 2,
+      "slot": "11:01–11:33",
+      "speaker": "岚叔",
+      "org": "AI Agent 研发者 · 科技博主（官网标：大厂技术专家）",
+      "title": "交付即增长：AI 时代企业客户的另一条路",
+      "sessionId": "s6",
+      "talkId": "s6-lanshu",
+      "note": "现场 PPT 实讲题目：《GEO 的下一程：如何赢得 AI Agent 的选择》"
+    },
+    {
+      "day": 2,
+      "slot": "11:33–12:05",
+      "speaker": "路浩",
+      "org": "Dageno AI 联合创始人（官网标：创始人）",
+      "title": "如何通过数据驱动科学的GEO",
+      "sessionId": "s6",
+      "talkId": "s6-luhao",
+      "note": "现场 PPT 封面：《从 2.3 亿次 AI 回答里看海外 AI 到底怎么选品牌》"
+    },
+    {
+      "day": 2,
+      "slot": "12:44–13:44",
+      "speaker": "姚金刚 · 乔向阳等",
+      "org": "大会发起人及现场嘉宾",
+      "title": "中午高能实战答疑场（工业代理 / 过度营销 / 强合规脱敏 / 教育转白帽）",
+      "sessionId": "s6",
+      "talkId": "s6-qa-noon",
+      "note": "午休加场闭门答疑，已由开源精校全本（renzheng0415）补全精读"
+    },
+    {
+      "day": 2,
+      "slot": "12:05–12:35",
+      "speaker": "玉伯",
+      "org": "YouMind 创始人 & CEO",
+      "title": "内容创作型产品如何做增长",
+      "sessionId": "s7",
+      "talkId": "s7-yubo",
+      "note": "实际于下午 14:01 开讲（现场 PPT：《YouMind 的增长尝试之路》）"
+    },
+    {
+      "day": 2,
+      "slot": "14:00–14:32",
+      "speaker": "大尤",
+      "org": "大有可为创始人 · 《红利思维》作者",
+      "title": "中小企业 GEO 落地：从第一个场景到增长闭环",
+      "sessionId": "s7",
+      "talkId": null,
+      "note": "当日日程已调出：上午更新表及全天 453 张照片、录音均未见登台"
+    },
+    {
+      "day": 2,
+      "slot": "14:32–15:04",
+      "speaker": "Berryxia",
+      "org": "AI 博主 · 提示词小子",
+      "title": "从个人博主到商业闭环：X 上的 AI 内容变现全链路",
+      "sessionId": "s7",
+      "talkId": "s7-berryxia"
+    },
+    {
+      "day": 2,
+      "slot": "15:04–15:34",
+      "speaker": "余一、彭超、谭少卿",
+      "org": "HowOneAI 主理人 / 优码云CAO、火山核心开发者 / Floatboat 创始人",
+      "title": "圆桌分享",
+      "sessionId": "s7",
+      "talkId": null,
+      "note": "当日日程调整取消：14:58 主持宣布直接改入实操（全天照片无圆桌/彭超登台）"
+    },
+    {
+      "day": 2,
+      "slot": "15:45–16:45",
+      "speaker": "拔刀刘",
+      "org": "AIDSO 爱搜 AI 合伙人",
+      "title": "爱搜AI + GEO实操",
+      "sessionId": "s7",
+      "talkId": "s7-badaoliu-prac",
+      "note": "已由开源精校全本补全 15:10–16:08 四大模块实操精读，并联动 3 张现场实拍"
+    },
+    {
+      "day": 2,
+      "slot": "16:47–17:47",
+      "speaker": "谭少卿",
+      "org": "Floatboat 创始人兼 CEO",
+      "title": "Floatboat + GEO实操",
+      "sessionId": "s7",
+      "talkId": null,
+      "note": "实操课未提供录音 · 课件/录屏位预留（现场 16:09 提前开讲，图集已收实拍；17:50 答疑未提供录音）"
     }
   ]
 }

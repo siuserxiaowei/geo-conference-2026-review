@@ -2274,3 +2274,184 @@ a.tag:hover {
   font-weight: 600;
   color: var(--ink);
 }
+
+/* Day 2 Grouping, Filters, Agenda Notes & PPT Slot */
+.day-heading {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0.45rem 0.75rem;
+  margin: 0.85rem 0 0.75rem;
+  background: var(--paper-deep);
+  border-left: 3.5px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.day-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.day-filter-btn {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--paper-card);
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.day-filter-btn:hover {
+  border-color: var(--ink);
+}
+
+.day-filter-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper-card);
+}
+
+.agenda-note {
+  margin-top: 0.25rem;
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.d2-overview-card {
+  margin-bottom: 0.9rem;
+}
+
+.d2-note-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.d2-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+}
+
+.d2-theme-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.d2-theme-card p {
+  margin: 0 0 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.d2-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+.ppt-slot {
+  background: var(--paper-card);
+  border: 1.5px dashed var(--rule);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ppt-slot.is-ready {
+  border-style: solid;
+  border-color: rgba(200, 54, 29, 0.35);
+  box-shadow: var(--shadow);
+}
+
+.ppt-slot-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.ppt-slot-icon {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.ppt-slot-head strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.ppt-slot-note {
+  margin: 0.25rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.ppt-slot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ppt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.65rem;
+}
+
+.ppt-page-card {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+  aspect-ratio: 16 / 9;
+}
+
+.ppt-page-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ppt-page-num {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.35rem;
+  background: rgba(24, 21, 18, 0.72);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.1rem 0.38rem;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.ppt-grid:not(.is-expanded) .ppt-page-card.is-hidden-slide {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .d2-theme-grid,
+  .d2-practice-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -14,6 +14,8 @@
     media = [],
     agenda = { slots: [] },
     photos = { items: [] },
+    ppt = { items: {}, practice: [] },
+    day2 = null,
     generatedAt,
   } = DATA;
   const photoItems = photos.items || [];
@@ -29,6 +31,7 @@
       const talk = s.talks[i];
       TALK_MAP.set(talk.id, {
         ...talk,
+        day: s.day || 1,
         sessionId: s.id,
         sessionTitle: s.title,
         sessionSubtitle: s.subtitle,
@@ -42,6 +45,7 @@
     talk: '主题演讲',
     panel: '圆桌对话',
     lightning: '5分钟快分享',
+    qa: '实战答疑',
   };
 
   function esc(val) {
@@ -67,10 +71,18 @@
     }`;
   }
 
+  function talkRefAnchor(talk, ts, showPermHint) {
+    if (!talk || !ts) return '';
+    if (talk.sourceUrl) {
+      return `<a class="ts-link" href="${esc(talk.sourceUrl)}" target="_blank" rel="noopener" title="查看 GitHub 开源精校原文">📄 ${esc(talk.sourceLabel || '精校原文')} ${esc(ts)}</a>`;
+    }
+    return tsAnchor(talk.miaojiId, ts, showPermHint);
+  }
+
   function talkTsAnchor(talkId, ts, showPermHint) {
     const talk = TALK_MAP.get(talkId);
     if (!talk || !ts) return '';
-    return tsAnchor(talk.miaojiId, ts, showPermHint);
+    return talkRefAnchor(talk, ts, showPermHint);
   }
 
   function tagBadge(topicId) {
@@ -259,7 +271,7 @@
       label: '会议主干',
       items: [
         { route: '#/', label: '全景首页', badge: '总览' },
-        { route: '#/sessions', label: '四大场次', badge: `${TALK_MAP.size}讲` },
+        { route: '#/sessions', label: '场次（两天）', badge: `${TALK_MAP.size}讲` },
         { route: '#/topics', label: '十大主题', badge: `${synthesis.topics.length}` },
       ],
     },
@@ -390,6 +402,15 @@
       `${p.sessionId || ''} · ${p.photographer || ''}`
     );
   }
+  if (day2) {
+    for (const th of day2.themes || []) {
+      const firstRef = (th.refs || [])[0];
+      addIndex('Day2主线', th.title, th.text, firstRef ? `#/talk/${firstRef}` : '#/sessions', 'Day 2');
+    }
+    for (const q of day2.quotes || []) {
+      addIndex('Day2金句', `${q.speaker}（Day 2）`, q.text, q.talkId ? `#/talk/${q.talkId}` : '#/sessions', q.ts);
+    }
+  }
 
   function highlightMatch(text, query) {
     const q = query.trim();
@@ -500,6 +521,90 @@
       </figure>`;
   }
 
+  function renderPptSlot(t) {
+    const entry = (ppt.items || {})[t.id] || { status: 'pending' };
+    const slideCount = photoItems.filter((p) => p.talkId === t.id && p.kind === 'slide').length;
+    const extraLinksHtml = (entry.extraLinks || []).length
+      ? entry.extraLinks
+          .map(
+            (lk) =>
+              `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
+          )
+          .join('')
+      : '';
+
+    if (entry.status === 'ready') {
+      const hasPages = Array.isArray(entry.pages) && entry.pages.length > 0;
+      const previewLimit = 6;
+      const hasMore = hasPages && entry.pages.length > previewLimit;
+      return `
+      <section class="reveal reveal-d2">
+        <div class="section-head">
+          <h2>PPT 课件</h2>
+          <span class="section-sub">嘉宾已分享课件${hasPages ? ` · 共 ${entry.pages.length} 页` : ''}</span>
+        </div>
+        <div class="ppt-slot is-ready">
+          <div class="ppt-slot-head">
+            <span class="ppt-slot-icon" aria-hidden="true">📑</span>
+            <div>
+              <strong>${esc(entry.title || `${t.speaker} · 完整 PPT 课件`)}</strong>
+              ${entry.note ? `<p class="ppt-slot-note">${esc(entry.note)}</p>` : ''}
+            </div>
+          </div>
+          ${
+            hasPages
+              ? `<div class="ppt-grid" data-ppt-grid="${esc(t.id)}">
+                  ${entry.pages
+                    .map(
+                      (pg, idx) => `
+                    <figure class="ppt-page-card${idx >= previewLimit ? ' is-hidden-slide' : ''}">
+                      <img class="zoomable" src="${esc(pg)}" data-full="${esc(pg)}" alt="${esc(t.speaker)} PPT 第 ${idx + 1} 页" data-caption="${esc(t.speaker)} 课件第 ${idx + 1} / ${entry.pages.length} 页" loading="lazy" decoding="async">
+                      <span class="ppt-page-num">${String(idx + 1).padStart(2, '0')} / ${entry.pages.length}</span>
+                    </figure>`
+                    )
+                    .join('')}
+                </div>`
+              : ''
+          }
+          <div class="ppt-slot-actions">
+            ${
+              hasMore
+                ? `<button type="button" class="btn btn-outline ppt-toggle-btn" data-ppt-toggle="${esc(t.id)}" data-total="${entry.pages.length}">展开全部 ${entry.pages.length} 页课件 ↓</button>`
+                : ''
+            }
+            ${entry.url ? `<a class="btn btn-accent" href="${esc(entry.url)}" target="_blank" rel="noopener noreferrer">在线查看完整 PPT ↗</a>` : ''}
+            ${entry.pdf ? `<a class="btn ${entry.url ? 'btn-outline' : 'btn-accent'}" href="${esc(entry.pdf)}" target="_blank" rel="noopener noreferrer">下载完整 PDF ↗</a>` : ''}
+            ${extraLinksHtml}
+          </div>
+        </div>
+      </section>`;
+    }
+
+    return `
+      <section class="reveal reveal-d2">
+        <div class="section-head">
+          <h2>PPT 课件</h2>
+          <span class="section-sub">嘉宾授权后开放完整课件与 PDF 查阅</span>
+        </div>
+        <div class="ppt-slot">
+          <div class="ppt-slot-head">
+            <span class="ppt-slot-icon" aria-hidden="true">📎</span>
+            <div>
+              <strong>PPT 课件位 · 整理中（待嘉宾授权后上传）</strong>
+              <p class="ppt-slot-note">${
+                slideCount > 0
+                  ? `本页已收录现场大屏实拍 ${slideCount} 张，见上方现场照片。`
+                  : '完整现场实拍与导图请见上方图集。'
+              }</p>
+            </div>
+          </div>
+          <div class="ppt-slot-actions">
+            <button type="button" class="btn btn-outline" data-scroll-contact>有课件？联系作者补充</button>
+          </div>
+        </div>
+      </section>`;
+  }
+
   // Page Renderers
   function renderHome() {
     const { overview, dataWall, paths } = synthesis;
@@ -524,35 +629,108 @@
       }
     };
     tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s1-01')));
-    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s1-04')));
     tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s2-01')));
-    for (const sid of ['s1', 's2', 's3', 's4']) {
+    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s5-01')));
+    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s7-prac-02')));
+    for (const sid of sessions.map((s) => s.id)) {
       tryPushHighlight(
         photoItems.find((p) => p.sessionId === sid && (p.kind === 'panel' || p.kind === 'stage' || p.kind === 'speaker'))
       );
     }
-    tryPushHighlight(photoItems.find((p) => p.file.includes('scene-s4-05')));
     for (const p of photoItems) {
       if (highlightPool.length >= 8) break;
       tryPushHighlight(p);
     }
     const highlights = highlightPool.slice(0, 8);
+    const totalTalks = sessions.reduce((sum, s) => sum + (s.talks || []).length, 0);
+    const day1Sessions = sessions.filter((s) => (s.day || 1) === 1);
+    const day2Sessions = sessions.filter((s) => s.day === 2);
+    const day2Whiteboards = sessionWhiteboards.filter((m) => ['s5', 's6', 's7'].includes(m.sessionId));
+    const day1Slots = (agenda.slots || []).filter((r) => (r.day || 1) === 1);
+    const day2Slots = (agenda.slots || []).filter((r) => r.day === 2);
+
+    const renderAgendaTable = (rows) => `
+      <div class="table-wrap">
+        <table class="agenda-table">
+          <thead>
+            <tr>
+              <th>议程时段</th>
+              <th>嘉宾</th>
+              <th>官方身份</th>
+              <th>官方分享题目</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows
+              .map((row) => {
+                const target = row.talkId ? `#/talk/${row.talkId}` : '#/sessions';
+                return `
+                <tr class="is-clickable" onclick="location.hash='${esc(target)}'">
+                  <td class="agenda-slot">${esc(row.slot)}</td>
+                  <td style="font-weight:700;white-space:nowrap"><a href="${esc(target)}">${esc(row.speaker)}</a></td>
+                  <td style="color:var(--muted);font-size:0.84rem">${esc(row.org)}</td>
+                  <td>
+                    <a href="${esc(target)}" style="font-weight:500">${esc(row.title)}</a>
+                    ${row.note ? `<div class="agenda-note">${esc(row.note)}</div>` : ''}
+                  </td>
+                </tr>`;
+              })
+              .join('')}
+          </tbody>
+        </table>
+      </div>`;
+
+    const renderSessionTimelineBlock = (s) => `
+      <div class="session-block">
+        <div class="session-banner">
+          <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
+          <span class="session-banner-meta">${esc(s.time)} · ${(s.talks || []).length} 场</span>
+        </div>
+        <div class="talk-grid">
+          ${(s.talks || [])
+            .map((t) => {
+              const av = speakerPortrait(t.id);
+              const hasPpt = (ppt.items || {})[t.id]?.status === 'ready';
+              return `
+            <a class="card card-link" href="#/talk/${esc(t.id)}">
+              <div class="talk-card-top">
+                <span class="talk-speaker-wrap">
+                  ${av ? `<img class="talk-avatar" src="${esc(av.thumb)}" alt="${esc(t.speaker)}" loading="lazy" decoding="async">` : ''}
+                  <span class="talk-speaker">${esc(t.speaker)}</span>
+                </span>
+                <div style="display:flex;gap:0.25rem;align-items:center">
+                  ${hasPpt ? '<span class="tag tag-ok">含PPT</span>' : ''}
+                  ${kindBadge(t.kind)}
+                </div>
+              </div>
+              <div class="talk-org">${esc(t.org)}</div>
+              <div style="font-weight:600;font-size:0.9rem;margin:0.2rem 0">${esc(t.title)}</div>
+              <p class="talk-oneliner" style="color:var(--muted)">${esc(t.oneLiner)}</p>
+              <div class="talk-card-top">
+                <span class="talk-time">议程 ${esc(t.agendaSlot || '')} · 录音 ${esc(t.start)}–${esc(t.end)}</span>
+                ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">待核实</span>' : ''}
+              </div>
+            </a>`;
+            })
+            .join('')}
+        </div>
+      </div>`;
 
     return `
     <div class="page-wide">
       <header class="masthead reveal">
         <div class="masthead-kicker">
-          <span>2026·11·21 · 深圳</span>
+          <span>2026·11·21–22 · 深圳</span>
           <span>第二届中国 GEO 大会</span>
-          <span>官网议程校准 · 逐字稿精读 · 飞书导图</span>
+          <span>官网议程校准 · 逐字稿精读 · 飞书导图 · 现场实拍</span>
         </div>
         <h1>${esc(overview.title)}</h1>
         <p class="masthead-sub">${esc(overview.subtitle)} — ${esc(overview.positioning)}</p>
 
         <div class="facts-strip">
-          <div class="fact-cell"><div class="fact-label">时间</div><div class="fact-val">${esc(overview.date)}</div></div>
+          <div class="fact-cell"><div class="fact-label">时间（两天全覆盖）</div><div class="fact-val">2026 年 11 月 21–22 日（Day 1 + Day 2）</div></div>
           <div class="fact-cell"><div class="fact-label">参会规模</div><div class="fact-val">${esc(overview.scale)}</div></div>
-          <div class="fact-cell"><div class="fact-label">内容覆盖</div><div class="fact-val">${esc(overview.guestCount)}</div></div>
+          <div class="fact-cell"><div class="fact-label">内容覆盖</div><div class="fact-val">共 ${sessions.length} 大场次 ${totalTalks} 讲（Day 1 ${sessions.filter((s) => (s.day || 1) === 1).reduce((n, s) => n + s.talks.length, 0)} 讲 + Day 2 ${sessions.filter((s) => s.day === 2).reduce((n, s) => n + s.talks.length, 0)} 讲）· ${Object.values(ppt.items || {}).filter((x) => x.status === 'ready').length} 份完整课件 · ${media.length} 张导图配图 · ${photoItems.length} 张实拍</div></div>
           <div class="fact-cell"><div class="fact-label">会前收集 &amp; 下一站</div><div class="fact-val">${esc(overview.preQuestionsCount)} · ${esc(overview.nextEdition)}</div></div>
         </div>
 
@@ -590,8 +768,8 @@
 
       <section class="reveal reveal-d1">
         <div class="section-head">
-          <h2>5 分钟看懂今天</h2>
-          <span class="section-sub">先建立全景认知，再按路径深挖</span>
+          <h2>5 分钟看懂 Day 1</h2>
+          <span class="section-sub">先建立 Day 1 全景认知，再按路径深挖</span>
         </div>
         <div class="five-grid">
           ${fiveMinuteSummary
@@ -607,42 +785,115 @@
         </div>
       </section>
 
+      ${
+        day2
+          ? `<section class="reveal reveal-d1" id="day2Section">
+              <div class="section-head">
+                <h2>Day 2 · 11月22日</h2>
+                <a class="tag tag-accent" href="#/sessions">进入 Day 2 场次 →</a>
+              </div>
+              <div class="card d2-overview-card">
+                <div class="talk-card-top">
+                  <strong style="font-family:var(--font-serif);font-size:1.1rem">${esc(day2.overview.title)}</strong>
+                  <span class="tag tag-accent">${esc(day2.overview.recorded)}</span>
+                </div>
+                <p style="margin:0.45rem 0 0.55rem;font-size:0.9rem;color:var(--muted)">${esc(day2.overview.date)} · ${esc(day2.overview.practice)}</p>
+                ${
+                  (day2.overview.notRecorded || []).length
+                    ? `<ul class="d2-note-list">${day2.overview.notRecorded.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>`
+                    : ''
+                }
+                ${
+                  day2.overview.fullTranscriptRepo
+                    ? `<div class="ppt-slot-actions" style="margin-top:0.65rem">
+                        <a class="btn btn-outline" href="${esc(day2.overview.fullTranscriptRepo.url)}" target="_blank" rel="noopener noreferrer">${esc(day2.overview.fullTranscriptRepo.label)}</a>
+                        <a class="btn btn-outline" href="#/talk/s6-qa-noon">查看中午高能实战答疑 →</a>
+                        <a class="btn btn-outline" href="#/talk/s7-badaoliu-prac">查看拔刀刘下午实操课 →</a>
+                      </div>`
+                    : ''
+                }
+              </div>
+
+              <div class="d2-theme-grid">
+                ${(day2.themes || [])
+                  .map(
+                    (th, idx) => `
+                  <article class="card d2-theme-card">
+                    <div class="five-num">${String(idx + 1).padStart(2, '0')}</div>
+                    <h3>${esc(th.title)}</h3>
+                    <p>${esc(th.text)}</p>
+                    <div class="tag-row">
+                      ${(th.refs || [])
+                        .map((rid) => {
+                          const tk = TALK_MAP.get(rid);
+                          return tk ? `<a class="tag" href="#/talk/${esc(rid)}">${esc(tk.speaker)} →</a>` : '';
+                        })
+                        .join('')}
+                    </div>
+                  </article>`
+                  )
+                  .join('')}
+              </div>
+
+              ${
+                day2Whiteboards.length
+                  ? `<div class="wb-grid" style="margin-top:0.9rem">
+                      ${day2Whiteboards.map((m) => renderMediaCard(m, true)).join('')}
+                    </div>`
+                  : ''
+              }
+
+              ${
+                (ppt.practice || []).length
+                  ? `<div style="margin-top:1rem">
+                      <div class="day-heading">Day 2 下午两场 GEO 实操课（精读与课件/录屏位）</div>
+                      <div class="d2-practice-grid">
+                        ${ppt.practice
+                          .map(
+                            (pr) => `
+                          <div class="ppt-slot${pr.status === 'ready' ? ' is-ready' : ''}">
+                            <div class="ppt-slot-head">
+                              <span class="ppt-slot-icon" aria-hidden="true">🛠️</span>
+                              <div>
+                                <strong>${esc(pr.title)} · ${esc(pr.speaker)}</strong>
+                                <p class="ppt-slot-note">${esc(pr.slot)} · ${esc(pr.note || '实操课未提供录音 · 课件/录屏位预留（现场实拍见下方图集）')}</p>
+                              </div>
+                            </div>
+                            <div class="ppt-slot-actions">
+                              ${pr.talkId ? `<a class="btn btn-accent" href="#/talk/${esc(pr.talkId)}">查看实操课完整精读 →</a>` : ''}
+                              ${(pr.extraLinks || [])
+                                .map(
+                                  (lk) =>
+                                    `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
+                                )
+                                .join('')}
+                              ${pr.status === 'ready' ? '' : '<button type="button" class="btn btn-outline" data-scroll-contact>补充实操课件/录屏</button>'}
+                            </div>
+                          </div>`
+                          )
+                          .join('')}
+                      </div>
+                    </div>`
+                  : ''
+              }
+            </section>`
+          : ''
+      }
+
       <section class="reveal reveal-d2">
         <div class="section-head">
-          <h2>官方议程（Day 1 · 11月21日）</h2>
+          <h2>${esc(agenda.title || '官方议程（两天总览）')}</h2>
           <a class="tag" href="${esc(agenda.source)}" target="_blank" rel="noopener">官网来源：hui.ailingdaoli.com ↗</a>
         </div>
-        <div class="table-wrap">
-          <table class="agenda-table">
-            <thead>
-              <tr>
-                <th>议程时段</th>
-                <th>嘉宾</th>
-                <th>官方身份</th>
-                <th>官方分享题目</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${(agenda.slots || [])
-                .map((row) => {
-                  const target = row.talkId ? `#/talk/${row.talkId}` : '#/sessions';
-                  return `
-                  <tr class="is-clickable" onclick="location.hash='${esc(target)}'">
-                    <td class="agenda-slot">${esc(row.slot)}</td>
-                    <td style="font-weight:700;white-space:nowrap"><a href="${esc(target)}">${esc(row.speaker)}</a></td>
-                    <td style="color:var(--muted);font-size:0.84rem">${esc(row.org)}</td>
-                    <td><a href="${esc(target)}" style="font-weight:500">${esc(row.title)}</a></td>
-                  </tr>`;
-                })
-                .join('')}
-            </tbody>
-          </table>
-        </div>
+        <div class="day-heading">Day 1 · 11月21日（周六）</div>
+        ${renderAgendaTable(day1Slots)}
+        <div class="day-heading" style="margin-top:1.25rem">Day 2 · 11月22日（周日）</div>
+        ${renderAgendaTable(day2Slots)}
       </section>
 
       <section class="reveal reveal-d3">
         <div class="section-head">
-          <h2>飞书 AI 总结导图（4 场总览）</h2>
+          <h2>飞书 AI 总结导图（${sessionWhiteboards.length} 场总览）</h2>
           <a class="tag tag-accent" href="#/gallery">查看全部 ${media.length + photoItems.length} 张图集 →</a>
         </div>
         <div class="wb-grid">
@@ -693,44 +944,17 @@
 
       <section class="reveal reveal-d4">
         <div class="section-head">
-          <h2>全天时间轴 · 四大场次 18 场分享</h2>
+          <h2>两天时间轴 · ${sessions.length} 大场次 ${totalTalks} 场分享</h2>
           <a class="tag" href="#/sessions">查看场次导图与主持串场 →</a>
         </div>
-        ${sessions
-          .map(
-            (s) => `
-          <div class="session-block">
-            <div class="session-banner">
-              <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
-              <span class="session-banner-meta">${esc(s.time)} · ${(s.talks || []).length} 场</span>
-            </div>
-            <div class="talk-grid">
-              ${(s.talks || [])
-                .map((t) => {
-                  const av = speakerPortrait(t.id);
-                  return `
-                <a class="card card-link" href="#/talk/${esc(t.id)}">
-                  <div class="talk-card-top">
-                    <span class="talk-speaker-wrap">
-                      ${av ? `<img class="talk-avatar" src="${esc(av.thumb)}" alt="${esc(t.speaker)}" loading="lazy" decoding="async">` : ''}
-                      <span class="talk-speaker">${esc(t.speaker)}</span>
-                    </span>
-                    ${kindBadge(t.kind)}
-                  </div>
-                  <div class="talk-org">${esc(t.org)}</div>
-                  <div style="font-weight:600;font-size:0.9rem;margin:0.2rem 0">${esc(t.title)}</div>
-                  <p class="talk-oneliner" style="color:var(--muted)">${esc(t.oneLiner)}</p>
-                  <div class="talk-card-top">
-                    <span class="talk-time">议程 ${esc(t.agendaSlot || '')} · 录音 ${esc(t.start)}–${esc(t.end)}</span>
-                    ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">待核实</span>' : ''}
-                  </div>
-                </a>`;
-                })
-                .join('')}
-            </div>
-          </div>`
-          )
-          .join('')}
+        <div class="day-heading">Day 1 · 11月21日（周六）· ${day1Sessions.length} 场</div>
+        ${day1Sessions.map(renderSessionTimelineBlock).join('')}
+        ${
+          day2Sessions.length
+            ? `<div class="day-heading" style="margin-top:1.5rem">Day 2 · 11月22日（周日）· ${day2Sessions.length} 场</div>
+               ${day2Sessions.map(renderSessionTimelineBlock).join('')}`
+            : ''
+        }
       </section>
 
       <section class="reveal reveal-d4">
@@ -777,24 +1001,22 @@
   }
 
   function renderSessions() {
-    return `
-    <div class="page-wide">
-      <div class="page-header reveal">
-        <div class="page-kicker">全天四大场次 · 飞书画板导图 + 嘉宾列表</div>
-        <h1>场次与嘉宾目录</h1>
-        <p class="page-desc">共收录 4 场 18 个讲者单元（13 场主题演讲 + 1 场三人圆桌 + 4 位五分钟快分享）。每场先提供飞书智能纪要总结导图（可点击放大），展开「串联与花絮」可查看先导课与现场细节。<span class="ts-perm-note">▶ 时间戳需飞书权限</span></p>
-      </div>
-      ${sessions
-        .map((s) => {
-          const wb = media.find((m) => m.sessionId === s.id && m.kind === 'whiteboard' && !m.talkId);
-          const cover =
-            photoItems.find((p) => p.sessionId === s.id && p.kind === 'scene') ||
-            photoItems.find((p) => p.sessionId === s.id && (p.kind === 'panel' || p.kind === 'stage' || p.kind === 'speaker'));
-          return `
-        <section class="session-block reveal">
+    const totalTalks = sessions.reduce((sum, s) => sum + (s.talks || []).length, 0);
+    const dayGroups = [
+      { day: 1, label: 'Day 1 · 11月21日（周六）', list: sessions.filter((s) => (s.day || 1) === 1) },
+      { day: 2, label: 'Day 2 · 11月22日（周日）', list: sessions.filter((s) => s.day === 2) },
+    ].filter((g) => g.list.length > 0);
+
+    const renderSessionCard = (s) => {
+      const wb = media.find((m) => m.sessionId === s.id && m.kind === 'whiteboard' && !m.talkId);
+      const cover =
+        photoItems.find((p) => p.sessionId === s.id && p.kind === 'scene') ||
+        photoItems.find((p) => p.sessionId === s.id && (p.kind === 'panel' || p.kind === 'stage' || p.kind === 'speaker'));
+      return `
+        <section class="session-block reveal" data-day="${s.day || 1}">
           <div class="session-banner">
             <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
-            <span class="session-banner-meta">${esc(s.time)} · 妙记 ${esc(s.miaojiId)}</span>
+            <span class="session-banner-meta">${esc(s.date || '')} ${esc(s.time)} · 妙记 ${esc(s.miaojiId)}</span>
           </div>
           ${
             wb || cover
@@ -857,6 +1079,7 @@
             ${(s.talks || [])
               .map((t) => {
                 const av = speakerPortrait(t.id);
+                const hasPpt = (ppt.items || {})[t.id]?.status === 'ready';
                 return `
               <article class="card card-link" onclick="location.hash='#/talk/${esc(t.id)}'" style="cursor:pointer">
                 <div class="talk-card-top">
@@ -865,6 +1088,7 @@
                     <a class="talk-speaker" href="#/talk/${esc(t.id)}">${esc(t.speaker)}</a>
                   </span>
                   <div style="display:flex;gap:0.3rem;align-items:center">
+                    ${hasPpt ? '<span class="tag tag-ok">含PPT</span>' : ''}
                     ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">待核实</span>' : ''}
                     ${kindBadge(t.kind)}
                   </div>
@@ -881,7 +1105,28 @@
               .join('')}
           </div>
         </section>`;
-        })
+    };
+
+    return `
+    <div class="page-wide">
+      <div class="page-header reveal">
+        <div class="page-kicker">两天共 ${sessions.length} 大场次 · 飞书画板导图 + 嘉宾列表</div>
+        <h1>场次与嘉宾目录</h1>
+        <p class="page-desc">共收录两天 ${sessions.length} 场 ${totalTalks} 个讲者单元（Day 1 共 4 场 ${sessions.filter((s) => (s.day || 1) === 1).reduce((n, s) => n + s.talks.length, 0)} 讲 + Day 2 共 3 场 ${sessions.filter((s) => s.day === 2).reduce((n, s) => n + s.talks.length, 0)} 讲）。每场提供飞书总结导图与现场封面（点击可放大），展开「串联与花絮」可查看先导课与现场议程变动。<span class="ts-perm-note">▶ 时间戳需飞书权限</span></p>
+        <div class="day-filter" role="group" aria-label="按日期筛选场次">
+          <button type="button" class="day-filter-btn is-active" data-day-filter="all">全部（${sessions.length} 场）</button>
+          <button type="button" class="day-filter-btn" data-day-filter="1">Day 1 · 11/21（${dayGroups[0]?.list.length || 0} 场）</button>
+          <button type="button" class="day-filter-btn" data-day-filter="2">Day 2 · 11/22（${dayGroups[1]?.list.length || 0} 场）</button>
+        </div>
+      </div>
+      ${dayGroups
+        .map(
+          (g) => `
+        <div class="day-group" data-day="${g.day}">
+          <div class="day-heading">${esc(g.label)}</div>
+          ${g.list.map(renderSessionCard).join('')}
+        </div>`
+        )
         .join('')}
     </div>`;
   }
@@ -1002,9 +1247,9 @@
             ${kindBadge(t.kind)}
             ${t.agendaSlot ? `<span class="tag">议程 ${esc(t.agendaSlot)}</span>` : ''}
             ${t.nameConfidence !== 'high' ? '<span class="tag tag-warn">部分信息待核实</span>' : ''}
-            ${tsAnchor(t.miaojiId, t.start, true)}
+            ${talkRefAnchor(t, t.start, true)}
           </div>
-          <span class="talk-time">录音 ${esc(t.start)} – ${esc(t.end)}</span>
+          <span class="talk-time">${t.sourceUrl ? '实录' : '录音'} ${esc(t.start)} – ${esc(t.end)}</span>
         </div>
         <div class="talk-hero-head">
           ${
@@ -1050,7 +1295,7 @@
                         <span class="nar-idx">${String(idx + 1).padStart(2, '0')}</span>
                         <strong>${esc(nv.heading)}</strong>
                       </div>
-                      ${tsAnchor(t.miaojiId, nv.ts, false)}
+                      ${talkRefAnchor(t, nv.ts, false)}
                     </div>
                     ${formatNarrative(nv.text)}
                   </article>`
@@ -1092,10 +1337,12 @@
           : ''
       }
 
+      ${renderPptSlot(t)}
+
       <section class="reveal reveal-d3">
         <div class="section-head">
           <h2>核心要点（${(t.keyPoints || []).length}）</h2>
-          <span class="section-sub">点击 ▶ 时间戳跳原声（需飞书权限）</span>
+          <span class="section-sub">${t.sourceUrl ? '点击 📄 徽标直达 GitHub 开源精校原文' : '点击 ▶ 时间戳跳原声（需飞书权限）'}</span>
         </div>
         <ol class="kp-list">
           ${(t.keyPoints || [])
@@ -1105,7 +1352,7 @@
               <span class="kp-idx">${String(idx + 1).padStart(2, '0')}</span>
               <div class="kp-body">
                 <span>${esc(kp.text)}</span>
-                <span style="margin-left:0.35rem">${tsAnchor(t.miaojiId, kp.ts, false)}</span>
+                <span style="margin-left:0.35rem">${talkRefAnchor(t, kp.ts, false)}</span>
               </div>
             </li>`
             )
@@ -1149,7 +1396,7 @@
                     </div>
                     <div class="data-foot">
                       <span>数据锚点</span>
-                      ${tsAnchor(t.miaojiId, d.ts, false)}
+                      ${talkRefAnchor(t, d.ts, false)}
                     </div>
                   </div>`
                   )
@@ -1170,7 +1417,7 @@
                   <div class="card" id="case-${idx}">
                     <div class="talk-card-top">
                       <strong>${esc(c.title)}</strong>
-                      ${tsAnchor(t.miaojiId, c.ts, false)}
+                      ${talkRefAnchor(t, c.ts, false)}
                     </div>
                     <p style="margin:0.35rem 0 0;font-size:0.92rem">${esc(c.detail)}</p>
                   </div>`
@@ -1197,7 +1444,7 @@
                     <p class="quote-text">${esc(q.text)}</p>
                     <div class="quote-foot">
                       <span>点击复制原话</span>
-                      <span onclick="event.stopPropagation()">${tsAnchor(t.miaojiId, q.ts, false)}</span>
+                      <span onclick="event.stopPropagation()">${talkRefAnchor(t, q.ts, false)}</span>
                     </div>
                   </div>`
                   )
@@ -1218,7 +1465,7 @@
                   <div class="card">
                     <div class="talk-card-top">
                       <span class="tag tag-accent">Q 现场提问</span>
-                      ${tsAnchor(t.miaojiId, item.ts, false)}
+                      ${talkRefAnchor(t, item.ts, false)}
                     </div>
                     <p style="font-weight:600;margin:0.45rem 0">${esc(item.q)}</p>
                     <p style="margin:0;font-size:0.92rem;color:var(--muted)"><strong style="color:var(--ink)">A：</strong>${esc(item.a)}</p>
@@ -1241,6 +1488,7 @@
                   <div class="card">
                     <strong>${esc(r.item)}</strong>
                     <p style="margin:0.3rem 0 0;font-size:0.9rem;color:var(--muted)">${esc(r.how)}</p>
+                    ${r.url ? `<div style="margin-top:0.45rem"><a class="tag tag-accent" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">打开链接 ↗</a></div>` : ''}
                   </div>`
                   )
                   .join('')}
@@ -1299,34 +1547,47 @@
   }
 
   function renderGallery() {
+    const wbCount = media.filter((m) => m.kind === 'whiteboard').length;
+    const figCount = media.filter((m) => m.kind === 'figure').length;
+    const dayGroups = [
+      { day: 1, label: 'Day 1 · 11月21日（周六）', list: sessions.filter((s) => (s.day || 1) === 1) },
+      { day: 2, label: 'Day 2 · 11月22日（周日）', list: sessions.filter((s) => s.day === 2) },
+    ].filter((g) => g.list.length > 0);
+
     return `
     <div class="page-wide">
       <div class="page-header reveal">
         <div class="page-kicker">可视化资产全览 · ${media.length} 张飞书导图/配图 + ${photoItems.length} 张现场直拍照片</div>
         <h1>导图与现场图集（${media.length + photoItems.length}）</h1>
-        <p class="page-desc">上方汇总全天四场飞书智能纪要生成的总结画板导图及关键图表（注：飞书 AI 原生图中个别音译误词如“绩优/GU”请结合站内文本对照）；下方收录精选大会现场照片与高清 PPT 大屏文字摘录。<span class="ts-perm-note">点击任意图片可打开高清大图缩放</span></p>
+        <p class="page-desc">上方汇总两天 ${sessions.length} 场飞书智能纪要生成的总结画板导图及关键图表（注：飞书 AI 原生图中个别音译误词如“绩优/GU”请结合站内文本对照）；下方收录精选两天大会现场照片与高清 PPT 大屏文字摘录。<span class="ts-perm-note">点击任意图片可打开高清大图缩放</span></p>
       </div>
 
       <section class="reveal">
         <div class="section-head">
           <h2>一、飞书总结导图与 AI 配图（${media.length}）</h2>
-          <span class="section-sub">5 张总结导图 + 11 张分主题图解</span>
+          <span class="section-sub">${wbCount} 张总结导图 + ${figCount} 张分主题图解</span>
         </div>
-        ${sessions
-          .map((s) => {
-            const items = media.filter((m) => m.sessionId === s.id);
-            if (!items.length) return '';
-            return `
-            <div class="session-block">
-              <div class="session-banner">
-                <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
-                <span class="session-banner-meta">${items.length} 张图表</span>
-              </div>
-              <div class="figure-grid">
-                ${items.map((m) => renderMediaCard(m, m.kind === 'whiteboard')).join('')}
-              </div>
-            </div>`;
-          })
+        ${dayGroups
+          .map(
+            (g) => `
+          <div class="day-heading">${esc(g.label)}</div>
+          ${g.list
+            .map((s) => {
+              const items = media.filter((m) => m.sessionId === s.id);
+              if (!items.length) return '';
+              return `
+              <div class="session-block">
+                <div class="session-banner">
+                  <span class="session-banner-title">${esc(s.title)} · ${esc(s.subtitle)}</span>
+                  <span class="session-banner-meta">${items.length} 张图表</span>
+                </div>
+                <div class="figure-grid">
+                  ${items.map((m) => renderMediaCard(m, m.kind === 'whiteboard')).join('')}
+                </div>
+              </div>`;
+            })
+            .join('')}`
+          )
           .join('')}
       </section>
 
@@ -1335,24 +1596,30 @@
           ? `<section class="reveal reveal-d1" style="margin-top:2rem">
               <div class="section-head">
                 <h2>二、现场照片（${photoItems.length}）</h2>
-                <span class="section-sub">按四大场次归档 · 含讲者特写、PPT 大屏与全场实景</span>
+                <span class="section-sub">按两天 ${sessions.length} 大场次归档 · 含讲者特写、PPT 大屏与全场实景</span>
               </div>
               ${renderPhotoCredit()}
-              ${sessions
-                .map((s) => {
-                  const sPhotos = photoItems.filter((p) => p.sessionId === s.id);
-                  if (!sPhotos.length) return '';
-                  return `
-                  <div class="session-block" style="margin-top:1rem">
-                    <div class="session-banner">
-                      <span class="session-banner-title">${esc(s.title)} · 现场直拍</span>
-                      <span class="session-banner-meta">${sPhotos.length} 张精选 · ${esc(s.time)}</span>
-                    </div>
-                    <div class="photo-grid">
-                      ${sPhotos.map((p) => renderPhotoCard(p, true)).join('')}
-                    </div>
-                  </div>`;
-                })
+              ${dayGroups
+                .map(
+                  (g) => `
+                <div class="day-heading" style="margin-top:1.25rem">${esc(g.label)}</div>
+                ${g.list
+                  .map((s) => {
+                    const sPhotos = photoItems.filter((p) => p.sessionId === s.id);
+                    if (!sPhotos.length) return '';
+                    return `
+                    <div class="session-block" style="margin-top:1rem">
+                      <div class="session-banner">
+                        <span class="session-banner-title">${esc(s.title)} · 现场直拍</span>
+                        <span class="session-banner-meta">${sPhotos.length} 张精选 · ${esc(s.time)}</span>
+                      </div>
+                      <div class="photo-grid">
+                        ${sPhotos.map((p) => renderPhotoCard(p, true)).join('')}
+                      </div>
+                    </div>`;
+                  })
+                  .join('')}`
+                )
                 .join('')}
             </section>`
           : ''
@@ -1786,7 +2053,16 @@
                 </div>
                 <div class="talk-org">提供方：${esc(r.provider)}</div>
                 <p style="font-size:0.88rem;margin:0.4rem 0 0.65rem">${esc(r.how)}</p>
-                ${r.talkId ? `<a class="tag tag-accent" href="#/talk/${esc(r.talkId)}">查看对应演讲 →</a>` : ''}
+                <div class="ppt-slot-actions">
+                  ${r.url ? `<a class="btn btn-accent" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.linkLabel || '直达链接 ↗')}</a>` : ''}
+                  ${(r.extraLinks || [])
+                    .map(
+                      (lk) =>
+                        `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
+                    )
+                    .join('')}
+                  ${r.talkId ? `<a class="btn btn-outline" href="#/talk/${esc(r.talkId)}">查看对应演讲 →</a>` : ''}
+                </div>
               </article>`
               )
               .join('')}
@@ -1957,6 +2233,18 @@
       return;
     }
 
+    const dayFilterBtn = e.target.closest('[data-day-filter]');
+    if (dayFilterBtn) {
+      const targetDay = dayFilterBtn.getAttribute('data-day-filter');
+      document.querySelectorAll('.day-filter-btn').forEach((btn) => {
+        btn.classList.toggle('is-active', btn === dayFilterBtn);
+      });
+      document.querySelectorAll('.day-group[data-day]').forEach((grp) => {
+        grp.hidden = targetDay !== 'all' && grp.getAttribute('data-day') !== targetDay;
+      });
+      return;
+    }
+
     const toggleDataBtn = e.target.closest('#toggleAllDataBtn');
     if (toggleDataBtn) {
       const cur = loadState('homeShowAllData', false);
@@ -2116,6 +2404,19 @@
   document.addEventListener('click', (e) => {
     if (!e.target.closest('#searchWrap')) {
       searchResults.hidden = true;
+    }
+
+    const pptToggle = e.target.closest('[data-ppt-toggle]');
+    if (pptToggle) {
+      e.preventDefault();
+      const tid = pptToggle.getAttribute('data-ppt-toggle');
+      const total = pptToggle.getAttribute('data-total') || '';
+      const grid = document.querySelector(`.ppt-grid[data-ppt-grid="${tid}"]`);
+      if (grid) {
+        const expanded = grid.classList.toggle('is-expanded');
+        pptToggle.textContent = expanded ? '收起多余页面 ↑' : `展开全部 ${total} 页课件 ↓`;
+      }
+      return;
     }
 
     const scrollBtn = e.target.closest('[data-scroll-contact]');

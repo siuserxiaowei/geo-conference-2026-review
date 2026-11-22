@@ -1,0 +1,281 @@
+{
+  "note": "PPT 课件位：嘉宾授权后上传。把导出图片放入 assets/ppt/<talkId>/ 并把 status 改为 ready",
+  "items": {
+    "s1-renqiang": {
+      "status": "pending"
+    },
+    "s1-badaoliu": {
+      "status": "pending"
+    },
+    "s1-zhangxinmin": {
+      "status": "pending"
+    },
+    "s2-gefei": {
+      "status": "pending"
+    },
+    "s2-tanshaoqing": {
+      "status": "ready",
+      "title": "《如何打造属于自己的超级 Agent 工作台》在线 PPT（内嵌 7 分钟真机实操录屏）",
+      "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk",
+      "note": "点开链接直接在线查看；内嵌 7 分钟真机实操录屏（电脑按 V 键或点第 5 页、最后一页右上角按钮即可播放，点击图片与二维码可放大）。",
+      "extraLinks": [
+        {
+          "label": "直接体验「GEO 内容生产线」工作台 ↗",
+          "url": "https://floatboat.ai/workbenchstore/geo-content-pipeline"
+        }
+      ]
+    },
+    "s2-renzong": {
+      "status": "pending"
+    },
+    "s3-1": {
+      "status": "pending"
+    },
+    "s3-2": {
+      "status": "ready",
+      "title": "《从关键词到高维场景：AI 时代 GEO 全场景词包策划方法论》完整课件（26 页）",
+      "pdf": "assets/ppt/s3-2/slides.pdf",
+      "pages": [
+        "assets/ppt/s3-2/slide-01.jpg",
+        "assets/ppt/s3-2/slide-02.jpg",
+        "assets/ppt/s3-2/slide-03.jpg",
+        "assets/ppt/s3-2/slide-04.jpg",
+        "assets/ppt/s3-2/slide-05.jpg",
+        "assets/ppt/s3-2/slide-06.jpg",
+        "assets/ppt/s3-2/slide-07.jpg",
+        "assets/ppt/s3-2/slide-08.jpg",
+        "assets/ppt/s3-2/slide-09.jpg",
+        "assets/ppt/s3-2/slide-10.jpg",
+        "assets/ppt/s3-2/slide-11.jpg",
+        "assets/ppt/s3-2/slide-12.jpg",
+        "assets/ppt/s3-2/slide-13.jpg",
+        "assets/ppt/s3-2/slide-14.jpg",
+        "assets/ppt/s3-2/slide-15.jpg",
+        "assets/ppt/s3-2/slide-16.jpg",
+        "assets/ppt/s3-2/slide-17.jpg",
+        "assets/ppt/s3-2/slide-18.jpg",
+        "assets/ppt/s3-2/slide-19.jpg",
+        "assets/ppt/s3-2/slide-20.jpg",
+        "assets/ppt/s3-2/slide-21.jpg",
+        "assets/ppt/s3-2/slide-22.jpg",
+        "assets/ppt/s3-2/slide-23.jpg",
+        "assets/ppt/s3-2/slide-24.jpg",
+        "assets/ppt/s3-2/slide-25.jpg",
+        "assets/ppt/s3-2/slide-26.jpg"
+      ],
+      "note": "艾奇先生（艾奇在线）2026.11.21 大会完整版 PDF，支持站内逐页高清放大与整份 PDF 下载。"
+    },
+    "s3-3": {
+      "status": "ready",
+      "title": "《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件（42 页）",
+      "pdf": "assets/ppt/s3-3/slides.pdf",
+      "pages": [
+        "assets/ppt/s3-3/slide-01.jpg",
+        "assets/ppt/s3-3/slide-02.jpg",
+        "assets/ppt/s3-3/slide-03.jpg",
+        "assets/ppt/s3-3/slide-04.jpg",
+        "assets/ppt/s3-3/slide-05.jpg",
+        "assets/ppt/s3-3/slide-06.jpg",
+        "assets/ppt/s3-3/slide-07.jpg",
+        "assets/ppt/s3-3/slide-08.jpg",
+        "assets/ppt/s3-3/slide-09.jpg",
+        "assets/ppt/s3-3/slide-10.jpg",
+        "assets/ppt/s3-3/slide-11.jpg",
+        "assets/ppt/s3-3/slide-12.jpg",
+        "assets/ppt/s3-3/slide-13.jpg",
+        "assets/ppt/s3-3/slide-14.jpg",
+        "assets/ppt/s3-3/slide-15.jpg",
+        "assets/ppt/s3-3/slide-16.jpg",
+        "assets/ppt/s3-3/slide-17.jpg",
+        "assets/ppt/s3-3/slide-18.jpg",
+        "assets/ppt/s3-3/slide-19.jpg",
+        "assets/ppt/s3-3/slide-20.jpg",
+        "assets/ppt/s3-3/slide-21.jpg",
+        "assets/ppt/s3-3/slide-22.jpg",
+        "assets/ppt/s3-3/slide-23.jpg",
+        "assets/ppt/s3-3/slide-24.jpg",
+        "assets/ppt/s3-3/slide-25.jpg",
+        "assets/ppt/s3-3/slide-26.jpg",
+        "assets/ppt/s3-3/slide-27.jpg",
+        "assets/ppt/s3-3/slide-28.jpg",
+        "assets/ppt/s3-3/slide-29.jpg",
+        "assets/ppt/s3-3/slide-30.jpg",
+        "assets/ppt/s3-3/slide-31.jpg",
+        "assets/ppt/s3-3/slide-32.jpg",
+        "assets/ppt/s3-3/slide-33.jpg",
+        "assets/ppt/s3-3/slide-34.jpg",
+        "assets/ppt/s3-3/slide-35.jpg",
+        "assets/ppt/s3-3/slide-36.jpg",
+        "assets/ppt/s3-3/slide-37.jpg",
+        "assets/ppt/s3-3/slide-38.jpg",
+        "assets/ppt/s3-3/slide-39.jpg",
+        "assets/ppt/s3-3/slide-40.jpg",
+        "assets/ppt/s3-3/slide-41.jpg",
+        "assets/ppt/s3-3/slide-42.jpg"
+      ],
+      "note": "苍何（前排科技 CTO / 前排 GEO 研究院主任）大会完整版课件（含新增实战避坑章节），由原 PPTX 无损转 PDF，支持逐页预览与下载。"
+    },
+    "s3-4": {
+      "status": "pending"
+    },
+    "s3-panel": {
+      "status": "pending"
+    },
+    "s4-yang-gang": {
+      "status": "pending"
+    },
+    "s4-gao-jun": {
+      "status": "pending"
+    },
+    "s4-chen-zheng": {
+      "status": "pending"
+    },
+    "s4-zhou-xiaoqiao": {
+      "status": "pending"
+    },
+    "s4-fubo": {
+      "status": "pending"
+    },
+    "s4-zhou-xiaoniao": {
+      "status": "pending"
+    },
+    "s4-hangzhou-zhang": {
+      "status": "pending"
+    },
+    "s5-aj": {
+      "status": "ready",
+      "title": "《能力溢出之后，我们做什么》完整 72 页 HTML 在线课件",
+      "url": "https://www.waytoagi.com/ai-capability-overflow/",
+      "note": "AJ 老师本次大会 72 页完整 HTML 互动课件可直接在线打开；下方附 AJ 个人网站（aaaaaaaj.com）与 WaytoAGI 社区飞书知识库。",
+      "extraLinks": [
+        {
+          "label": "AJ 个人网站（aaaaaaaj.com）↗",
+          "url": "https://aaaaaaaj.com"
+        },
+        {
+          "label": "WaytoAGI 社区知识库 ↗",
+          "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
+        }
+      ]
+    },
+    "s5-lenghongli": {
+      "status": "ready",
+      "title": "《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件（52 页）",
+      "pdf": "assets/ppt/s5-lenghongli/slides.pdf",
+      "pages": [
+        "assets/ppt/s5-lenghongli/slide-01.jpg",
+        "assets/ppt/s5-lenghongli/slide-02.jpg",
+        "assets/ppt/s5-lenghongli/slide-03.jpg",
+        "assets/ppt/s5-lenghongli/slide-04.jpg",
+        "assets/ppt/s5-lenghongli/slide-05.jpg",
+        "assets/ppt/s5-lenghongli/slide-06.jpg",
+        "assets/ppt/s5-lenghongli/slide-07.jpg",
+        "assets/ppt/s5-lenghongli/slide-08.jpg",
+        "assets/ppt/s5-lenghongli/slide-09.jpg",
+        "assets/ppt/s5-lenghongli/slide-10.jpg",
+        "assets/ppt/s5-lenghongli/slide-11.jpg",
+        "assets/ppt/s5-lenghongli/slide-12.jpg",
+        "assets/ppt/s5-lenghongli/slide-13.jpg",
+        "assets/ppt/s5-lenghongli/slide-14.jpg",
+        "assets/ppt/s5-lenghongli/slide-15.jpg",
+        "assets/ppt/s5-lenghongli/slide-16.jpg",
+        "assets/ppt/s5-lenghongli/slide-17.jpg",
+        "assets/ppt/s5-lenghongli/slide-18.jpg",
+        "assets/ppt/s5-lenghongli/slide-19.jpg",
+        "assets/ppt/s5-lenghongli/slide-20.jpg",
+        "assets/ppt/s5-lenghongli/slide-21.jpg",
+        "assets/ppt/s5-lenghongli/slide-22.jpg",
+        "assets/ppt/s5-lenghongli/slide-23.jpg",
+        "assets/ppt/s5-lenghongli/slide-24.jpg",
+        "assets/ppt/s5-lenghongli/slide-25.jpg",
+        "assets/ppt/s5-lenghongli/slide-26.jpg",
+        "assets/ppt/s5-lenghongli/slide-27.jpg",
+        "assets/ppt/s5-lenghongli/slide-28.jpg",
+        "assets/ppt/s5-lenghongli/slide-29.jpg",
+        "assets/ppt/s5-lenghongli/slide-30.jpg",
+        "assets/ppt/s5-lenghongli/slide-31.jpg",
+        "assets/ppt/s5-lenghongli/slide-32.jpg",
+        "assets/ppt/s5-lenghongli/slide-33.jpg",
+        "assets/ppt/s5-lenghongli/slide-34.jpg",
+        "assets/ppt/s5-lenghongli/slide-35.jpg",
+        "assets/ppt/s5-lenghongli/slide-36.jpg",
+        "assets/ppt/s5-lenghongli/slide-37.jpg",
+        "assets/ppt/s5-lenghongli/slide-38.jpg",
+        "assets/ppt/s5-lenghongli/slide-39.jpg",
+        "assets/ppt/s5-lenghongli/slide-40.jpg",
+        "assets/ppt/s5-lenghongli/slide-41.jpg",
+        "assets/ppt/s5-lenghongli/slide-42.jpg",
+        "assets/ppt/s5-lenghongli/slide-43.jpg",
+        "assets/ppt/s5-lenghongli/slide-44.jpg",
+        "assets/ppt/s5-lenghongli/slide-45.jpg",
+        "assets/ppt/s5-lenghongli/slide-46.jpg",
+        "assets/ppt/s5-lenghongli/slide-47.jpg",
+        "assets/ppt/s5-lenghongli/slide-48.jpg",
+        "assets/ppt/s5-lenghongli/slide-49.jpg",
+        "assets/ppt/s5-lenghongli/slide-50.jpg",
+        "assets/ppt/s5-lenghongli/slide-51.jpg",
+        "assets/ppt/s5-lenghongli/slide-52.jpg"
+      ],
+      "note": "冷洪利（光头牛哥 / 曝光率 GEO）大会完整 52 页实战 PPT（由原 PPTX 无损转 PDF），点击任意页可高清放大或下载完整 PDF。"
+    },
+    "s5-pengtao": {
+      "status": "pending"
+    },
+    "s6-zhongtianjiao": {
+      "status": "pending"
+    },
+    "s6-lanshu": {
+      "status": "pending"
+    },
+    "s6-luhao": {
+      "status": "pending"
+    },
+    "s7-yubo": {
+      "status": "pending"
+    },
+    "s7-berryxia": {
+      "status": "pending"
+    },
+    "s6-qa-noon": {
+      "status": "pending"
+    },
+    "s7-badaoliu-prac": {
+      "status": "pending"
+    }
+  },
+  "practice": [
+    {
+      "id": "d2-prac-aisou",
+      "title": "爱搜AI + GEO实操",
+      "speaker": "拔刀刘",
+      "slot": "15:10–16:08（原定 15:45）",
+      "status": "ready",
+      "talkId": "s7-badaoliu-prac",
+      "note": "已补全 1 小时完整真机演示复盘（含四大模块、DeepSeek site:zhihu.com、茅台 28% 挂卡实测与海外 119 国）及 3 张现场大屏实拍",
+      "extraLinks": [
+        {
+          "label": "阅读本场开源精校原文 ↗",
+          "url": "https://github.com/renzheng0415/china-geo-conference-2026"
+        }
+      ]
+    },
+    {
+      "id": "d2-prac-floatboat",
+      "title": "Floatboat + GEO实操",
+      "speaker": "谭少卿",
+      "slot": "16:47–17:47",
+      "status": "pending",
+      "note": "实操课未提供录音 · 课件/录屏位预留；演讲同款「GEO 内容生产线」工作台与上午主题 PPT（含 7 分钟录屏）已开放体验",
+      "extraLinks": [
+        {
+          "label": "体验「GEO 内容生产线」工作台 ↗",
+          "url": "https://floatboat.ai/workbenchstore/geo-content-pipeline"
+        },
+        {
+          "label": "查看谭少卿《超级 Agent 工作台》在线 PPT ↗",
+          "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk"
+        }
+      ]
+    }
+  ]
+}

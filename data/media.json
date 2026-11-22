@@ -142,5 +142,95 @@
     "sessionId": "s4",
     "talkId": "s4-gao-jun",
     "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "wb-s5",
+    "file": "assets/img/wb-s5.jpg",
+    "kind": "whiteboard",
+    "title": "Day2 上午场① AI 总结导图（能力溢出 · 豆包视频矩阵 · AI出海增长）",
+    "sessionId": "s5",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 原生生成，如将 GEO 识别为 GU，请结合正文核对）"
+  },
+  {
+    "id": "wb-s6",
+    "file": "assets/img/wb-s6.jpg",
+    "kind": "whiteboard",
+    "title": "Day2 上午场② AI 总结导图（海外信源 · Agent GEO · 2.3亿次数据实测）",
+    "sessionId": "s6",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图（图中文字为 AI 原生生成，如将 GEO 识别为 GU，请结合正文核对）"
+  },
+  {
+    "id": "wb-s7",
+    "file": "assets/img/wb-s7.jpg",
+    "kind": "whiteboard",
+    "title": "Day2 下午场① AI 总结导图（AI产品增长 · X平台内容变现）",
+    "sessionId": "s7",
+    "talkId": null,
+    "caption": "飞书智能纪要 AI 生成总结导图"
+  },
+  {
+    "id": "fig-Xz1kbdlDYoi3CCxIH0McEkjinKh",
+    "file": "assets/img/fig-Xz1kbdlDYoi3CCxIH0McEkjinKh.png",
+    "kind": "figure",
+    "title": "不同大模型主流信源对照表",
+    "sessionId": "s5",
+    "talkId": "s5-lenghongli",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-IjLub2BAfof8Tyx5bjdcIXNRnMf",
+    "file": "assets/img/fig-IjLub2BAfof8Tyx5bjdcIXNRnMf.png",
+    "kind": "figure",
+    "title": "豆包GU内容出效果时间分布",
+    "sessionId": "s5",
+    "talkId": "s5-lenghongli",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-IqyzbnFIooDqzdxbM1Fc8JcqnWb",
+    "file": "assets/img/fig-IqyzbnFIooDqzdxbM1Fc8JcqnWb.png",
+    "kind": "figure",
+    "title": "GU四层落地打法说明",
+    "sessionId": "s6",
+    "talkId": "s6-zhongtianjiao",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-OuQNbvZAsoYhMVxc2ZKcdl0Sn5d",
+    "file": "assets/img/fig-OuQNbvZAsoYhMVxc2ZKcdl0Sn5d.png",
+    "kind": "figure",
+    "title": "Agent信息获取与回答生成流程",
+    "sessionId": "s6",
+    "talkId": "s6-lanshu",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-KHFcbFMEso0EtyxYYhdctujXn2c",
+    "file": "assets/img/fig-KHFcbFMEso0EtyxYYhdctujXn2c.png",
+    "kind": "figure",
+    "title": "不同内容类型AI引用表现对比",
+    "sessionId": "s6",
+    "talkId": "s6-luhao",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-U8bnbXB9woLyCLx0JR1coRzHn1g",
+    "file": "assets/img/fig-U8bnbXB9woLyCLx0JR1coRzHn1g.png",
+    "kind": "figure",
+    "title": "SEO关键优化动作前后数据对比",
+    "sessionId": "s7",
+    "talkId": "s7-yubo",
+    "caption": "飞书智能纪要 AI 生成配图"
+  },
+  {
+    "id": "fig-VsrObVGxAoX3kExyXO9cQLV6njf",
+    "file": "assets/img/fig-VsrObVGxAoX3kExyXO9cQLV6njf.png",
+    "kind": "figure",
+    "title": "X平台AI内容变现百万收益构成",
+    "sessionId": "s7",
+    "talkId": "s7-berryxia",
+    "caption": "飞书智能纪要 AI 生成配图"
   }
 ]

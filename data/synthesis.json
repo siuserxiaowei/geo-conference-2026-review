@@ -1379,6 +1379,11 @@
         "raw": "艾克网 / IP网",
         "standard": "艾课网 / U渠道 / 艾聘网",
         "note": "按艾奇先生现场 PPT 照片（s3-2-03《艾奇在线产品服务矩阵》）校正。"
+      },
+      {
+        "raw": "Day 2：微图AJ / 彭丽 / 光头老刘 / 彭丹 / 中天骄 / Wingsee / 兰书 / 陆浩 / 玉博 / Vary夏 / 华道勇",
+        "standard": "WaytoAGI (AJ) / 冷洪利（光头牛哥） / 彭涛 / 钟添娇 / Winseed / 岚叔 / 路浩 / 玉伯 / Berryxia / 拔刀刘",
+        "note": "Day 2（11/22）官网议程与现场 PPT 实拍联合校订（注：「光头牛哥」「沈老」分别为冷洪利与 Berryxia 真实社区署名）。"
       }
     ],
     "terms": [
@@ -2009,27 +2014,39 @@
   "resources": [
     {
       "id": "res-1",
-      "item": "全场景 GEO 拓词 Skill 提示词与方法论白皮书",
+      "item": "艾奇先生《GEO 全场景词包策划方法论》完整 PDF（26 页）& 拓词 Skill",
       "provider": "艾奇先生（艾奇在线）",
       "talkId": "s3-2",
-      "category": "提示词与文档",
-      "how": "在大会参会群内下发，输入一句话即可批量生成 20–100+ 全维度场景词包。"
+      "category": "课件与工作台",
+      "how": "完整 26 页大会 PDF 课件已上线本站支持逐页预览与下载；配套全场景 GEO 拓词 Skill 提示词与白皮书在大会参会群下发。",
+      "url": "assets/ppt/s3-2/slides.pdf",
+      "linkLabel": "下载 26 页完整 PDF ↗"
     },
     {
       "id": "res-2",
-      "item": "GEO 创收与提效工作台（Workbench）开源源码 & 创造者计划 VIP",
+      "item": "谭少卿《如何打造属于自己的超级 Agent 工作台》在线 PPT（含 7 分钟录屏）&「GEO 内容生产线」",
       "provider": "谭少卿（Floatboat）",
       "talkId": "s2-tanshaoqing",
-      "category": "源码与平台权益",
-      "how": "在参会群内领取（源码需运行在 Floatboat 产品环境内），配套次日下午实操课讲解与 Flowpaas 分成权益。"
+      "category": "课件与工作台",
+      "how": "点开在线 PPT 直接观看（内嵌 7 分钟真机录屏，电脑按 V 键或点第 5 页/末页右上角播放）；「GEO 内容生产线」工作台已开放体验。",
+      "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk",
+      "linkLabel": "在线查看完整 PPT ↗",
+      "extraLinks": [
+        {
+          "label": "体验「GEO 内容生产线」↗",
+          "url": "https://floatboat.ai/workbenchstore/geo-content-pipeline"
+        }
+      ]
     },
     {
       "id": "res-3",
-      "item": "爱搜平台高级版 7 天试用、海外监控试用 &《电商维度分析报告》（脱敏版）",
+      "item": "爱搜 AI 高级版 7 天试用、海外 119 国监控 & Day 2 下午 1 小时实操课精读",
       "provider": "拔刀刘（AIDSO 爱搜 AI）",
-      "talkId": "s1-badaoliu",
+      "talkId": "s7-badaoliu-prac",
       "category": "数据与监测工具",
-      "how": "已为报名手机号自动开通 7 天高级版试用；未开通者、申请海外 119 国监控试用或索要《电商维度分析报告》可联系爱搜现场工作人员，并关注次日下午 1 小时全流程实操演示课。"
+      "how": "已为报名手机号自动开通 7 天高级版试用；Day 2 下午 1 小时四大监测模块实操课与平台底层机制揭秘已完整补录入站。",
+      "url": "https://geo.aidso.com",
+      "linkLabel": "访问爱搜 AI 平台 ↗"
     },
     {
       "id": "res-4",
@@ -2089,11 +2106,13 @@
     },
     {
       "id": "res-11",
-      "item": "LookBody 免费 GEO 品牌诊断工具 & 苍何粉丝群",
+      "item": "苍何《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件（42 页）& LookBody 免费诊断",
       "provider": "苍何（前排科技 CTO / 前排 GEO 研究院主任）",
       "talkId": "s3-3",
-      "category": "诊断与社群",
-      "how": "LookBody 上已上线免费诊断工具（20 万+使用量），并在大会参会群内接入苍何粉丝交流群。"
+      "category": "课件与工作台",
+      "how": "完整 42 页实战避坑版 PPT 已转 PDF 上线本站逐页查阅；LookBody 上线免费诊断工具（20 万+使用量），并在参会群接入苍何粉丝群。",
+      "url": "assets/ppt/s3-3/slides.pdf",
+      "linkLabel": "下载 42 页完整 PDF ↗"
     },
     {
       "id": "res-12",
@@ -2102,6 +2121,46 @@
       "talkId": "s3-panel",
       "category": "公开课与合作",
       "how": "会前 107 个提问中未覆盖完的问题将在会后通过参会群公开课形式继续解答；具备 GEO 课程研发能力的讲师可与芥末推对接分销。"
+    },
+    {
+      "id": "res-13",
+      "item": "中国第二届 GEO 大会两天 21.7 万字完整精校逐字稿（GitHub 开源仓库）",
+      "provider": "开源社区整理（renzheng0415）",
+      "talkId": "s6-qa-noon",
+      "category": "开源逐字稿全本",
+      "how": "约 21.7 万字纯转写精校逐字稿，剔除暖场杂音并校对全部嘉宾与专有名词，补全 Day 2 中午高能实战答疑与拔刀刘下午实操课全文。",
+      "url": "https://github.com/renzheng0415/china-geo-conference-2026",
+      "linkLabel": "访问 GitHub 完整精校原文 ↗"
+    },
+    {
+      "id": "res-14",
+      "item": "AJ《能力溢出之后，我们做什么》72 页 HTML 在线课件、个人网站 & WaytoAGI 知识库",
+      "provider": "AJ（WaytoAGI 创始人）",
+      "talkId": "s5-aj",
+      "category": "课件与工作台",
+      "how": "本次大会 72 页 HTML 互动版 PPT、个人主页（aaaaaaaj.com，含开源 ADHD Skill / Design.md）与千万级用户 WaytoAGI 飞书知识库全部开放直达。",
+      "url": "https://www.waytoagi.com/ai-capability-overflow/",
+      "linkLabel": "在线看 72 页 HTML 课件 ↗",
+      "extraLinks": [
+        {
+          "label": "AJ 个人网站（aaaaaaaj.com）↗",
+          "url": "https://aaaaaaaj.com"
+        },
+        {
+          "label": "WaytoAGI 社区知识库 ↗",
+          "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
+        }
+      ]
+    },
+    {
+      "id": "res-15",
+      "item": "冷洪利（光头牛哥）《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件（52 页）",
+      "provider": "冷洪利 / 光头牛哥（曝光率 GEO 创始人）",
+      "talkId": "s5-lenghongli",
+      "category": "课件与工作台",
+      "how": "完整 52 页实战 PPT 已无损转 PDF 上线本站，支持逐页高清放大预览与整份 PDF 下载。",
+      "url": "assets/ppt/s5-lenghongli/slides.pdf",
+      "linkLabel": "下载 52 页完整 PDF ↗"
     }
   ]
 }

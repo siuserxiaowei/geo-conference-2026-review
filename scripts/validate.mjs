@@ -9,6 +9,8 @@ const synthesisPath = path.join(rootDir, 'data', 'synthesis.json');
 const mediaPath = path.join(rootDir, 'data', 'media.json');
 const agendaPath = path.join(rootDir, 'data', 'agenda.json');
 const photosPath = path.join(rootDir, 'data', 'photos.json');
+const pptPath = path.join(rootDir, 'data', 'ppt.json');
+const day2Path = path.join(rootDir, 'data', 'day2-summary.json');
 const bundlePath = path.join(rootDir, 'assets', 'data.js');
 
 const VALID_TOPIC_IDS = new Set([
@@ -25,7 +27,7 @@ const VALID_TOPIC_IDS = new Set([
 ]);
 
 const WRONG_NAME_RE =
-  /张新敏|Oraka|戈飞|戈培|拔刀流|谭少青|邵青|Frobot|Flowbot|昌河|前白科技|艾琪|爱奇在线|安美琪|杨刚|陈征|沃东方|媒介侠|智能时代联合创始人|智能时代联创|姓名待核实|每日经济新闻孵化科技公司嘉宾/;
+  /张新敏|Oraka|戈飞|戈培|拔刀流|谭少青|邵青|Frobot|Flowbot|昌河|前白科技|艾琪|爱奇在线|安美琪|杨刚|陈征|沃东方|媒介侠|智能时代联合创始人|智能时代联创|姓名待核实|每日经济新闻孵化科技公司嘉宾|微图 ?AJ|微拓一家|彭丽|光头老刘|彭丹|中天骄|Wingsee|兰书|陆浩|玉博|华道勇/;
 
 const TS_RE = /^\d{2}:\d{2}:\d{2}$/;
 const errors = [];
@@ -33,7 +35,7 @@ const assert = (cond, msg) => {
   if (!cond) errors.push(msg);
 };
 
-const sessionIds = ['s1', 's2', 's3', 's4'];
+const sessionIds = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'];
 const sessions = [];
 const talkIds = new Set();
 
@@ -44,6 +46,11 @@ for (const sid of sessionIds) {
   const s = JSON.parse(fs.readFileSync(p, 'utf-8'));
   sessions.push(s);
   assert(s.id === sid, `Session id mismatch: ${s.id} !== ${sid}`);
+  if (['s5', 's6', 's7'].includes(sid)) {
+    assert(s.day === 2, `Session ${sid} must have day === 2`);
+  } else {
+    assert(s.day === 1, `Session ${sid} must have day === 1`);
+  }
   assert(Boolean(s.miaojiId), `Missing miaojiId in ${sid}`);
   for (const [idx, note] of (s.sessionNotes || []).entries()) {
     assert(TS_RE.test(note.ts || ''), `${sid}.sessionNotes[${idx}].ts invalid: "${note.ts}"`);
@@ -161,7 +168,7 @@ if (fs.existsSync(synthesisPath)) {
 assert(fs.existsSync(mediaPath), 'Missing data/media.json');
 if (fs.existsSync(mediaPath)) {
   const media = JSON.parse(fs.readFileSync(mediaPath, 'utf-8'));
-  assert(media.length === 16, `media count must be 16, got ${media.length}`);
+  assert(media.length >= 16, `media count must be >= 16, got ${media.length}`);
   for (const m of media) {
     const abs = path.join(rootDir, m.file);
     assert(fs.existsSync(abs), `media file missing on disk: ${m.file}`);
@@ -170,6 +177,54 @@ if (fs.existsSync(mediaPath)) {
 }
 
 assert(fs.existsSync(agendaPath), 'Missing data/agenda.json');
+if (fs.existsSync(agendaPath)) {
+  const agenda = JSON.parse(fs.readFileSync(agendaPath, 'utf-8'));
+  assert(Array.isArray(agenda.slots) && agenda.slots.length > 0, 'agenda.slots must be non-empty');
+  for (const [i, sl] of (agenda.slots || []).entries()) {
+    assert(sl.day === 1 || sl.day === 2, `agenda.slots[${i}] invalid day: ${sl.day}`);
+    if (sl.talkId) assert(talkIds.has(sl.talkId), `agenda.slots[${i}] unknown talkId: ${sl.talkId}`);
+  }
+}
+
+assert(fs.existsSync(pptPath), 'Missing data/ppt.json');
+if (fs.existsSync(pptPath)) {
+  const ppt = JSON.parse(fs.readFileSync(pptPath, 'utf-8'));
+  const items = ppt.items || {};
+  for (const tid of talkIds) {
+    assert(tid in items, `data/ppt.json missing talk entry: ${tid}`);
+  }
+  for (const [tid, entry] of Object.entries(items)) {
+    assert(talkIds.has(tid), `data/ppt.json unknown talkId: ${tid}`);
+    if (entry.status === 'ready') {
+      for (const pg of entry.pages || []) {
+        assert(fs.existsSync(path.join(rootDir, pg)), `ppt page missing on disk: ${pg}`);
+      }
+      if (entry.pdf) {
+        assert(fs.existsSync(path.join(rootDir, entry.pdf)), `ppt pdf missing on disk: ${entry.pdf}`);
+      }
+    }
+  }
+}
+
+assert(fs.existsSync(day2Path), 'Missing data/day2-summary.json');
+if (fs.existsSync(day2Path)) {
+  const d2 = JSON.parse(fs.readFileSync(day2Path, 'utf-8'));
+  for (const [i, th] of (d2.themes || []).entries()) {
+    for (const r of th.refs || []) assert(talkIds.has(r), `day2.themes[${i}] unknown ref: ${r}`);
+  }
+  for (const [i, c] of (d2.crossDay || []).entries()) {
+    assert(talkIds.has(c.day2TalkId), `day2.crossDay[${i}] unknown day2TalkId: ${c.day2TalkId}`);
+    assert(talkIds.has(c.day1TalkId), `day2.crossDay[${i}] unknown day1TalkId: ${c.day1TalkId}`);
+  }
+  for (const [i, d] of (d2.dataWall || []).entries()) {
+    assert(talkIds.has(d.talkId), `day2.dataWall[${i}] unknown talkId: ${d.talkId}`);
+    assert(TS_RE.test(d.ts || ''), `day2.dataWall[${i}] invalid ts: "${d.ts}"`);
+  }
+  for (const [i, q] of (d2.quotes || []).entries()) {
+    assert(talkIds.has(q.talkId), `day2.quotes[${i}] unknown talkId: ${q.talkId}`);
+    assert(TS_RE.test(q.ts || ''), `day2.quotes[${i}] invalid ts: "${q.ts}"`);
+  }
+}
 
 assert(fs.existsSync(photosPath), 'Missing data/photos.json');
 if (fs.existsSync(photosPath)) {

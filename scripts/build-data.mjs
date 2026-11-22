@@ -9,9 +9,11 @@ const synthesisPath = path.join(rootDir, 'data', 'synthesis.json');
 const mediaPath = path.join(rootDir, 'data', 'media.json');
 const agendaPath = path.join(rootDir, 'data', 'agenda.json');
 const photosPath = path.join(rootDir, 'data', 'photos.json');
+const pptPath = path.join(rootDir, 'data', 'ppt.json');
+const day2Path = path.join(rootDir, 'data', 'day2-summary.json');
 const outPath = path.join(rootDir, 'assets', 'data.js');
 
-const sessionIds = ['s1', 's2', 's3', 's4'];
+const sessionIds = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'];
 const sessions = sessionIds.map((id) => {
   const filePath = path.join(sessionsDir, `${id}.json`);
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -21,6 +23,8 @@ const synthesis = JSON.parse(fs.readFileSync(synthesisPath, 'utf-8'));
 const media = JSON.parse(fs.readFileSync(mediaPath, 'utf-8'));
 const agenda = JSON.parse(fs.readFileSync(agendaPath, 'utf-8'));
 const photos = JSON.parse(fs.readFileSync(photosPath, 'utf-8'));
+const ppt = JSON.parse(fs.readFileSync(pptPath, 'utf-8'));
+const day2 = JSON.parse(fs.readFileSync(day2Path, 'utf-8'));
 
 const payload = {
   generatedAt: new Date().toISOString(),
@@ -29,6 +33,8 @@ const payload = {
   media,
   agenda,
   photos,
+  ppt,
+  day2,
 };
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
