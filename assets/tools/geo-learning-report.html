@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026 深圳 GEO 大会 · 参会学习报告</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f5fd1'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23fff' font-size='18' font-family='sans-serif' font-weight='bold'%3EG%3C/text%3E%3C/svg%3E">
+<!-- v1 2026-11-23: 5 summaries / 3 gains / 1 action, identity-specific prompts, company letterhead report, copy + print to PDF, local only -->
+<style>
+:root{--ink:#1d2433;--sub:#5b6577;--line:#e3e7ee;--bg:#f6f8fb;--card:#fff;--brand:#1f5fd1}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:680px;margin:0 auto;padding:20px 16px 48px}
+header h1{font-size:24px;margin:8px 0 4px}
+header p{color:var(--sub);margin:0 0 16px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.card h2{font-size:16px;margin:0 0 4px;color:var(--brand)}
+.card .hint{font-size:13px;color:var(--sub);margin:0 0 10px}
+label.f{display:block;font-size:14px;font-weight:600;margin:10px 0 4px}
+input[type=text],textarea,select{width:100%;font:inherit;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;color:var(--ink);min-height:44px}
+textarea{min-height:64px;resize:vertical}
+.row{display:flex;gap:10px}.row>div{flex:1}
+label.opt{display:block;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:15px;min-height:44px}
+label.opt input{margin-right:8px}
+label.opt:has(input:checked){border-color:var(--brand);background:#eef3fd}
+.item{display:flex;gap:8px;align-items:flex-start;margin:8px 0}
+.item b{flex:0 0 26px;height:26px;border-radius:50%;background:#eef3fd;color:var(--brand);text-align:center;line-height:26px;font-size:14px;margin-top:9px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.chips button{width:auto;min-height:32px;padding:4px 10px;font-size:13px;font-weight:500;background:#fff;color:var(--sub);border:1px dashed #c7cfdc;border-radius:16px}
+button{width:100%;font:inherit;font-weight:700;border:0;border-radius:12px;padding:14px;background:var(--brand);color:#fff;cursor:pointer;min-height:48px}
+button.ghost{background:#fff;color:var(--brand);border:1px solid var(--brand);margin-top:10px}
+#msg{color:#b42318;font-size:14px;text-align:center;min-height:20px;margin:6px 0}
+#report{display:none}
+.paper{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 20px}
+.paper .co{font-size:22px;font-weight:800;margin:0}
+.paper .ti{font-size:15px;color:var(--brand);font-weight:700;margin:2px 0 12px;letter-spacing:.05em}
+.meta{font-size:14px;color:var(--sub);border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:8px 0;margin-bottom:8px;display:grid;grid-template-columns:1fr 1fr;gap:2px 12px}
+.paper h3{font-size:16px;margin:18px 0 6px;padding-left:8px;border-left:4px solid var(--brand)}
+.paper ol{margin:0;padding-left:22px}.paper li{margin:4px 0}
+.act{background:#eef3fd;border-radius:10px;padding:12px 14px}
+.act p{margin:2px 0}
+.sign{margin-top:20px;text-align:right;font-size:14px;color:var(--sub)}
+.foot{color:var(--sub);font-size:12px;text-align:center;margin-top:18px}
+@media print{body{background:#fff}.wrap{padding:0;max-width:none}.noprint{display:none!important}.paper{border:0;padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="edit">
+<header>
+<h1>2026 深圳 GEO 大会 · 参会学习报告</h1>
+<p>五点总结 · 三点收获 · 一点落地。填完一键生成带公司抬头的报告，可存 PDF 或复制发给老板 / 团队。内容只存在你自己的手机上，不上传。</p>
+</header>
+
+<div class="card">
+<h2>1. 基本信息</h2>
+<label class="f" for="co">公司名称</label><input type="text" id="co" placeholder="如：深圳某某科技有限公司">
+<div class="row">
+<div><label class="f" for="nm">姓名</label><input type="text" id="nm" placeholder="你的名字"></div>
+<div><label class="f" for="pos">职位（选填）</label><input type="text" id="pos" placeholder="如：外贸经理"></div>
+</div>
+<label class="f">我的身份</label>
+<div id="ids"><label class="opt"><input type="radio" name="id" value="0">企业老板 / 负责人</label><label class="opt"><input type="radio" name="id" value="1">老板派来学习的业务 / 员工</label><label class="opt"><input type="radio" name="id" value="2">市场 / 运营 / 外贸负责人</label><label class="opt"><input type="radio" name="id" value="3">GEO / SEO 服务商、代理</label><label class="opt"><input type="radio" name="id" value="4">其他</label></div>
+<label class="f" for="to" id="toL">报告呈送</label><input type="text" id="to" placeholder="">
+</div>
+
+<div class="card">
+<h2>2. 五点总结 · 今天讲了什么</h2>
+<p class="hint">写你记住的 5 个要点，一句一条。不知道写啥，点下面的词插入再改。</p>
+<div class="chips" data-for="s"><button type="button">GEO 不是 SEO 换名字：目标是被 AI 回答提到和推荐</button><button type="button">先定品牌口径：一句话说清我们是谁、卖什么、给谁</button><button type="button">从客户真实会问 AI 的问题出发，而不是从关键词出发</button><button type="button">知识库和证据：参数、案例、资质要能被 AI 读到和引用</button><button type="button">AI 引用大多来自第三方网站，不只看官网</button><button type="button">同一问题要多问几次，单次测试结果不稳定</button><button type="button">监测要定期复测，每 2–4 周一次</button><button type="button">要做 AI 渠道的询盘归因，否则看不出效果</button><button type="button">海外市场按语言和国家分别看，不同 AI 差别很大</button><button type="button">嘉宾的数据要看样本和条件，别直接照搬</button></div>
+<div id="s"><div class="item"><b>1</b><textarea id="s0" rows="2" placeholder="一句话写一个要点"></textarea></div><div class="item"><b>2</b><textarea id="s1" rows="2" placeholder="一句话写一个要点"></textarea></div><div class="item"><b>3</b><textarea id="s2" rows="2" placeholder="一句话写一个要点"></textarea></div><div class="item"><b>4</b><textarea id="s3" rows="2" placeholder="一句话写一个要点"></textarea></div><div class="item"><b>5</b><textarea id="s4" rows="2" placeholder="一句话写一个要点"></textarea></div></div>
+</div>
+
+<div class="card">
+<h2>3. 三点收获 · 对我 / 公司有什么用</h2>
+<p class="hint" id="gH">站在老板角度：哪些对生意、预算、团队分工有影响？</p>
+<div id="g"><div class="item"><b>1</b><textarea id="g0" rows="2" placeholder="这一条对我 / 公司的具体用处"></textarea></div><div class="item"><b>2</b><textarea id="g1" rows="2" placeholder="这一条对我 / 公司的具体用处"></textarea></div><div class="item"><b>3</b><textarea id="g2" rows="2" placeholder="这一条对我 / 公司的具体用处"></textarea></div></div>
+</div>
+
+<div class="card">
+<h2>4. 一点落地 · 回去只干一件事</h2>
+<p class="hint" id="aH">你决定公司先做的一件事，指定一个人负责。</p>
+<label class="f" for="a">要做的这一件事</label><textarea id="a"></textarea>
+<div class="row">
+<div><label class="f" for="who">谁来做</label><input type="text" id="who" placeholder="负责人"></div>
+<div><label class="f" for="when">什么时候完成</label><input type="text" id="when" placeholder="如：30 天内"></div>
+</div>
+<label class="f" for="kpi">怎么算做成了</label><input type="text" id="kpi" placeholder="如：30 个客户常问的问题在 AI 里测一遍，有记录">
+<label class="f" for="need" id="needL">需要的支持（选填）</label><input type="text" id="need" placeholder="">
+</div>
+
+<div id="msg"></div>
+<button type="button" id="go">生成我的学习报告</button>
+<p class="foot">填写内容自动保存在本机浏览器，关掉再开还在。</p>
+</div>
+
+<div id="report">
+<div class="paper" id="paper"></div>
+<div class="noprint">
+<button type="button" id="cp" style="margin-top:14px">复制报告文字（发微信）</button>
+<button type="button" class="ghost" id="pr">保存为 PDF / 打印</button>
+<button type="button" class="ghost" id="back">返回修改</button>
+<p class="foot">手机上「保存为 PDF」：点按钮后在打印页选「存储为 PDF」或分享，也可以直接截图。</p>
+</div>
+</div>
+</div>
+<script>
+const IDS=[
+ {k:'boss',t:'企业老板 / 负责人',to:'报告对象',toPh:'如：公司管理层 / 全体团队',
+  g:'站在老板角度：哪些对生意、预算、团队分工有影响？',
+  a:'你决定公司先做的一件事，指定一个人负责。',aPh:'如：指定专人先测客户常问的 30 个问题，AI 里有没有我们',need:'需要投入（选填）',needPh:'如：每周 2 小时 / 预算多少'},
+ {k:'staff',t:'老板派来学习的业务 / 员工',to:'呈送给',toPh:'如：王总',
+  g:'站在执行角度：哪些能直接用到你手上的客户和渠道？',
+  a:'你建议公司先做的一件事，最好是你自己能动手的。',aPh:'如：我先把官网的产品参数、价格区间、联系方式整理成 AI 读得懂的页面',need:'需要老板支持什么（选填）',needPh:'如：网站修改权限 / 每月测试预算'},
+ {k:'mkt',t:'市场 / 运营 / 外贸负责人',to:'呈送给',toPh:'如：总经理',
+  g:'站在团队角度：哪些能放进下个月的计划和考核？',
+  a:'你带团队先做的一件事，写清楚怎么考核。',aPh:'如：建一份品牌口径和问题清单，每 2 周复测一次 AI 提及情况',need:'需要的资源（选填）',needPh:'如：一名内容同事 / 工具预算'},
+ {k:'svc',t:'GEO / SEO 服务商、代理',to:'报告对象',toPh:'如：公司团队 / 合伙人',
+  g:'站在服务商角度：哪些能变成交付流程或给客户的报告？',
+  a:'你回去先改进的一项服务或流程。',aPh:'如：给客户的报告加上多次采样和第三方引用来源',need:'需要的支持（选填）',needPh:''},
+ {k:'other',t:'其他',to:'报告对象',toPh:'选填',
+  g:'对你自己的工作或学习有什么用？',
+  a:'你回去先做的一件事。',aPh:'',need:'需要的支持（选填）',needPh:''}
+];
+const CHIPS=['GEO 不是 SEO 换名字：目标是被 AI 回答提到和推荐','先定品牌口径：一句话说清我们是谁、卖什么、给谁','从客户真实会问 AI 的问题出发，而不是从关键词出发','知识库和证据：参数、案例、资质要能被 AI 读到和引用','AI 引用大多来自第三方网站，不只看官网','同一问题要多问几次，单次测试结果不稳定','监测要定期复测，每 2–4 周一次','要做 AI 渠道的询盘归因，否则看不出效果','海外市场按语言和国家分别看，不同 AI 差别很大','嘉宾的数据要看样本和条件，别直接照搬'];
+const $=id=>document.getElementById(id);
+const SV='geo-report-v1';
+document.querySelector('.chips').addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')return;
+ for(let i=0;i<5;i++){const t=$('s'+i);if(!t.value.trim()){t.value=e.target.textContent;t.focus();save();return;}}
+ $('msg').textContent='五条已写满，先删一条再插入';});
+function idx(){const c=document.querySelector('input[name=id]:checked');return c?+c.value:-1;}
+function applyId(){const d=IDS[Math.max(idx(),0)];$('toL').textContent=d.to;$('to').placeholder=d.toPh;$('gH').textContent=d.g;$('aH').textContent=d.a;$('a').placeholder=d.aPh;$('needL').textContent=d.need;$('need').placeholder=d.needPh;}
+const F=['co','nm','pos','to','a','who','when','kpi','need','s0','s1','s2','s3','s4','g0','g1','g2'];
+function save(){const o={id:idx()};F.forEach(k=>o[k]=$(k).value);try{localStorage.setItem(SV,JSON.stringify(o))}catch(e){}}
+function load(){let o;try{o=JSON.parse(localStorage.getItem(SV)||'null')}catch(e){}if(!o)return;F.forEach(k=>{if(o[k]!=null)$(k).value=o[k]});if(o.id>=0)document.querySelectorAll('input[name=id]')[o.id].checked=true;}
+document.addEventListener('input',()=>{$('msg').textContent='';applyId();save();});
+load();applyId();
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const v=k=>$(k).value.trim();
+function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+let TXT='';
+$('go').onclick=()=>{
+ const miss=[];if(!v('co'))miss.push('公司名称');if(!v('nm'))miss.push('姓名');if(idx()<0)miss.push('身份');
+ const S=[0,1,2,3,4].map(i=>v('s'+i)).filter(Boolean),G=[0,1,2].map(i=>v('g'+i)).filter(Boolean);
+ if(S.length<5)miss.push(`总结还差 ${5-S.length} 条`);if(G.length<3)miss.push(`收获还差 ${3-G.length} 条`);if(!v('a'))miss.push('落地的一件事');
+ if(miss.length){$('msg').textContent='还没填：'+miss.join('、');return;}
+ const d=IDS[idx()],dt=today();
+ const meta=[['参会人',v('nm')+(v('pos')?' · '+v('pos'):'')],['身份',d.t],[d.to,v('to')||'—'],['日期',dt]];
+ $('paper').innerHTML=`<p class="co">${esc(v('co'))}</p><p class="ti">2026 深圳 GEO 大会 · 参会学习报告</p>
+<div class="meta">${meta.map(m=>`<span>${m[0]}：${esc(m[1])}</span>`).join('')}</div>
+<h3>五点总结 · 大会讲了什么</h3><ol>${S.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+<h3>三点收获 · 对我们有什么用</h3><ol>${G.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+<h3>一点落地 · 回去只干一件事</h3><div class="act"><p><b>${esc(v('a'))}</b></p>
+<p>负责人：${esc(v('who')||v('nm'))}　完成时间：${esc(v('when')||'—')}</p>
+${v('kpi')?`<p>做成的标准：${esc(v('kpi'))}</p>`:''}${v('need')?`<p>${esc(d.need.replace('（选填）',''))}：${esc(v('need'))}</p>`:''}</div>
+<p class="sign">汇报人：${esc(v('nm'))}　${dt}</p>`;
+ TXT=`【${v('co')}】深圳 GEO 大会参会学习报告\n参会人：${v('nm')}${v('pos')?'（'+v('pos')+'）':''}｜${d.t}\n${v('to')?d.to+'：'+v('to')+'\n':''}日期：${dt}\n\n一、五点总结\n${S.map((x,i)=>`${i+1}. ${x}`).join('\n')}\n\n二、三点收获\n${G.map((x,i)=>`${i+1}. ${x}`).join('\n')}\n\n三、一点落地\n${v('a')}\n负责人：${v('who')||v('nm')}｜完成时间：${v('when')||'—'}${v('kpi')?'\n做成的标准：'+v('kpi'):''}${v('need')?'\n'+d.need.replace('（选填）','')+'：'+v('need'):''}`;
+ $('edit').style.display='none';$('report').style.display='block';scrollTo(0,0);
+};
+$('back').onclick=()=>{$('report').style.display='none';$('edit').style.display='block';};
+$('pr').onclick=()=>print();
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText(TXT);$('cp').textContent='已复制，去微信粘贴'}catch(e){const t=document.createElement('textarea');t.value=TXT;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();$('cp').textContent='已复制，去微信粘贴'}};
+</script>
+</body>
+</html>

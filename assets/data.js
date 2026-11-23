@@ -1,5 +1,5 @@
 window.GEO_DATA = {
-  "generatedAt": "2026-11-22T14:59:49.956Z",
+  "generatedAt": "2026-11-23T00:14:51.093Z",
   "sessions": [
     {
       "id": "s1",
@@ -4883,8 +4883,14 @@ window.GEO_DATA = {
           "qa": [],
           "resources": [
             {
+              "item": "《GEO 的下一程：如何赢得 AI Agent 的选择 · 现场极简版》完整在线课件",
+              "how": "岚叔公开的现场 HTML 极简版课件（含 17 步回答链路拆解与 225 次抽样实测）",
+              "url": "https://lanshuagent.com/geofenxiang/"
+            },
+            {
               "item": "岚叔个人主页与最新 AI Agent 测评及开源工具",
-              "how": "访问个人网站 lanshuagent.com 或 X 账号 x.com/lanshu 查看《一手观察与测评》《开源软件与工具》及商业交付案例"
+              "how": "访问个人网站 lanshuagent.com 或 X 账号 x.com/lanshu 查看《一手观察与测评》《开源软件与工具》及商业交付案例",
+              "url": "https://lanshuagent.com"
             },
             {
               "item": "AI Agent 企业落地与 OpenClaw Workshop 培训",
@@ -8085,13 +8091,19 @@ window.GEO_DATA = {
       },
       {
         "id": "res-13",
-        "item": "中国第二届 GEO 大会两天 21.7 万字完整精校逐字稿（GitHub 开源仓库）",
-        "provider": "开源社区整理（renzheng0415）",
+        "item": "中国第二届 GEO 大会两天 21.7 万字完整精校逐字稿（GitHub 开源）& 任之初 X 精华长文",
+        "provider": "任之初（@zen3634421 / GitHub: renzheng0415）",
         "talkId": "s6-qa-noon",
         "category": "开源逐字稿全本",
-        "how": "约 21.7 万字纯转写精校逐字稿，剔除暖场杂音并校对全部嘉宾与专有名词，补全 Day 2 中午高能实战答疑与拔刀刘下午实操课全文。",
+        "how": "约 21.7 万字纯转写精校逐字稿开源仓库，补全 Day 2 中午高能实战答疑与拔刀刘下午实操课；配套 X 长文精华整理浓缩 22 场核心分享，附核心观点、金句原话与定制手绘漫画干货图谱。",
         "url": "https://github.com/renzheng0415/china-geo-conference-2026",
-        "linkLabel": "访问 GitHub 完整精校原文 ↗"
+        "linkLabel": "GitHub 21.7 万字精校原文 ↗",
+        "extraLinks": [
+          {
+            "label": "任之初 X 精华长文+漫画图谱 ↗",
+            "url": "https://x.com/zen3634421/status/2124502492272808241"
+          }
+        ]
       },
       {
         "id": "res-14",
@@ -8122,6 +8134,72 @@ window.GEO_DATA = {
         "how": "完整 52 页实战 PPT 已无损转 PDF 上线本站，支持逐页高清放大预览与整份 PDF 下载。",
         "url": "assets/ppt/s5-lenghongli/slides.pdf",
         "linkLabel": "下载 52 页完整 PDF ↗"
+      },
+      {
+        "id": "res-16",
+        "item": "岚叔《GEO 的下一程：如何赢得 AI Agent 的选择 · 现场极简版》在线互动课件",
+        "provider": "岚叔（AI Agent 研发者 · 科技博主）",
+        "talkId": "s6-lanshu",
+        "category": "课件与工作台",
+        "how": "完整呈现“从 Agent 内部往外看”的品牌选择机制，包含一次真实回答的 17 个步骤拆解与同品类 225 次抽样实测。",
+        "url": "https://lanshuagent.com/geofenxiang/",
+        "linkLabel": "在线查看现场极简版课件 ↗",
+        "extraLinks": [
+          {
+            "label": "lanshuagent.com ↗",
+            "url": "https://lanshuagent.com"
+          }
+        ]
+      },
+      {
+        "id": "res-17",
+        "item": "《GEO 底层方法论学习手册》（59 页 PDF · 2026.11 学习版）",
+        "provider": "源自中国第二届 GEO 大会（21.7 万字逐字稿打散重构）",
+        "talkId": null,
+        "category": "学习手册与三色皮书",
+        "how": "不按讲者分章，按「导读十二条心法 → 认知篇·机制 → 方法篇·八步闭环 → 场景篇·国内出海 → 经营篇·交付组织合规」重排，国内与海外平台皆可对照实操（2.1 MB）。",
+        "url": "assets/docs/geo-methodology-handbook.pdf",
+        "linkLabel": "在线阅读 / 下载 59 页 PDF ↗"
+      },
+      {
+        "id": "res-18",
+        "item": "《国内 GEO 白皮书：AI 搜索时代的品牌增长新范式》（245 页 · 24 万字 PDF）",
+        "provider": "姚金刚、向阳乔木",
+        "talkId": null,
+        "category": "学习手册与三色皮书",
+        "how": "持续更新版系统教材，涵盖 DeepSeek、豆包、元宝、千问、ChatGPT、Gemini 的 GEO 底层原理、实践案例与相关论文解读（7.8 MB）。",
+        "url": "assets/docs/geo-whitepaper.pdf",
+        "linkLabel": "在线阅读 / 下载白皮书 PDF ↗"
+      },
+      {
+        "id": "res-19",
+        "item": "《GEO 蓝皮书：企业与 GEO 服务商合作评估指南》（169 页 PDF）",
+        "provider": "姚金刚、向阳乔木",
+        "talkId": null,
+        "category": "学习手册与三色皮书",
+        "how": "面向品牌方、集团/上市公司与出海团队的采购与合作全流程指南：覆盖立项、诊断、基线、RFI/RFP、比稿、POC、合同与复盘评估评分框架（12 MB）。",
+        "url": "assets/docs/geo-bluebook.pdf",
+        "linkLabel": "在线阅读 / 下载蓝皮书 PDF ↗"
+      },
+      {
+        "id": "res-20",
+        "item": "《GEO 红皮书：生成式引擎优化的伦理边界、作弊风险与治理手册》（204 页 PDF）",
+        "provider": "姚金刚、向阳乔木",
+        "talkId": null,
+        "category": "学习手册与三色皮书",
+        "how": "国内与出海业务 GEO 红线治理框架：系统界定 9 大风险类型、55 种 GEO 风险、供应商审计、整改沟通、证据保全与治理路线图（7.2 MB）。",
+        "url": "assets/docs/geo-redbook.pdf",
+        "linkLabel": "在线阅读 / 下载红皮书 PDF ↗"
+      },
+      {
+        "id": "res-21",
+        "item": "2026 深圳 GEO 大会 · 参会学习报告生成器（一键出带公司抬头汇报稿）",
+        "provider": "大会复盘互动工具（纯本地运行，不上传隐私）",
+        "talkId": null,
+        "category": "互动复盘工具",
+        "how": "按「五点总结 · 三点收获 · 一点落地」结构填写，内置 5 类身份提示与 10 条高频灵感标签，一键生成带公司抬头的正式报告，支持复制发微信或直接打印/保存为 PDF。",
+        "url": "assets/tools/geo-learning-report.html",
+        "linkLabel": "立即打开报告生成器 ↗"
       }
     ]
   },
@@ -10982,7 +11060,20 @@ window.GEO_DATA = {
         "status": "pending"
       },
       "s6-lanshu": {
-        "status": "pending"
+        "status": "ready",
+        "title": "《GEO 的下一程：如何赢得 AI Agent 的选择 · 现场极简版》在线互动课件",
+        "url": "https://lanshuagent.com/geofenxiang/",
+        "note": "岚叔大会现场完整 HTML 极简版课件（含 1 次回答的 17 步拆解与同品类 225 次实测抽样），点击即可在线浏览。",
+        "extraLinks": [
+          {
+            "label": "岚叔个人网站（lanshuagent.com）↗",
+            "url": "https://lanshuagent.com"
+          },
+          {
+            "label": "岚叔 X (@lanshu) ↗",
+            "url": "https://x.com/lanshu"
+          }
+        ]
       },
       "s6-luhao": {
         "status": "pending"
@@ -11050,7 +11141,11 @@ window.GEO_DATA = {
         "圆桌分享（原排 15:04 余一/彭超/谭少卿；上午大屏曾改排彭超）：14:58 主持宣布直接转入实操，未在现场发生",
         "Floatboat + GEO 实操（16:09 现场开展）与 17:50 尾场答疑无录音；拔刀刘「爱搜 AI + GEO 实操」及「中午高能实战答疑」已借开源精校全本完整补齐"
       ],
-      "practice": "下午两场实操：爱搜 AI 实操（s7-badaoliu-prac 已补全精读）+ Floatboat 实操（工作台与 7 分钟录屏 PPT 已上线）"
+      "practice": "下午两场实操：爱搜 AI 实操（s7-badaoliu-prac 已补全精读）+ Floatboat 实操（工作台与 7 分钟录屏 PPT 已上线）",
+      "xArticle": {
+        "label": "任之初 X 精华长文+手绘漫画图谱 ↗",
+        "url": "https://x.com/zen3634421/status/2124502492272808241"
+      }
     },
     "themes": [
       {

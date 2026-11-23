@@ -289,6 +289,7 @@
         { route: '#/paths', label: '三条学习路径', badge: '打卡' },
         { route: '#/quiz', label: '20题自测', badge: `${synthesis.quiz.length}题` },
         { route: '#/checklist', label: '行动清单', badge: `${synthesis.checklist.length}项` },
+        { route: 'assets/tools/geo-learning-report.html', label: '参会报告生成', badge: '工具 ↗', external: true },
       ],
     },
     {
@@ -316,7 +317,9 @@
       ${g.items
         .map(
           (it) =>
-            `<a class="nav-link${isMatch(it.route) ? ' active' : ''}" href="${esc(it.route)}">
+            `<a class="nav-link${!it.external && isMatch(it.route) ? ' active' : ''}" href="${esc(it.route)}"${
+              it.external ? ' target="_blank" rel="noopener noreferrer"' : ''
+            }>
               <span>${esc(it.label)}</span>
               <span class="nav-badge">${esc(it.badge)}</span>
             </a>`
@@ -328,7 +331,9 @@
     const drawerHtml = `<div class="drawer-grid">${NAV_GROUPS.flatMap((g) => g.items)
       .map(
         (it) =>
-          `<a class="nav-link${isMatch(it.route) ? ' active' : ''}" href="${esc(it.route)}">
+          `<a class="nav-link${!it.external && isMatch(it.route) ? ' active' : ''}" href="${esc(it.route)}"${
+            it.external ? ' target="_blank" rel="noopener noreferrer"' : ''
+          }>
             <span>${esc(it.label)}</span>
             <span class="nav-badge">${esc(it.badge)}</span>
           </a>`
@@ -807,6 +812,11 @@
                   day2.overview.fullTranscriptRepo
                     ? `<div class="ppt-slot-actions" style="margin-top:0.65rem">
                         <a class="btn btn-outline" href="${esc(day2.overview.fullTranscriptRepo.url)}" target="_blank" rel="noopener noreferrer">${esc(day2.overview.fullTranscriptRepo.label)}</a>
+                        ${
+                          day2.overview.xArticle
+                            ? `<a class="btn btn-outline" href="${esc(day2.overview.xArticle.url)}" target="_blank" rel="noopener noreferrer">${esc(day2.overview.xArticle.label)}</a>`
+                            : ''
+                        }
                         <a class="btn btn-outline" href="#/talk/s6-qa-noon">查看中午高能实战答疑 →</a>
                         <a class="btn btn-outline" href="#/talk/s7-badaoliu-prac">查看拔刀刘下午实操课 →</a>
                       </div>`
@@ -879,6 +889,55 @@
             </section>`
           : ''
       }
+
+      <section class="reveal reveal-d2" id="manualsSection">
+        <div class="section-head">
+          <h2>大会学习手册、三色皮书与汇报工具</h2>
+          <a class="tag tag-accent" href="#/resources">查看全部 ${synthesis.resources.length} 项物料 →</a>
+        </div>
+        <div class="d2-theme-grid">
+          <article class="card d2-theme-card">
+            <div class="five-num">59P · 手册</div>
+            <h3>GEO 底层方法论学习手册</h3>
+            <p>将两天 21.7 万字逐字稿打散重构为十二条心法、认知机制、八步闭环、国内/出海场景与合规经营手册（2.1 MB）。</p>
+            <div class="ppt-slot-actions">
+              <a class="btn btn-accent" href="assets/docs/geo-methodology-handbook.pdf" target="_blank" rel="noopener noreferrer">阅读 / 下载 PDF ↗</a>
+            </div>
+          </article>
+          <article class="card d2-theme-card">
+            <div class="five-num">245P · 白皮书</div>
+            <h3>国内 GEO 白皮书（24 万字）</h3>
+            <p>姚金刚、向阳乔木著：AI 搜索时代的品牌增长新范式，覆盖六大主流模型基础原理、案例与论文解读（7.8 MB）。</p>
+            <div class="ppt-slot-actions">
+              <a class="btn btn-outline" href="assets/docs/geo-whitepaper.pdf" target="_blank" rel="noopener noreferrer">阅读 / 下载 PDF ↗</a>
+            </div>
+          </article>
+          <article class="card d2-theme-card">
+            <div class="five-num">169P · 蓝皮书</div>
+            <h3>企业与 GEO 服务商合作评估指南</h3>
+            <p>姚金刚、向阳乔木著：立项、诊断、基线、RFI/RFP、比稿、POC、合同与复盘采购评估全框架（12 MB）。</p>
+            <div class="ppt-slot-actions">
+              <a class="btn btn-outline" href="assets/docs/geo-bluebook.pdf" target="_blank" rel="noopener noreferrer">阅读 / 下载 PDF ↗</a>
+            </div>
+          </article>
+          <article class="card d2-theme-card">
+            <div class="five-num">204P · 红皮书</div>
+            <h3>伦理边界、作弊风险与治理手册</h3>
+            <p>姚金刚、向阳乔木著：9 大风险类型、55 种 GEO 风险、红线制度、供应商审计与证据保全指南（7.2 MB）。</p>
+            <div class="ppt-slot-actions">
+              <a class="btn btn-outline" href="assets/docs/geo-redbook.pdf" target="_blank" rel="noopener noreferrer">阅读 / 下载 PDF ↗</a>
+            </div>
+          </article>
+          <article class="card d2-theme-card" style="border-color:rgba(200,54,29,0.35)">
+            <div class="five-num">HTML · 工具</div>
+            <h3>参会学习报告一键生成器</h3>
+            <p>五点总结 · 三点收获 · 一点落地：按 5 类身份生成带公司抬头的正式报告，支持复制发微信或存 PDF（纯本机存储）。</p>
+            <div class="ppt-slot-actions">
+              <a class="btn btn-accent" href="assets/tools/geo-learning-report.html" target="_blank" rel="noopener noreferrer">打开报告生成器 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section class="reveal reveal-d2">
         <div class="section-head">

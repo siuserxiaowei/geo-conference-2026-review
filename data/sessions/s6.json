@@ -411,8 +411,14 @@
       "qa": [],
       "resources": [
         {
+          "item": "《GEO 的下一程：如何赢得 AI Agent 的选择 · 现场极简版》完整在线课件",
+          "how": "岚叔公开的现场 HTML 极简版课件（含 17 步回答链路拆解与 225 次抽样实测）",
+          "url": "https://lanshuagent.com/geofenxiang/"
+        },
+        {
           "item": "岚叔个人主页与最新 AI Agent 测评及开源工具",
-          "how": "访问个人网站 lanshuagent.com 或 X 账号 x.com/lanshu 查看《一手观察与测评》《开源软件与工具》及商业交付案例"
+          "how": "访问个人网站 lanshuagent.com 或 X 账号 x.com/lanshu 查看《一手观察与测评》《开源软件与工具》及商业交付案例",
+          "url": "https://lanshuagent.com"
         },
         {
           "item": "AI Agent 企业落地与 OpenClaw Workshop 培训",

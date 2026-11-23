@@ -163,6 +163,12 @@ if (fs.existsSync(synthesisPath)) {
   }
 
   assert((syn.checklist || []).length === 15, `checklist count must be 15, got ${(syn.checklist || []).length}`);
+
+  for (const [i, r] of (syn.resources || []).entries()) {
+    if (r.url && r.url.startsWith('assets/')) {
+      assert(fs.existsSync(path.join(rootDir, r.url)), `resources[${i}] local asset missing on disk: ${r.url}`);
+    }
+  }
 }
 
 assert(fs.existsSync(mediaPath), 'Missing data/media.json');
