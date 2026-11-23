@@ -2455,3 +2455,82 @@ a.tag:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* WeChat Groups Supplement */
+.group-home-banner {
+  border-color: rgba(200, 54, 29, 0.35);
+  background: linear-gradient(180deg, var(--paper-card) 0%, #F7F1E5 100%);
+}
+
+.group-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+}
+
+.group-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.group-bullet-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.9rem;
+  line-height: 1.68;
+  color: var(--ink);
+}
+
+.group-bullet-list li + li {
+  margin-top: 0.35rem;
+}
+
+.group-qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.15rem;
+}
+
+.group-qa-box {
+  background: var(--paper-deep);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.group-qa-q {
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.group-qa-a {
+  color: var(--muted);
+}
+
+.group-verify-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 0.85rem;
+}
+
+.group-verify-card {
+  border-left: 3px solid var(--ok);
+}
+
+.group-verify-before {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0.35rem 0 0.25rem;
+}
+
+.group-verify-after {
+  font-size: 0.88rem;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.62;
+}
