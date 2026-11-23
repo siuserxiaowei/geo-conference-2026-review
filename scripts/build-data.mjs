@@ -11,6 +11,7 @@ const agendaPath = path.join(rootDir, 'data', 'agenda.json');
 const photosPath = path.join(rootDir, 'data', 'photos.json');
 const pptPath = path.join(rootDir, 'data', 'ppt.json');
 const day2Path = path.join(rootDir, 'data', 'day2-summary.json');
+const groupsPath = path.join(rootDir, 'data', 'groups.json');
 const outPath = path.join(rootDir, 'assets', 'data.js');
 
 const sessionIds = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'];
@@ -25,6 +26,7 @@ const agenda = JSON.parse(fs.readFileSync(agendaPath, 'utf-8'));
 const photos = JSON.parse(fs.readFileSync(photosPath, 'utf-8'));
 const ppt = JSON.parse(fs.readFileSync(pptPath, 'utf-8'));
 const day2 = JSON.parse(fs.readFileSync(day2Path, 'utf-8'));
+const groups = fs.existsSync(groupsPath) ? JSON.parse(fs.readFileSync(groupsPath, 'utf-8')) : null;
 
 const payload = {
   generatedAt: new Date().toISOString(),
@@ -35,6 +37,7 @@ const payload = {
   photos,
   ppt,
   day2,
+  groups,
 };
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });

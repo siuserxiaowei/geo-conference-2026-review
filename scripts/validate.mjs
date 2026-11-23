@@ -11,6 +11,7 @@ const agendaPath = path.join(rootDir, 'data', 'agenda.json');
 const photosPath = path.join(rootDir, 'data', 'photos.json');
 const pptPath = path.join(rootDir, 'data', 'ppt.json');
 const day2Path = path.join(rootDir, 'data', 'day2-summary.json');
+const groupsPath = path.join(rootDir, 'data', 'groups.json');
 const bundlePath = path.join(rootDir, 'assets', 'data.js');
 
 const VALID_TOPIC_IDS = new Set([
@@ -143,7 +144,7 @@ if (fs.existsSync(synthesisPath)) {
     assert(TS_RE.test(q.ts || ''), `quotes[${i}] invalid ts: "${q.ts}"`);
   }
 
-  const ROUTE_RE = /^#\/(debates|quiz|methods|resources|checklist|quotes|glossary|topics|sessions|gallery)$/;
+  const ROUTE_RE = /^#\/(debates|quiz|methods|resources|checklist|quotes|glossary|topics|sessions|gallery|groups)$/;
   assert((syn.paths || []).length === 3, `paths count must be 3, got ${(syn.paths || []).length}`);
   for (const p of syn.paths || []) {
     assert((p.steps || []).length >= 6 && (p.steps || []).length <= 10, `path ${p.id} steps must be 6..10`);
@@ -229,6 +230,29 @@ if (fs.existsSync(day2Path)) {
   for (const [i, q] of (d2.quotes || []).entries()) {
     assert(talkIds.has(q.talkId), `day2.quotes[${i}] unknown talkId: ${q.talkId}`);
     assert(TS_RE.test(q.ts || ''), `day2.quotes[${i}] invalid ts: "${q.ts}"`);
+  }
+}
+
+if (fs.existsSync(groupsPath)) {
+  const grp = JSON.parse(fs.readFileSync(groupsPath, 'utf-8'));
+  const phoneRe = /(?<!\d)1[3-9][0-9]{9}(?!\d)/;
+  const serializedGrp = JSON.stringify(grp);
+  assert(!phoneRe.test(serializedGrp), 'Privacy leak (phone number) in data/groups.json');
+  for (const [i, v] of (grp.verifications || []).entries()) {
+    if (v.talkId) assert(talkIds.has(v.talkId), `groups.verifications[${i}] unknown talkId: ${v.talkId}`);
+  }
+  for (const [i, g] of (grp.guestGroups || []).entries()) {
+    if (g.talkId) assert(talkIds.has(g.talkId), `groups.guestGroups[${i}] unknown talkId: ${g.talkId}`);
+    for (const lk of g.links || []) {
+      if (lk.url && lk.url.startsWith('assets/')) {
+        assert(fs.existsSync(path.join(rootDir, lk.url)), `groups.guestGroups[${i}] local asset missing: ${lk.url}`);
+      }
+    }
+  }
+  for (const [i, r] of (grp.vipInsights?.communityResources || []).entries()) {
+    if (r.url && r.url.startsWith('assets/')) {
+      assert(fs.existsSync(path.join(rootDir, r.url)), `groups.vipInsights.communityResources[${i}] local asset missing: ${r.url}`);
+    }
   }
 }
 

@@ -234,6 +234,11 @@
           "item": "WaytoAGI 社区开源知识库（飞书 Wiki）",
           "how": "千万级用户 AI 开源知识库、只收作业不收费的共学训练营、京蓉 OPC 实体社区及双周六《未来微世界》直播入口",
           "url": "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e"
+        },
+        {
+          "item": "Google Labs design.md 官方规范 & WaytoAGI D20 开源演示",
+          "how": "AJ 粉丝群与 VIP 群补充：可用 design.md spec 蒸馏任意网页设计系统；同时确认演讲提及的海外 Personal Agent 拼写为 Instinct（Instinct AI）",
+          "url": "https://github.com/google-labs-code/design.md/blob/main/docs/spec.md"
         }
       ],
       "tags": [
@@ -471,6 +476,11 @@
       "qa": [],
       "resources": [
         {
+          "item": "冷洪利自研 GEO 信源监控系统（agent.7chacha.com）",
+          "how": "11 月 23 日在粉丝群正式公开，即将开放共享模式供大家免费监控，配套文章与视频系统提供免费试用额度",
+          "url": "https://agent.7chacha.com"
+        },
+        {
           "item": "《豆包信源 · 视频矩阵怎么做（07 维度）》完整课件 PDF（52 页）",
           "how": "光头牛哥 · 冷洪利大会完整 52 页实战 PPT（由原 PPTX 无损转 PDF），已收入本站课件区支持逐页预览与下载",
           "url": "assets/ppt/s5-lenghongli/slides.pdf"
@@ -486,6 +496,11 @@
         {
           "item": "现场微信扫码交流（豆包 GEO 实战答疑）",
           "how": "演讲尾声在大屏公开个人微信供参会者会后对接实战案例（为保护隐私本归档不收录具体微信号）"
+        },
+        {
+          "item": "《AI 流量红利与豆包 SEO 实战》精读笔记（钟婷燕整理）",
+          "how": "冷洪利 11 月 23 日在粉丝群转发推荐的图文整理版",
+          "url": "https://d.biji.com/H4r8pk5by9qidcco"
         }
       ],
       "tags": [

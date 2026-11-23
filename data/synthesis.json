@@ -45,8 +45,9 @@
       }
     ],
     "nameAuditNotice": [
-      "全部嘉宾姓名、身份与题目已按大会官网议程（hui.ailingdaoli.com）校正。",
-      "仍存疑待核实项目：张伟方现场自我介绍履历与议程身份（宁波日报报业集团副总编辑、甬派董事长）的差异；DeepSeek Harmony / Harness 产品名；Flowpaas（Floatboat 共享市场）拼写；周小鸟、杭州张总等现场加场快分享嘉宾全名；HIROX（演讲中指室内铁人三项类健身赛事，非服饰品牌名）。"
+      "全部嘉宾姓名、身份与题目已按大会官网议程（hui.ailingdaoli.com）及 22 个大会微信群会后官方核校完成校准。",
+      "已通过大会微信群核校落定的 4 项关键信息：① Day 1 宁波日报城市语料主讲人实为陈春林（浙江日报 & 宁波日报合资公司宁波派联信息技术有限公司总经理，11 月 21 日替张伟方登台）；② 苍何演讲中「LookBody」实为腾讯 WorkBuddy（GEO 诊断专家累计调用 23.95 万次）；③ 阿里云万小智快分享嘉宾福波本名刘天勇（产品运营负责人）；④ AJ 演讲高频提及的海外 Agent 拼写确认为 Instinct（Instinct AI）。",
+      "仍存疑待核实项目：DeepSeek Harmony / Harness 产品名；Flowpaas（Floatboat 共享市场）拼写；周小鸟、杭州张总等现场加场快分享嘉宾全名；HIROX（演讲中指室内铁人三项类健身赛事，非服饰品牌名）。"
     ]
   },
   "topics": [
@@ -2020,7 +2021,13 @@
       "category": "课件与工作台",
       "how": "完整 26 页大会 PDF 课件已上线本站支持逐页预览与下载；配套全场景 GEO 拓词 Skill 提示词与白皮书在大会参会群下发。",
       "url": "assets/ppt/s3-2/slides.pdf",
-      "linkLabel": "下载 26 页完整 PDF ↗"
+      "linkLabel": "下载 26 页完整 PDF ↗",
+      "extraLinks": [
+        {
+          "label": "艾奇官网推荐得分算法白皮书 ↗",
+          "url": "https://www.27geo.com/whitepaper"
+        }
+      ]
     },
     {
       "id": "res-2",
@@ -2028,13 +2035,21 @@
       "provider": "谭少卿（Floatboat）",
       "talkId": "s2-tanshaoqing",
       "category": "课件与工作台",
-      "how": "点开在线 PPT 直接观看（内嵌 7 分钟真机录屏，电脑按 V 键或点第 5 页/末页右上角播放）；「GEO 内容生产线」工作台已开放体验。",
+      "how": "点开在线 PPT 直接观看（内嵌 7 分钟真机录屏）；VIP 群 11/23 放出「GEO 内容生产线」前 49 位免费带源码安装名额（兑换码 JX7AKQNYP8），另附会后连夜重构的「声渡 · 双语播客精读台」。",
       "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk",
       "linkLabel": "在线查看完整 PPT ↗",
       "extraLinks": [
         {
           "label": "体验「GEO 内容生产线」↗",
           "url": "https://floatboat.ai/workbenchstore/geo-content-pipeline"
+        },
+        {
+          "label": "领免费名额（兑换码 JX7AKQNYP8）↗",
+          "url": "https://floatboat.ai/?invite=JX7AKQNYP8"
+        },
+        {
+          "label": "体验「声渡 · 双语播客精读台」↗",
+          "url": "https://floatboat.ai/workbenchstore/subcast-bilingual-studio"
         }
       ]
     },
@@ -2044,9 +2059,19 @@
       "provider": "拔刀刘（AIDSO 爱搜 AI）",
       "talkId": "s7-badaoliu-prac",
       "category": "数据与监测工具",
-      "how": "已为报名手机号自动开通 7 天高级版试用；Day 2 下午 1 小时四大监测模块实操课与平台底层机制揭秘已完整补录入站。",
+      "how": "在 geo.aidso.com 或小程序「做GEO优化，先爱搜一下」注册后联系工作人员人工开通 7 天企业版（高级版）试用；下方附 VIP 群同步的两份官方飞书使用手册（GEO 版 / DSO 版）。",
       "url": "https://geo.aidso.com",
-      "linkLabel": "访问爱搜 AI 平台 ↗"
+      "linkLabel": "访问爱搜 AI 平台 ↗",
+      "extraLinks": [
+        {
+          "label": "AIDSO 爱搜手册（GEO 版）↗",
+          "url": "https://s12is4u3s19.feishu.cn/wiki/U9f5wCMKziO4gdkoOTLcD4Xkn1c"
+        },
+        {
+          "label": "AIDSO 爱搜使用手册（DSO 版）↗",
+          "url": "https://s12is4u3s19.feishu.cn/wiki/LuRlwFsreiFDYkk833scp4TTne8"
+        }
+      ]
     },
     {
       "id": "res-4",
@@ -2106,13 +2131,27 @@
     },
     {
       "id": "res-11",
-      "item": "苍何《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件（42 页）& LookBody 免费诊断",
+      "item": "苍何《GEO 霸榜 AI 搜索分享（新增实战避坑）》完整课件（42 页）& WorkBuddy 免费诊断",
       "provider": "苍何（前排科技 CTO / 前排 GEO 研究院主任）",
       "talkId": "s3-3",
       "category": "课件与工作台",
-      "how": "完整 42 页实战避坑版 PPT 已转 PDF 上线本站逐页查阅；LookBody 上线免费诊断工具（20 万+使用量），并在参会群接入苍何粉丝群。",
+      "how": "完整 42 页实战避坑版 PPT 已转 PDF 上线本站逐页查阅；经群内确认诊断平台为腾讯 WorkBuddy（首个上架且调用量第一的 GEO 专家，累计调用 23.95 万次），另附群友共创《易出结果 GEO 行业汇总表》与新书《Codex 从入门到精通》。",
       "url": "assets/ppt/s3-3/slides.pdf",
-      "linkLabel": "下载 42 页完整 PDF ↗"
+      "linkLabel": "下载 42 页完整 PDF ↗",
+      "extraLinks": [
+        {
+          "label": "WorkBuddy 实战教程站 ↗",
+          "url": "https://workbuddy.homes/"
+        },
+        {
+          "label": "易出结果 GEO 行业汇总表 ↗",
+          "url": "https://www.kdocs.cn/l/crm6ROIKLsqf"
+        },
+        {
+          "label": "《Codex 从入门到精通》（微信读书）↗",
+          "url": "https://weread.qq.com/book-detail?type=1&senderVid=17800409&v=4c9320b0813abc36cg011390"
+        }
+      ]
     },
     {
       "id": "res-12",
@@ -2233,6 +2272,154 @@
       "how": "按「五点总结 · 三点收获 · 一点落地」结构填写，内置 5 类身份提示与 10 条高频灵感标签，一键生成带公司抬头的正式报告，支持复制发微信或直接打印/保存为 PDF。",
       "url": "assets/tools/geo-learning-report.html",
       "linkLabel": "立即打开报告生成器 ↗"
+    },
+    {
+      "id": "res-22",
+      "item": "张栖铭《AI-Native 的思维变革与实践（GEO 大会分享版）》完整 PDF 课件（48 页）",
+      "provider": "张栖铭（BotLearn 联合创始人）· 嘉宾群首发",
+      "talkId": "s1-zhangxinmin",
+      "category": "课件与工作台",
+      "how": "张栖铭于 11 月 21 日晚在嘉宾粉丝群亲自发布的 48 页完整分享版 PDF，已上线本站支持逐页高清放大与完整下载。",
+      "url": "assets/ppt/s1-zhangxinmin/slides.pdf",
+      "linkLabel": "下载 48 页完整 PDF ↗"
+    },
+    {
+      "id": "res-23",
+      "item": "GEOFlow 开源项目仓库与完整 Wiki 部署文档",
+      "provider": "姚金刚（大会发起人 / GEOFlow 创始人）",
+      "talkId": null,
+      "category": "开源工具与监控系统",
+      "how": "大会发起人姚金刚开源的 GEO 工作流项目，包含完整部署指南、常见问题说明与 GitHub Issues 社区支持。",
+      "url": "https://github.com/yaojingang/GEOFlow",
+      "linkLabel": "访问 GitHub 仓库 ↗",
+      "extraLinks": [
+        {
+          "label": "阅读 Wiki 教程 ↗",
+          "url": "https://github.com/yaojingang/GEOFlow/wiki"
+        }
+      ]
+    },
+    {
+      "id": "res-24",
+      "item": "冷洪利自研 GEO 信源监控系统（agent.7chacha.com）& 演讲精读笔记",
+      "provider": "冷洪利 / 光头牛哥（曝光率 GEO）· 钟婷燕整理",
+      "talkId": "s5-lenghongli",
+      "category": "开源工具与监控系统",
+      "how": "冷洪利 11 月 23 日在粉丝群公开自研 GEO 监控系统，即将开放「共享模式」供大家免费监控（文章/视频系统提供免费额度），并附钟婷燕整理的 Get 笔记图文精读版。",
+      "url": "https://agent.7chacha.com",
+      "linkLabel": "访问监控系统 ↗",
+      "extraLinks": [
+        {
+          "label": "阅读演讲精读笔记（Get笔记）↗",
+          "url": "https://d.biji.com/H4r8pk5by9qidcco"
+        }
+      ]
+    },
+    {
+      "id": "res-25",
+      "item": "《第二届 GEO 大会 Day 2 全嘉宾实战精华（裁剪版）》PDF & Day 1 X 复盘",
+      "provider": "HaonanPro（@keke202106）· VIP 群同步",
+      "talkId": "s7-badaoliu-prac",
+      "category": "社区共创复盘",
+      "how": "基于视频号直播完整拆解 Day 2 全部 8 场主题与 2 场真机实操课（补齐 Floatboat 实操课 6 步完整闭环），同步附 Day 1 X 复盘长文。",
+      "url": "assets/docs/day2-haonan-digest.pdf",
+      "linkLabel": "阅读 / 下载 Day 2 精华 PDF ↗",
+      "extraLinks": [
+        {
+          "label": "阅读 Day 1 X 精华复盘 ↗",
+          "url": "https://x.com/keke202106/status/2124172045252780039"
+        }
+      ]
+    },
+    {
+      "id": "res-26",
+      "item": "《2026–2027 直接落地的 B2B 网站建设与 SEO/GEO 基础指导手册》",
+      "provider": "Vincent 老张（VIP 群外贸 B2B 实战群友）",
+      "talkId": "s2-gefei",
+      "category": "社区共创复盘",
+      "how": "11 月 23 日 VIP 群最新分享：基于 4 个外贸 B2B 独立站实操复盘与数月 Google SEO/GEO 技术变化监控整理，侧重海外实战落地。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzY5NDM4MzAxOA==&mid=2247483725&idx=1&sn=f266895238d686e805615351b18cd9a8",
+      "linkLabel": "阅读公众号完整手册 ↗"
+    },
+    {
+      "id": "res-27",
+      "item": "官媒双报道：北京日报智源 GEO 2.0 发布 × 宁波日报城市传播语料标准启动",
+      "provider": "北京日报 / 宁波日报·甬派（陈春林同步）",
+      "talkId": "s2-renzong",
+      "category": "权威媒体与标准",
+      "how": "大会现场两大权威媒体联合启动「城市传播语料库参考标准建设」与智源 GEO 2.0 发布的官方媒体报道。",
+      "url": "https://ypstatic.cnnb.com.cn/yppage-shareH5/news/share/news_detail?newsId=6b010da7e4b06e59cca8de40&modeType=0",
+      "linkLabel": "阅读甬派官方报道 ↗",
+      "extraLinks": [
+        {
+          "label": "阅读北京日报官微报道 ↗",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzA5MDA0NDA4NA==&mid=2651559757&idx=1&sn=8765a89a7d2b2ca2bc66a71db7a85630"
+        }
+      ]
+    },
+    {
+      "id": "res-28",
+      "item": "Google Labs design.md 设计系统规范 & WaytoAGI D20 动态演示源码",
+      "provider": "AJ 粉丝群 & VIP 2 群共创补充",
+      "talkId": "s5-aj",
+      "category": "开源工具与监控系统",
+      "how": "配合 AJ 演讲中「用 design.md 当设计字典、用 HTML 当 Agent 母语」的落地参考：含 Google Labs 官方 design.md spec、WaytoAGI D20 动态网页演示开源项目及群友整理的《Claude 国内稳定使用指南》。",
+      "url": "https://github.com/google-labs-code/design.md/blob/main/docs/spec.md",
+      "linkLabel": "查看 design.md 官方规范 ↗",
+      "extraLinks": [
+        {
+          "label": "WaytoAGI D20 开源仓库 ↗",
+          "url": "https://github.com/waytoagi-team/d20"
+        },
+        {
+          "label": "Claude 国内使用指南 ↗",
+          "url": "https://claude-go.netlify.app/"
+        }
+      ]
+    },
+    {
+      "id": "res-29",
+      "item": "第二届 GEO 大会官方两天议程 Wiki、AIGoCode 算力福利 & 在线汇报工具",
+      "provider": "大会主办方 & VIP 群友共创",
+      "talkId": null,
+      "category": "互动复盘工具",
+      "how": "整合群内高频链接：姚金刚维护的大会两天官方议程飞书文档、彭涛提及的 AIGoCode 算力福利入口，以及群友许侠客部署的在线版参会报告生成器与自测页。",
+      "url": "https://yaojingang.feishu.cn/wiki/VxYxw6VL5iORSKkPmtccgo99nTd",
+      "linkLabel": "查看官方议程 Wiki ↗",
+      "extraLinks": [
+        {
+          "label": "AIGoCode 算力福利 ↗",
+          "url": "https://www.aigocode.net/"
+        },
+        {
+          "label": "在线版报告生成器 ↗",
+          "url": "https://www.zoho-cloud.com/geo-report"
+        },
+        {
+          "label": "在线版 20 题自测 ↗",
+          "url": "https://www.zoho-cloud.com/geo-quiz"
+        }
+      ]
+    },
+    {
+      "id": "res-30",
+      "item": "本地会议隐私录音转写工具链（Capwise / yovoice / yogurt + Qwen3 ASR）",
+      "provider": "向阳乔木 & VIP 群友安德鲁推荐",
+      "talkId": null,
+      "category": "开源工具与监控系统",
+      "how": "针对 Whisper 中文会议识别误差大的痛点，VIP 群实测推荐本地运行 Qwen3 ASR 方案：乔木开源的 Capwise 与开源工具 yovoice / yogurt 组合，兼顾中文精度与数据隐私。",
+      "url": "https://github.com/joeseesun/capwise/releases",
+      "linkLabel": "下载乔木开源 Capwise ↗",
+      "extraLinks": [
+        {
+          "label": "yovoice (GitHub) ↗",
+          "url": "https://github.com/leemysw/yovoice"
+        },
+        {
+          "label": "yogurt (GitHub) ↗",
+          "url": "https://github.com/frigadehq/yogurt"
+        }
+      ]
     }
   ]
 }

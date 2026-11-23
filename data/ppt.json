@@ -8,7 +8,60 @@
       "status": "pending"
     },
     "s1-zhangxinmin": {
-      "status": "pending"
+      "status": "ready",
+      "title": "《AI-Native 的思维变革与实践（GEO 大会分享版）》完整课件（48 页）",
+      "pdf": "assets/ppt/s1-zhangxinmin/slides.pdf",
+      "pages": [
+        "assets/ppt/s1-zhangxinmin/slide-01.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-02.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-03.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-04.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-05.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-06.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-07.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-08.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-09.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-10.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-11.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-12.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-13.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-14.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-15.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-16.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-17.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-18.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-19.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-20.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-21.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-22.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-23.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-24.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-25.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-26.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-27.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-28.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-29.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-30.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-31.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-32.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-33.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-34.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-35.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-36.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-37.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-38.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-39.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-40.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-41.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-42.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-43.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-44.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-45.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-46.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-47.jpg",
+        "assets/ppt/s1-zhangxinmin/slide-48.jpg"
+      ],
+      "note": "张栖铭（BotLearn 联合创始人）于 11 月 21 日晚在嘉宾粉丝群亲自发布的 48 页完整分享版 PDF，支持站内逐页高清放大与整份下载。"
     },
     "s2-gefei": {
       "status": "pending"
@@ -278,7 +331,7 @@
       "speaker": "谭少卿",
       "slot": "16:47–17:47",
       "status": "pending",
-      "note": "实操课未提供录音 · 课件/录屏位预留；演讲同款「GEO 内容生产线」工作台与上午主题 PPT（含 7 分钟录屏）已开放体验",
+      "note": "现场无官方录音，已据群内分享的 HaonanPro 直播实战精华补全 6 步真机闭环（市场安装→隔离浏览器抓官网建库→绑定知乎/Substack→三模板生成图文→自动生成 20 题真机跑 DeepSeek 截图补漏→定时发布，支持大白话查 Log 改源码）；11/23 VIP 群另放出前 49 位免费带源码安装名额（兑换码 JX7AKQNYP8）",
       "extraLinks": [
         {
           "label": "体验「GEO 内容生产线」工作台 ↗",
@@ -287,6 +340,14 @@
         {
           "label": "查看谭少卿《超级 Agent 工作台》在线 PPT ↗",
           "url": "https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk"
+        },
+        {
+          "label": "领免费名额（兑换码 JX7AKQNYP8）↗",
+          "url": "https://floatboat.ai/?invite=JX7AKQNYP8"
+        },
+        {
+          "label": "阅读 Day 2 实战精华 PDF（含本场 6 步拆解）↗",
+          "url": "assets/docs/day2-haonan-digest.pdf"
         }
       ]
     }

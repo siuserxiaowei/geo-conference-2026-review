@@ -16,9 +16,16 @@
     photos = { items: [] },
     ppt = { items: {}, practice: [] },
     day2 = null,
+    groups = null,
     generatedAt,
   } = DATA;
   const photoItems = photos.items || [];
+  const GROUP_BY_TALK_MAP = new Map();
+  if (groups && Array.isArray(groups.guestGroups)) {
+    for (const g of groups.guestGroups) {
+      if (g.talkId) GROUP_BY_TALK_MAP.set(g.talkId, g);
+    }
+  }
 
   const TOPIC_MAP = new Map();
   for (const t of synthesis.topics) TOPIC_MAP.set(t.id, t);
@@ -295,6 +302,7 @@
     {
       label: '工具箱',
       items: [
+        { route: '#/groups', label: '微信群精华', badge: groups ? `${groups.overview.scannedGroups}群` : '群聊' },
         { route: '#/gallery', label: '图集', badge: `${media.length + photoItems.length}` },
         { route: '#/resources', label: '会后物料', badge: `${synthesis.resources.length}` },
         { route: '#/glossary', label: '术语与纠错', badge: 'ASR' },
@@ -414,6 +422,28 @@
     }
     for (const q of day2.quotes || []) {
       addIndex('Day2金句', `${q.speaker}（Day 2）`, q.text, q.talkId ? `#/talk/${q.talkId}` : '#/sessions', q.ts);
+    }
+  }
+  if (groups) {
+    for (const v of groups.verifications || []) {
+      addIndex('群内核校', v.title, `${v.before} ${v.after}`, v.talkId ? `#/talk/${v.talkId}` : '#/groups', '官方核校');
+    }
+    for (const g of groups.guestGroups || []) {
+      const route = g.talkId ? `#/talk/${g.talkId}` : '#/groups';
+      addIndex('微信群精华', g.groupName, `${(g.highlights || []).join(' ')}`, route, g.speaker);
+      for (const qa of g.qas || []) {
+        addIndex('群内追答', `${g.speaker} 群内 Q&A`, `${qa.q} ${qa.a}`, route, g.groupName);
+      }
+    }
+    if (groups.vipInsights?.contrastData) {
+      const cd = groups.vipInsights.contrastData;
+      addIndex('群内数据', cd.title, cd.text, '#/groups', cd.speaker);
+    }
+    for (const db of groups.vipInsights?.debates || []) {
+      addIndex('群内思辨', db.title, db.summary, '#/groups', 'VIP主群');
+    }
+    for (const r of groups.vipInsights?.communityResources || []) {
+      addIndex('群内资料', r.title, `${r.provider} ${r.note}`, '#/groups', '群友共创');
     }
   }
 
@@ -938,6 +968,29 @@
           </article>
         </div>
       </section>
+
+      ${
+        groups
+          ? `<section class="reveal reveal-d2" id="groupsHomeSection">
+              <div class="section-head">
+                <h2>微信群会后精华补充（${groups.overview.scannedGroups} 个大会群汇总）</h2>
+                <a class="tag tag-accent" href="#/groups">进入 22 群完整精华页 →</a>
+              </div>
+              <div class="card group-home-banner">
+                <div class="talk-card-top">
+                  <strong style="font-family:var(--font-serif);font-size:1.1rem">会后新释出课件、嘉宾群内追答、VIP 主群思辨与 4 项事实核校</strong>
+                  <span class="tag tag-ok">更新至 ${esc(groups.overview.updatedAt)}</span>
+                </div>
+                <p style="margin:0.45rem 0 0.7rem;font-size:0.9rem;color:var(--muted)">${esc(groups.overview.summary)}</p>
+                <div class="ppt-slot-actions">
+                  <a class="btn btn-accent" href="#/groups">查看 22 个微信群逐群精华 →</a>
+                  <a class="btn btn-outline" href="#/talk/s1-zhangxinmin">新上线：张栖铭 48 页完整 PDF 课件 →</a>
+                  <a class="btn btn-outline" href="assets/docs/day2-haonan-digest.pdf" target="_blank" rel="noopener noreferrer">Day 2 全嘉宾+两场实操精华 PDF ↗</a>
+                </div>
+              </div>
+            </section>`
+          : ''
+      }
 
       <section class="reveal reveal-d2">
         <div class="section-head">
@@ -1536,6 +1589,8 @@
           : ''
       }
 
+      ${renderTalkGroupSupplement(t.id)}
+
       ${
         (t.resources || []).length
           ? `<section>
@@ -2083,6 +2138,239 @@
     </div>`;
   }
 
+  function renderTalkGroupSupplement(talkId) {
+    const g = GROUP_BY_TALK_MAP.get(talkId);
+    if (!g) return '';
+    return `
+      <section class="reveal">
+        <div class="section-head">
+          <h2>微信群会后补充与追答</h2>
+          <a class="tag tag-accent" href="#/groups">查看全部 22 群精华 →</a>
+        </div>
+        <div class="card group-card">
+          <div class="talk-card-top">
+            <strong style="font-family:var(--font-serif);font-size:1.05rem">${esc(g.groupName)}</strong>
+            <span class="tag tag-ok">${esc(g.activity)}</span>
+          </div>
+          ${
+            (g.highlights || []).length
+              ? `<ul class="group-bullet-list">${g.highlights.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>`
+              : ''
+          }
+          ${
+            (g.qas || []).length
+              ? `<div class="group-qa-list">
+                  ${g.qas
+                    .map(
+                      (qa) => `
+                    <div class="group-qa-box">
+                      <div class="group-qa-q">Q：${esc(qa.q)}</div>
+                      <div class="group-qa-a">A：${esc(qa.a)}</div>
+                    </div>`
+                    )
+                    .join('')}
+                </div>`
+              : ''
+          }
+          ${
+            (g.links || []).length
+              ? `<div class="ppt-slot-actions">
+                  ${g.links
+                    .map(
+                      (lk) =>
+                        `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
+                    )
+                    .join('')}
+                </div>`
+              : ''
+          }
+        </div>
+      </section>`;
+  }
+
+  function renderGroups() {
+    if (!groups) {
+      return '<div class="page-wide"><div class="card"><h1>暂无微信群精华数据</h1></div></div>';
+    }
+    const { overview, verifications = [], guestGroups = [], vipInsights = {} } = groups;
+    const d1Groups = guestGroups.filter((g) => g.day === 1);
+    const d2Groups = guestGroups.filter((g) => g.day === 2);
+
+    const renderGuestGroupCard = (g) => {
+      const av = g.talkId ? speakerPortrait(g.talkId) : null;
+      return `
+        <article class="card group-card reveal">
+          <div class="talk-card-top">
+            <span class="talk-speaker-wrap">
+              ${av ? `<img class="talk-avatar" src="${esc(av.thumb)}" alt="${esc(g.speaker)}" loading="lazy" decoding="async">` : ''}
+              <span>
+                <strong style="font-family:var(--font-serif);font-size:1.08rem">${esc(g.speaker)}</strong>
+                <span style="color:var(--muted);font-size:0.84rem"> · ${esc(g.org)}</span>
+              </span>
+            </span>
+            <div style="display:flex;gap:0.3rem;flex-wrap:wrap;align-items:center">
+              <span class="tag">Day ${g.day}</span>
+              <span class="tag tag-ok">${esc(g.activity)}</span>
+            </div>
+          </div>
+          <div style="font-size:0.8rem;color:var(--muted);font-family:var(--font-mono)">群名：${esc(g.groupName)}</div>
+          ${
+            (g.highlights || []).length
+              ? `<ul class="group-bullet-list">${g.highlights.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>`
+              : ''
+          }
+          ${
+            (g.qas || []).length
+              ? `<div class="group-qa-list">
+                  ${g.qas
+                    .map(
+                      (qa) => `
+                    <div class="group-qa-box">
+                      <div class="group-qa-q">Q：${esc(qa.q)}</div>
+                      <div class="group-qa-a">A：${esc(qa.a)}</div>
+                    </div>`
+                    )
+                    .join('')}
+                </div>`
+              : ''
+          }
+          <div class="ppt-slot-actions">
+            ${g.talkId ? `<a class="btn btn-accent" href="#/talk/${esc(g.talkId)}">查看对应演讲精读 →</a>` : ''}
+            ${(g.links || [])
+              .map(
+                (lk) =>
+                  `<a class="btn btn-outline" href="${esc(lk.url)}" target="_blank" rel="noopener noreferrer">${esc(lk.label)}</a>`
+              )
+              .join('')}
+          </div>
+        </article>`;
+    };
+
+    const cd = vipInsights.contrastData;
+    return `
+    <div class="page-wide">
+      <div class="page-header reveal">
+        <div class="page-kicker">微信群会后追踪 · 更新至 ${esc(overview.updatedAt)} · 已严格隐私脱敏</div>
+        <h1>${esc(overview.title)}</h1>
+        <p class="page-desc">${esc(overview.summary)}</p>
+        <div class="facts-strip" style="margin-top:0.85rem">
+          <div class="fact-cell"><div class="fact-label">扫描覆盖</div><div class="fact-val">${overview.scannedGroups} 个大会微信群（约 ${overview.totalMessagesScanned}+ 条消息）</div></div>
+          <div class="fact-cell"><div class="fact-label">实质沉淀群</div><div class="fact-val">${guestGroups.length} 个活跃嘉宾群 + VIP 主群与会务核校</div></div>
+          <div class="fact-cell"><div class="fact-label">新增完整课件</div><div class="fact-val">张栖铭 48 页 PDF 上线（全站达 6 份完整课件）</div></div>
+          <div class="fact-cell"><div class="fact-label">核校与追答</div><div class="fact-val">${verifications.length} 项事实核校落定 · ${guestGroups.reduce((n, g) => n + (g.qas || []).length, 0)} 组嘉宾群内追答</div></div>
+        </div>
+        <div class="day-filter" role="group" aria-label="按群类别筛选">
+          <button type="button" class="day-filter-btn is-active" data-group-filter="all">全部展示</button>
+          <button type="button" class="day-filter-btn" data-group-filter="d1">Day 1 嘉宾群（${d1Groups.length}）</button>
+          <button type="button" class="day-filter-btn" data-group-filter="d2">Day 2 嘉宾群（${d2Groups.length}）</button>
+          <button type="button" class="day-filter-btn" data-group-filter="vip">VIP 主群思辨 &amp; 核校</button>
+        </div>
+      </div>
+
+      <section class="group-section reveal" data-group-sec="vip">
+        <div class="section-head">
+          <h2>一、4 项关键事实核校落定（基于会务群 &amp; 嘉宾群一手确认）</h2>
+          <span class="section-sub">解决此前逐字稿与议程的 4 处存疑项</span>
+        </div>
+        <div class="group-verify-grid">
+          ${verifications
+            .map(
+              (v) => `
+            <article class="card group-verify-card">
+              <div class="talk-card-top">
+                <strong style="font-family:var(--font-serif);font-size:1rem">${esc(v.title)}</strong>
+                ${v.talkId ? `<a class="tag tag-accent" href="#/talk/${esc(v.talkId)}">查看演讲 →</a>` : ''}
+              </div>
+              <p class="group-verify-before"><strong>原存疑：</strong>${esc(v.before)}</p>
+              <p class="group-verify-after"><strong>群内核实：</strong>${esc(v.after)}</p>
+            </article>`
+            )
+            .join('')}
+        </div>
+      </section>
+
+      <section class="group-section reveal" data-group-sec="d1" style="margin-top:1.75rem">
+        <div class="section-head">
+          <h2>二、Day 1 活跃嘉宾群精华（${d1Groups.length} 个群）</h2>
+          <span class="section-sub">含张栖铭 48 页 PDF、苍何 3 组硬核追答、Floatboat 兑换码与哥飞/拔刀刘补充</span>
+        </div>
+        <div class="group-card-grid">
+          ${d1Groups.map(renderGuestGroupCard).join('')}
+        </div>
+      </section>
+
+      <section class="group-section reveal" data-group-sec="d2" style="margin-top:1.75rem">
+        <div class="section-head">
+          <h2>三、Day 2 活跃嘉宾群精华（${d2Groups.length} 个群）</h2>
+          <span class="section-sub">含冷洪利免费监控系统与 4 组追答、AJ 上下文工作流、岚叔 Skill 迭代三法</span>
+        </div>
+        <div class="group-card-grid">
+          ${d2Groups.map(renderGuestGroupCard).join('')}
+        </div>
+      </section>
+
+      <section class="group-section reveal" data-group-sec="vip" style="margin-top:1.75rem">
+        <div class="section-head">
+          <h2>四、VIP 会员主群（VIP1 + VIP2）深度思辨与群友共创</h2>
+          <span class="section-sub">${esc(vipInsights.groupSummary || '')}</span>
+        </div>
+
+        ${
+          cd
+            ? `<article class="card" style="border-color:rgba(200,54,29,0.4);margin-bottom:1rem">
+                <div class="talk-card-top">
+                  <span class="tag tag-accent">嘉宾群内补充反差数据</span>
+                  ${cd.talkId ? `<a class="tag" href="#/talk/${esc(cd.talkId)}">${esc(cd.speaker)} →</a>` : ''}
+                </div>
+                <h3 style="font-family:var(--font-serif);font-size:1.1rem;margin:0.45rem 0 0.35rem">${esc(cd.title)}</h3>
+                <p style="margin:0;font-size:0.92rem;line-height:1.7">${esc(cd.text)}</p>
+              </article>`
+            : ''
+        }
+
+        <div class="d2-theme-grid" style="margin-bottom:1.1rem">
+          ${(vipInsights.debates || [])
+            .map(
+              (db, idx) => `
+            <article class="card d2-theme-card">
+              <div class="five-num">思辨 0${idx + 1}</div>
+              <h3>${esc(db.title)}</h3>
+              <p>${esc(db.summary)}</p>
+            </article>`
+            )
+            .join('')}
+        </div>
+
+        <div class="day-heading">VIP 主群沉淀的高价值共创资料与工具（${(vipInsights.communityResources || []).length} 项）</div>
+        <div class="talk-grid">
+          ${(vipInsights.communityResources || [])
+            .map(
+              (r) => `
+            <article class="card">
+              <strong style="font-family:var(--font-serif);font-size:1rem">${esc(r.title)}</strong>
+              <div class="talk-org">来源：${esc(r.provider)}</div>
+              <p style="font-size:0.87rem;color:var(--muted);margin:0.35rem 0 0.65rem">${esc(r.note)}</p>
+              <div class="ppt-slot-actions">
+                ${r.url ? `<a class="btn btn-accent" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">直达链接 ↗</a>` : ''}
+                ${r.extraUrl ? `<a class="btn btn-outline" href="${esc(r.extraUrl)}" target="_blank" rel="noopener noreferrer">${esc(r.extraLabel || '更多链接 ↗')}</a>` : ''}
+              </div>
+            </article>`
+            )
+            .join('')}
+        </div>
+
+        ${
+          vipInsights.quietGroupsNote
+            ? `<div class="card" style="margin-top:1rem;background:var(--paper-deep)">
+                <strong>其余静默嘉宾群状态说明：</strong>
+                <span style="font-size:0.88rem;color:var(--muted)">${esc(vipInsights.quietGroupsNote)}</span>
+              </div>`
+            : ''
+        }
+      </section>
+    </div>`;
+  }
+
   function renderResources() {
     const groups = new Map();
     for (const r of synthesis.resources) {
@@ -2236,6 +2524,9 @@
     } else if (hash === '#/checklist') {
       html = renderChecklist();
       pageTitle = '15项行动清单';
+    } else if (hash === '#/groups') {
+      html = renderGroups();
+      pageTitle = '22个微信群精华补充';
     } else if (hash === '#/resources') {
       html = renderResources();
       pageTitle = '会后物料汇总';
@@ -2300,6 +2591,18 @@
       });
       document.querySelectorAll('.day-group[data-day]').forEach((grp) => {
         grp.hidden = targetDay !== 'all' && grp.getAttribute('data-day') !== targetDay;
+      });
+      return;
+    }
+
+    const grpFilterBtn = e.target.closest('[data-group-filter]');
+    if (grpFilterBtn) {
+      const target = grpFilterBtn.getAttribute('data-group-filter');
+      document.querySelectorAll('[data-group-filter]').forEach((btn) => {
+        btn.classList.toggle('is-active', btn === grpFilterBtn);
+      });
+      document.querySelectorAll('.group-section[data-group-sec]').forEach((sec) => {
+        sec.hidden = target !== 'all' && sec.getAttribute('data-group-sec') !== target;
       });
       return;
     }
