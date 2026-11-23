@@ -2420,6 +2420,26 @@
           "url": "https://github.com/frigadehq/yogurt"
         }
       ]
+    },
+    {
+      "id": "res-31",
+      "item": "《第二届 GEO 大会，27 位行业专家，2 天高密度分享，干货合集来了》官方总复盘",
+      "provider": "姚金刚（大会发起人）· 11/23 19:03 发布",
+      "talkId": "s7-qa-closing",
+      "category": "社区共创复盘",
+      "how": "姚金刚 11 月 23 日晚发布于公众号的官方总复盘推文，汇总 27 位嘉宾核心干货以及姚金刚与乔向阳在午间、晚间答疑的完整要点。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5MDA0NzQ0MA==&mid=2654212565&idx=1&sn=1c9778326056403b22f9d45fe002f6b5",
+      "linkLabel": "阅读姚金刚官方总复盘 ↗"
+    },
+    {
+      "id": "res-32",
+      "item": "张栖铭《讲讲元认知》16 页经典分享原文件（字节跳动年度分享飞书 PDF）",
+      "provider": "张栖铭（BotLearn 联合创始人）· 11/23 19:00 嘉宾群开放",
+      "talkId": "s1-zhangxinmin",
+      "category": "课件与工作台",
+      "how": "系统拆解《可见的学习》、红眼睛逻辑题与“考试思维”问题库；张栖铭在群内附言：「但如我分享的时候讲的，现在没必要学这个了。把模型用好，让模型去元认知就可以了。」",
+      "url": "https://ucn8apf11uox.feishu.cn/file/MM3Xb3AmpovmRRxPqm7cVBbUnQc",
+      "linkLabel": "查看 16 页飞书 PDF 原文件 ↗"
     }
   ]
 }

@@ -307,6 +307,9 @@
     },
     "s7-badaoliu-prac": {
       "status": "pending"
+    },
+    "s7-qa-closing": {
+      "status": "pending"
     }
   },
   "practice": [
