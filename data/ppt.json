@@ -225,7 +225,20 @@
       "status": "pending"
     },
     "s6-lanshu": {
-      "status": "pending"
+      "status": "ready",
+      "title": "《GEO 的下一程：如何赢得 AI Agent 的选择 · 现场极简版》在线互动课件",
+      "url": "https://lanshuagent.com/geofenxiang/",
+      "note": "岚叔大会现场完整 HTML 极简版课件（含 1 次回答的 17 步拆解与同品类 225 次实测抽样），点击即可在线浏览。",
+      "extraLinks": [
+        {
+          "label": "岚叔个人网站（lanshuagent.com）↗",
+          "url": "https://lanshuagent.com"
+        },
+        {
+          "label": "岚叔 X (@lanshu) ↗",
+          "url": "https://x.com/lanshu"
+        }
+      ]
     },
     "s6-luhao": {
       "status": "pending"
