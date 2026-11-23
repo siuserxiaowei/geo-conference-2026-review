@@ -231,6 +231,11 @@
       "qa": [],
       "resources": [
         {
+          "item": "YouMind（思维星空）AI 内容创作工作室官网",
+          "how": "体验演讲复盘的 76 个可试用 SEO 工具页与 16 语种多模态内容创作工作台",
+          "url": "https://youmind.com/"
+        },
+        {
           "item": "参考书目：《启示录：打造用户喜爱的产品》（第 2 版）",
           "how": "冷启动阶段寻找前 100 个陌生付费用户的核心认知来源"
         },
@@ -240,7 +245,8 @@
         },
         {
           "item": "玉伯 X（Twitter）账号 @lifesinger 及现场创业者微信交流群",
-          "how": "关注 x.com/lifesinger 或通过演讲尾页展示的个人联系渠道继续交流出海增长与 YouMind 共建"
+          "how": "关注 x.com/lifesinger 或通过演讲尾页展示的个人联系渠道继续交流出海增长与 YouMind 共建",
+          "url": "https://x.com/lifesinger"
         }
       ],
       "tags": [
@@ -443,12 +449,14 @@
       "qa": [],
       "resources": [
         {
-          "item": "Berryxia GitHub 开源项目矩阵（含数字人 Skills 与 10+ 开源仓库）",
-          "how": "可通过 GitHub 搜索 Berryxia 获取免费提示词工程及数字人自动化 Skills 源码"
+          "item": "Berryxia 开源数字人口播 Skills 仓库（VIP 群同步）",
+          "how": "获取演讲中提及的免费提示词工程与数字人口播自动化 Skills 源码",
+          "url": "https://github.com/andyhuo520/digital-human-koubo"
         },
         {
           "item": "X（Twitter）账号 @Berryxia（主阵地）及同名公众号/视频号",
-          "how": "关注演讲尾页公开的 X 账号与个人社交名片，进一步交流品牌评测共建或企业定制"
+          "how": "关注演讲尾页公开的 X 账号与个人社交名片，进一步交流品牌评测共建或企业定制",
+          "url": "https://x.com/berryxia"
         }
       ],
       "tags": [
@@ -947,6 +955,11 @@
           "item": "《第二届 GEO 大会，27 位行业专家，2 天高密度分享，干货合集来了》官方总复盘",
           "how": "姚金刚 11 月 23 日 19:03 发布于公众号，汇集 27 位嘉宾核心观点及午间/晚间答疑精华",
           "url": "https://mp.weixin.qq.com/s?__biz=MjM5MDA0NzQ0MA==&mid=2654212565&idx=1&sn=1c9778326056403b22f9d45fe002f6b5"
+        },
+        {
+          "item": "Profound 海外 GEO / AEO 监测标杆平台",
+          "how": "闭幕大答疑压轴重点对标的海外 SaaS 订阅制 GEO 平台",
+          "url": "https://www.tryprofound.com/"
         },
         {
           "item": "国内外《GEO 白皮书》与《GEO 蓝皮书 / 红皮书》",

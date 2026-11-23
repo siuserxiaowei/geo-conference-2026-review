@@ -1,5 +1,5 @@
 window.GEO_DATA = {
-  "generatedAt": "2026-11-23T12:46:26.628Z",
+  "generatedAt": "2026-11-23T12:50:09.239Z",
   "sessions": [
     {
       "id": "s1",
@@ -4505,7 +4505,13 @@ window.GEO_DATA = {
           "resources": [
             {
               "item": "HiAPI 统一多模型 API 与开源 MCP / Skills 套件",
-              "how": "提供大模型 Token 聚合调用，并针对 Codex、Workflow 及豆包 Workflow 等开源了多套 MCP 与 Skills 集成工具，免费工具可先体验后付费"
+              "how": "提供大模型 Token 聚合调用，并针对 Codex、Workflow 及豆包 Workflow 等开源了多套 MCP 与 Skills 集成工具，免费工具可先体验后付费",
+              "url": "https://hiapi.ai/"
+            },
+            {
+              "item": "HiAPI GitHub 开源仓库 & AIGoCode 算力福利入口",
+              "how": "GitHub 开源组织与 VIP 群同步的 AIGoCode 算力福利领取入口",
+              "url": "https://github.com/HiAPIAI"
             },
             {
               "item": "千里会社群及单站日流过万实操细节交流",
@@ -4752,8 +4758,9 @@ window.GEO_DATA = {
               "how": "凭大会礼品袋内黄色海报申请页领取（属“10 万美元助力 100 个中国品牌出海”第 3 期公益名额）"
             },
             {
-              "item": "Winseed AI 监测与百万级海外媒体信源 API",
-              "how": "可对接 41财经 & Winseed 团队体验 AI 可见度监测或集中采买海外媒体 API 端口"
+              "item": "Winseed AI 监测与百万级海外媒体信源 API（41财经官网）",
+              "how": "可对接 41财经 & Winseed 团队体验 AI 可见度监测或集中采买海外媒体 API 端口",
+              "url": "https://www.41caijing.com/"
             }
           ],
           "tags": [
@@ -5145,7 +5152,8 @@ window.GEO_DATA = {
           "resources": [
             {
               "item": "Dageno AI 品牌可见度与竞品免费查询及定制干货报告",
-              "how": "现场扫码登记即可免费领取对应行业实操分析报告并试用免费可见度/竞品查询功能"
+              "how": "访问 Dageno AI 官网或现场扫码登记免费领取对应行业实操分析报告并试用可见度/竞品查询功能",
+              "url": "https://www.dageno.ai/"
             },
             {
               "item": "《海外 GEO 白皮书》（含 1,000 万条海外 AI 平台联合开源数据日志）",
@@ -5585,6 +5593,11 @@ window.GEO_DATA = {
           "qa": [],
           "resources": [
             {
+              "item": "YouMind（思维星空）AI 内容创作工作室官网",
+              "how": "体验演讲复盘的 76 个可试用 SEO 工具页与 16 语种多模态内容创作工作台",
+              "url": "https://youmind.com/"
+            },
+            {
               "item": "参考书目：《启示录：打造用户喜爱的产品》（第 2 版）",
               "how": "冷启动阶段寻找前 100 个陌生付费用户的核心认知来源"
             },
@@ -5594,7 +5607,8 @@ window.GEO_DATA = {
             },
             {
               "item": "玉伯 X（Twitter）账号 @lifesinger 及现场创业者微信交流群",
-              "how": "关注 x.com/lifesinger 或通过演讲尾页展示的个人联系渠道继续交流出海增长与 YouMind 共建"
+              "how": "关注 x.com/lifesinger 或通过演讲尾页展示的个人联系渠道继续交流出海增长与 YouMind 共建",
+              "url": "https://x.com/lifesinger"
             }
           ],
           "tags": [
@@ -5797,12 +5811,14 @@ window.GEO_DATA = {
           "qa": [],
           "resources": [
             {
-              "item": "Berryxia GitHub 开源项目矩阵（含数字人 Skills 与 10+ 开源仓库）",
-              "how": "可通过 GitHub 搜索 Berryxia 获取免费提示词工程及数字人自动化 Skills 源码"
+              "item": "Berryxia 开源数字人口播 Skills 仓库（VIP 群同步）",
+              "how": "获取演讲中提及的免费提示词工程与数字人口播自动化 Skills 源码",
+              "url": "https://github.com/andyhuo520/digital-human-koubo"
             },
             {
               "item": "X（Twitter）账号 @Berryxia（主阵地）及同名公众号/视频号",
-              "how": "关注演讲尾页公开的 X 账号与个人社交名片，进一步交流品牌评测共建或企业定制"
+              "how": "关注演讲尾页公开的 X 账号与个人社交名片，进一步交流品牌评测共建或企业定制",
+              "url": "https://x.com/berryxia"
             }
           ],
           "tags": [
@@ -6301,6 +6317,11 @@ window.GEO_DATA = {
               "item": "《第二届 GEO 大会，27 位行业专家，2 天高密度分享，干货合集来了》官方总复盘",
               "how": "姚金刚 11 月 23 日 19:03 发布于公众号，汇集 27 位嘉宾核心观点及午间/晚间答疑精华",
               "url": "https://mp.weixin.qq.com/s?__biz=MjM5MDA0NzQ0MA==&mid=2654212565&idx=1&sn=1c9778326056403b22f9d45fe002f6b5"
+            },
+            {
+              "item": "Profound 海外 GEO / AEO 监测标杆平台",
+              "how": "闭幕大答疑压轴重点对标的海外 SaaS 订阅制 GEO 平台",
+              "url": "https://www.tryprofound.com/"
             },
             {
               "item": "国内外《GEO 白皮书》与《GEO 蓝皮书 / 红皮书》",
@@ -8758,6 +8779,140 @@ window.GEO_DATA = {
         "how": "系统拆解《可见的学习》、红眼睛逻辑题与“考试思维”问题库；张栖铭在群内附言：「但如我分享的时候讲的，现在没必要学这个了。把模型用好，让模型去元认知就可以了。」",
         "url": "https://ucn8apf11uox.feishu.cn/file/MM3Xb3AmpovmRRxPqm7cVBbUnQc",
         "linkLabel": "查看 16 页飞书 PDF 原文件 ↗"
+      },
+      {
+        "id": "res-33",
+        "item": "YouMind（思维星空）· 一站式 AI 内容创作工作室",
+        "provider": "玉伯（YouMind 创始人 & CEO）",
+        "talkId": "s7-yubo",
+        "category": "大会提及核心项目与产品",
+        "how": "大会实战复盘月访问量 130 万+ 的出海 AI 内容创作产品（76 个可试用 SEO 工具页 + 16 语种 + 500 美元高档定价留存验证），整合网页/视频/播客/PDF 多模态素材并辅助创作文章、PPT、配图与视频。",
+        "url": "https://youmind.com/",
+        "linkLabel": "访问 YouMind 官网 ↗",
+        "extraLinks": [
+          {
+            "label": "玉伯 X (@lifesinger) ↗",
+            "url": "https://x.com/lifesinger"
+          }
+        ]
+      },
+      {
+        "id": "res-34",
+        "item": "HiAPI（统一多模型聚合 API & 开源 MCP / Skills 套件）",
+        "provider": "彭涛（HiAPI 创始人 & CEO）",
+        "talkId": "s5-pengtao",
+        "category": "大会提及核心项目与产品",
+        "how": "面向开发者与出海 AI 产品的统一多模型聚合 API 网关，演讲重点分享其海外美金定价（10 倍溢价）、老站铺新模型对比内页（70%+ SEO 流量）以及针对 Codex 与豆包 Workflow 的开源 MCP / Skills 套件。",
+        "url": "https://hiapi.ai/",
+        "linkLabel": "访问 HiAPI 官网 ↗",
+        "extraLinks": [
+          {
+            "label": "HiAPI GitHub 开源组织 ↗",
+            "url": "https://github.com/HiAPIAI"
+          },
+          {
+            "label": "AIGoCode 算力福利入口 ↗",
+            "url": "https://www.aigocode.net/"
+          }
+        ]
+      },
+      {
+        "id": "res-35",
+        "item": "Dageno AI（海外 AI 搜索可见度与 2.3 亿次回答监测平台）",
+        "provider": "路浩（Dageno AI 联合创始人）",
+        "talkId": "s6-luhao",
+        "category": "大会提及核心项目与产品",
+        "how": "面向全球出海品牌的科学 GEO 数据监测与竞品分析平台，支撑《海外 GEO 白皮书》1,000 万条开源数据日志及 2.3 亿次海外 AI 回答（8 模型、100+ 国家、1.2 万品类）实证研究。",
+        "url": "https://www.dageno.ai/",
+        "linkLabel": "访问 Dageno AI 官网 ↗"
+      },
+      {
+        "id": "res-36",
+        "item": "41财经 & Winseed（百万级海外媒体信源 API × AI 监测 × 联盟营销）",
+        "provider": "钟添娇（41财经 & Winseed 创始人）",
+        "talkId": "s6-zhongtianjiao",
+        "category": "大会提及核心项目与产品",
+        "how": "深耕全球 199 个国家和地区、100W+ 海外媒体资源的 PR × GEO × 联盟营销基建平台，大会现场面向参会者开放每人 1,000 美元海外发稿公益额度（凭礼品袋黄色海报申请）并支持同业 API 集中采买。",
+        "url": "https://www.41caijing.com/",
+        "linkLabel": "访问 41财经官网 ↗"
+      },
+      {
+        "id": "res-37",
+        "item": "Berryxia 开源数字人口播 Skills & 个人 GitHub 开源矩阵",
+        "provider": "Berryxia（AI 博主 · 提示词小子）",
+        "talkId": "s7-berryxia",
+        "category": "开源工具与监控系统",
+        "how": "Day 2 演讲提及累计获 6,600+ Star 的 10 余个开源项目与提示词资产，含 VIP 群同步的开源数字人口播 Skills 仓库及 X 平台开源实操主阵地。",
+        "url": "https://github.com/andyhuo520/digital-human-koubo",
+        "linkLabel": "查看数字人口播开源仓库 ↗",
+        "extraLinks": [
+          {
+            "label": "Berryxia X 主页 (@berryxia) ↗",
+            "url": "https://x.com/berryxia"
+          }
+        ]
+      },
+      {
+        "id": "res-38",
+        "item": "Profound（海外 GEO / AEO 监测标杆，估值 18 亿美元）& AnswerBit",
+        "provider": "Day 1 圆桌 & Day 2 闭幕大答疑高频对标",
+        "talkId": "s7-qa-closing",
+        "category": "大会提及核心项目与产品",
+        "how": "大会圆桌与闭幕大答疑反复对标的海外 SaaS 订阅制 GEO/AEO 监测领军平台，用于对比分析海内外 SaaS 订阅付费成熟度、全球市场竞争格局与国内重交付模式差异。",
+        "url": "https://www.tryprofound.com/",
+        "linkLabel": "访问 Profound 官网 ↗"
+      },
+      {
+        "id": "res-39",
+        "item": "Instinct AI & OpenClaw / Hermes（新一代 Personal & Claw Agent 生态）",
+        "provider": "AJ（WaytoAGI）& 岚叔联合推荐",
+        "talkId": "s6-lanshu",
+        "category": "大会提及核心项目与产品",
+        "how": "AJ 重点推荐且在嘉宾群核实拼写的海外多 Agent 手机号 A2A 协同助手 Instinct AI；岚叔重点拆解的常驻记忆 Claw Agent（OpenClaw / Hermes）与企业 Work Agent 生态（Claude Cowork / M365 Copilot / WorkBuddy / 豆包工作）。"
+      },
+      {
+        "id": "res-40",
+        "item": "Next Token（词元之外）视频播客 & DeepSeek Harmony / Harness 发行版",
+        "provider": "杨攀（Bilink 创始人）× 乔向阳（乔木）",
+        "talkId": "s4-yang-gang",
+        "category": "大会提及核心项目与产品",
+        "how": "杨攀与乔木联合主理的 AI 深度视频播客《Next Token（词元之外）》，以及演讲中面向企业交付业务重点推荐的 DeepSeek Harmony（逐字稿亦作 Harness）开源发行版路线。"
+      },
+      {
+        "id": "res-41",
+        "item": "Craft Anything（1 人 AI 重写 Adobe 7 款软件）& REA（半小时复刻豆包前端）",
+        "provider": "张栖铭（BotLearn 联合创始人）演讲案例",
+        "talkId": "s1-zhangxinmin",
+        "category": "大会提及核心项目与产品",
+        "how": "张栖铭在 Day 1 上午用于实证“形式科学击穿、传统研发交付链失效”的两大标杆案例：REA 半小时像素级逆向还原豆包前端，Craft Anything 单人用 AI 开源重写 Adobe 7 款软件（可用度 40%+）。"
+      },
+      {
+        "id": "res-42",
+        "item": "欧若拉（Euler）GEO 智能体 & 媒介匣全域品牌营销操作系统",
+        "provider": "陈峥（欧博东方 CEO）& 高军（媒介匣 CEO）",
+        "talkId": "s4-chen-zheng",
+        "category": "大会提及核心项目与产品",
+        "how": "大会两家头部大客户 GEO 服务商展示的核心系统底座：欧博东方自研「欧若拉（Euler）」智能体（支撑欧洲 600 家商超复合出海与大客治理）及媒介匣跨近 20 平台的全域品牌营销操作系统（含中国首个 GEO 行业标准）。"
+      },
+      {
+        "id": "res-43",
+        "item": "群友共创项目与行业动态：AICodeSay 知识库、飞书企业知识库实践 & 微信「做个小工具」",
+        "provider": "AJ 嘉宾群 / GEOFlow 5 群 / 预热群共创补充",
+        "talkId": "s5-aj",
+        "category": "社区共创复盘",
+        "how": "汇总大会微信群内高频分享的延伸项目：AJ 群友开源 AI 编程百科 aicodesay.com/wiki 与中小企业飞书知识库实践方案、GEOFlow 5 群同步的中国信通院 GEO 效果监测平台「嘉量」发布动态，以及预热群热议的微信内测「做个小工具」。",
+        "url": "https://aicodesay.com/wiki",
+        "linkLabel": "访问 AICodeSay Wiki ↗",
+        "extraLinks": [
+          {
+            "label": "中小企业飞书知识库实践 ↗",
+            "url": "https://dcn0b609yy15.feishu.cn/wiki/HDcFwCeZVil1UGk3PW4cIpiCngg"
+          },
+          {
+            "label": "微信内测「做个小工具」解读 ↗",
+            "url": "https://mp.weixin.qq.com/s/hcVjCBem237TFoD4okhwMQ"
+          }
+        ]
       }
     ]
   },

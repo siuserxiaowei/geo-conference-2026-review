@@ -720,7 +720,13 @@
       "resources": [
         {
           "item": "HiAPI 统一多模型 API 与开源 MCP / Skills 套件",
-          "how": "提供大模型 Token 聚合调用，并针对 Codex、Workflow 及豆包 Workflow 等开源了多套 MCP 与 Skills 集成工具，免费工具可先体验后付费"
+          "how": "提供大模型 Token 聚合调用，并针对 Codex、Workflow 及豆包 Workflow 等开源了多套 MCP 与 Skills 集成工具，免费工具可先体验后付费",
+          "url": "https://hiapi.ai/"
+        },
+        {
+          "item": "HiAPI GitHub 开源仓库 & AIGoCode 算力福利入口",
+          "how": "GitHub 开源组织与 VIP 群同步的 AIGoCode 算力福利领取入口",
+          "url": "https://github.com/HiAPIAI"
         },
         {
           "item": "千里会社群及单站日流过万实操细节交流",
