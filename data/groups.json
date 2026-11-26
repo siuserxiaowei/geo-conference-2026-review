@@ -1,12 +1,12 @@
 {
   "overview": {
-    "title": "第二届中国 GEO 大会 · 22 个微信群会后精华补充",
-    "updatedAt": "2026-11-23 20:08",
-    "scannedGroups": 22,
-    "activeGroups": 13,
-    "totalMessagesScanned": 5660,
-    "newSlidesAdded": 1,
-    "summary": "基于大会 22 个相关微信群（含 14 个嘉宾专属粉丝群、2 个 VIP 会员主群、GEOFlow 开源群及官方会务通道，截至 2026-11-23 20:08）完整拉取并去噪提炼：补齐张栖铭 48 页完整 PDF 课件与 11/23 晚补充开放的 16 页《讲讲元认知》原文件、同步姚金刚 11/23 19:03 发布的 27 位嘉宾官方总复盘长文、整理 12 组嘉宾群内追答 Q&A、4 组 VIP 主群深度同行思辨、4 项关键事实核校落定，以及 17+ 项会后新释出的开源项目、免费监控系统、官方手册与工作台福利（已严格脱敏，不含任何个人手机号与微信号）。"
+    "title": "第二届中国 GEO 大会 · 23 个微信群会后全量跟踪精华",
+    "updatedAt": "2026-11-26 19:40",
+    "scannedGroups": 23,
+    "activeGroups": 16,
+    "totalMessagesScanned": 7252,
+    "newSlidesAdded": 15,
+    "summary": "截至 2026-11-26 19:40，累计扫描大会 23 个相关微信群（含 15 个嘉宾专属群、2 个 VIP 会员主群、大湾区 AI+GEO 交流群、GEOFlow 开源群及官方会务群，共 7,252 条消息）：同步 11/24 官方统一发布的 23 份全量嘉宾 PPT（geohui.com/ziyuan，本站 21 场正式演讲已全部点亮课件位）、11/25 艾奇先生亲发《全场景 GEO 拓词》完整 Skill 包、WaytoAGI 知识库两天实战精华、高军/曹伟会后复盘长文、冷洪利 PDF 高收录与平台防封实测、钟添娇 41 财经 10 项出海公益福利、官方视频号回放上线及最新群友实操反馈（严格脱敏，零手机号与私密微信号）。"
   },
   "verifications": [
     {
@@ -47,7 +47,7 @@
       "speaker": "张栖铭",
       "org": "BotLearn 联合创始人",
       "talkId": "s1-zhangxinmin",
-      "activity": "135 条消息 · 群内首发 48 页完整 PDF 课件 + 补充开放《讲讲元认知》16 页原文件",
+      "activity": "157 条消息 · 48 页 PDF + 16 页《讲讲元认知》+ L3→L4/L5 跃迁追答",
       "highlights": [
         "11 月 21 日晚 21:07，张栖铭亲自在嘉宾群放出《AI-Native 的思维变革与实践（GEO 大会分享版）》完整 48 页 PDF 课件（本站已压缩归档并支持 48 页逐页高清放大与 PDF 下载）。",
         "11 月 23 日 19:00，张栖铭补充开放此前在字节跳动讲的年度经典分享原文件——16 页 PDF《讲讲元认知》（涵盖 John Hattie《可见的学习》元认知居首、红眼睛逻辑题与“考试思维”错题本/问题库），并附点睛追答：「现在没必要学这个了，把模型用好，让模型去元认知就可以了。」",
@@ -57,6 +57,10 @@
         {
           "q": "张栖铭老师当年在字节讲的《讲讲元认知》原文件可以开放学习吗？AI 时代还需不需要自己死磕训练元认知？",
           "a": "张栖铭答：已开放 16 页完整飞书 PDF 权限供参考，但「如我分享的时候讲的，现在没必要学这个了。把模型用好，让模型去元认知就可以了。」——群内亦有学员总结：让模型找到世界上最好的思路和最高的要求，加上你自己的业务理解，让模型照着干。"
+        },
+        {
+          "q": "从 AI Native 成熟度 L3 往上突破到 L4、L5 应该从哪里着手？",
+          "a": "张栖铭（11/23 23:19 回复）：「这部分确实有点门槛，我后面单独整理一些专题内容分享给大家。」学员亦反馈「知道存在 L1–L5 体系本身就是本次大会最大收获之一，此前并不知道自己不知道什么」。"
         }
       ],
       "links": [
@@ -134,12 +138,14 @@
       "speaker": "谭少卿",
       "org": "Floatboat 创始人兼 CEO",
       "talkId": "s2-tanshaoqing",
-      "activity": "55 条消息 + VIP 福利 · 省积分策略、新工作台与免费兑换码",
+      "activity": "70 条消息 + VIP 福利 · 省积分策略、真实果园单页案例与官网改版大赛",
       "highlights": [
         "体验积分与省钱策略：Floatboat 下载安装首日送 200 积分、次日再领 300 积分。针对群友反馈「200 积分很快用完」，谭少卿建议优先选默认模型或 DeepSeek Flash（海外顶模价格高几十倍；跑通整套工作台重构用 DS Flash 约 300 积分）。",
         "连夜实战演示：11 月 22 日晚听完乔木分享后，谭少卿直接用 Floatboat 重构并上架「声渡 · 双语播客精读台」工作台，验证极速交付能力。",
         "11 月 23 日下午 Floatboat 团队在 VIP 群发放「GEO 内容生产线」工作台前 49 位免费带源码安装名额（邀请链接或网页端兑换码 JX7AKQNYP8；已购用户系统退积分并赠创造者权益）。",
-        "固定学习渠道：视频号【Floatboat】每周二、周四晚固定直播实操与现场答疑，小红书搜索 Floatboat 亦可查看案例。"
+        "固定学习渠道：视频号【Floatboat】每周二、周四晚固定直播实操与现场答疑，小红书搜索 Floatboat 亦可查看案例。",
+        "11 月 24 日晚举办视频号直播《让每一次开会都留下可追踪的结果》（主讲刘小厨，拆解录音→结构化纪要→任务闭环）；11 月 26 日晚少卿老板继续开启直播答疑。",
+        "11 月 26 日展示真实用户落地案例：湖北秭归九月红果农家庭借 Floatboat 一句话生成含计价、表单、付款码与售后承诺的移动端订购闭环页，并同步发起「用 Floatboat 改版官网大作战」创作者征集（888 元现金奖励 + 官网长期彩蛋展示）。"
       ],
       "qas": [
         {
@@ -159,6 +165,43 @@
         {
           "label": "Floatboat 官微实测长文 ↗",
           "url": "https://mp.weixin.qq.com/s?__biz=MzY4MzIwOTQwOQ==&mid=2247483676&idx=1&sn=d993e9be1bc898527492e4d15ef114f8"
+        },
+        {
+          "label": "Floatboat 一句话生成果园订购单页案例 ↗",
+          "url": "https://publisher.floatboat.ai/api/share/p/uJ08xSrRzle_9Dt_1yMbJ"
+        },
+        {
+          "label": "Floatboat 改版官网大作战活动页 ↗",
+          "url": "https://floatboat.ai/campaign/viral"
+        }
+      ]
+    },
+    {
+      "id": "grp-aiqi",
+      "day": 1,
+      "category": "guest",
+      "groupName": "艾奇先生｜GEO大会嘉宾 11.21 14:32",
+      "speaker": "艾奇先生",
+      "org": "艾奇在线创始人（27geo.com）",
+      "talkId": "s3-2",
+      "activity": "11/25 亲发《艾奇 GEO 全场景拓词》完整 Agent Skill 压缩包（含校验脚本）",
+      "highlights": [
+        "11 月 25 日 13:08，艾奇先生亲自在嘉宾群放出大会台上承诺的《艾奇 GEO 全场景拓词》完整 Skill 压缩包（aiqi-geo-fullscene-keywords），内含 14KB 核心 SKILL.md、场景维度词典（scene-dimensions.md）、示例集（examples.md）及 Python 词包质检脚本（check_packs.py），本站已直接托管提供下载。",
+        "群友同步反馈该拓词 Skill 亦已在腾讯 WorkBuddy 平台发布上线，可直接结合官方 26 页课件与 27geo.com 白皮书落地使用。"
+      ],
+      "qas": [],
+      "links": [
+        {
+          "label": "直接下载艾奇全场景拓词 Skill 包（.zip）↗",
+          "url": "assets/tools/aiqi-geo-fullscene-keywords.zip"
+        },
+        {
+          "label": "艾奇在线 GEO 算法白皮书在线版 ↗",
+          "url": "https://www.27geo.com/whitepaper"
+        },
+        {
+          "label": "阅读/下载艾奇先生 26 页完整课件 PDF ↗",
+          "url": "assets/ppt/s3-2/slides.pdf"
         }
       ]
     },
@@ -311,6 +354,32 @@
       ]
     },
     {
+      "id": "grp-zhongtianjiao",
+      "day": 2,
+      "category": "guest",
+      "groupName": "钟添娇 41财经",
+      "speaker": "钟添娇",
+      "org": "41财经 & Winseed 创始人",
+      "talkId": "s6-zhongtianjiao",
+      "activity": "145 条消息 · 100 家品牌全球 PR 公益助力计划 + 10 项海外 PR/GEO 福利",
+      "highlights": [
+        "41 财经联合第二届 GEO 大会共同发起《100 家品牌全球 PR 公益助力计划（第三期）》，面向 100 家符合条件的出海品牌提供全球 PR 传播支持。",
+        "团队在群内面向大会参会伙伴开放 10 项对接资源：海外 AI GEO 品牌监测报告、海外 PR 引用源媒体清单、海外权威信源媒体 API 端口合作、黑五/网一/圣诞出单媒体报价、CES 采访报道拿奖咨询等。",
+        "群内亦探讨了国内垂类（如教培）信源落地案例，并已在官方汇总页开放钟添娇本次演讲完整 PDF 课件在线阅读。"
+      ],
+      "qas": [],
+      "links": [
+        {
+          "label": "41财经 100 家品牌全球 PR 公益助力计划（第三期）↗",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg2MzcyMzQwOQ==&mid=2247487153&idx=1&sn=c033671d318bb8f56ca7e100a6739803"
+        },
+        {
+          "label": "钟添娇演讲官方在线 PDF 课件 ↗",
+          "url": "https://www.geohui.com/pdf-reader.html?talk=zhongtianjiao"
+        }
+      ]
+    },
+    {
       "id": "grp-lanshu",
       "day": 2,
       "category": "guest",
@@ -344,10 +413,12 @@
       "speaker": "Berryxia",
       "org": "AI 博主 · 提示词小子",
       "talkId": "s7-berryxia",
-      "activity": "138 条消息 · X 主页与开源数字人口播项目直达",
+      "activity": "241 条消息 · 官方 PDF 已上架 + 回放入口确认（动画版待嘉宾康复后补发）",
       "highlights": [
         "群友高度评价其开场短片与 PPT 叙事审美（「短片故事 + PPT 节奏像故事一样展开」），纷纷前往 X 平台研读其历史开源帖子。",
-        "VIP 主群同步补充其演讲中提及的开源数字人口播 Skills GitHub 仓库与 X 官方账号直链。"
+        "VIP 主群同步补充其演讲中提及的开源数字人口播 Skills GitHub 仓库与 X 官方账号直链。",
+        "11 月 24 日大开心在群内同步全量 23 份官方 PPT 汇总页（含 Berryxia 静态 PDF 版），并说明带交互动画的原版课件待神佬感冒康复后继续补发。",
+        "群内确认大会视频回放已上线：直接关注「GEO 大会」官方视频号 / 公众号即可观看全场回放。"
       ],
       "qas": [],
       "links": [
@@ -363,7 +434,7 @@
     }
   ],
   "vipInsights": {
-    "groupSummary": "第二届 GEO 大会 VIP 会员 1 群（2,249 条）+ VIP 会员 2 群（136 条）+ 大开心粉丝群（218 条）+ 会务/传播群共沉淀 2,600+ 条实时互动。除会前出行与会场协作外，会中与会后沉淀了 1 组高军亲自补充的 Web 端反差数据、4 组高密度同行思辨、以及 10+ 项社区共创资料与工具。",
+    "groupSummary": "第二届 GEO 大会 VIP 会员 1 群（2,406 条）+ VIP 会员 2 群（168 条）+ 大湾区 AI+GEO 交流群（新增 287 条）+ 大开心/会务群累计沉淀 3,100+ 条实时互动。11/24 官方全量释放 23 份 PPT 汇总页（geohui.com/ziyuan），11/25–26 持续沉淀官方回放入口、30 秒讲稿导读、艾奇拓词 Skill、高军/曹伟长文复盘与一线落地战报。",
     "contrastData": {
       "speaker": "高军（媒介匣创始人 & CEO）",
       "talkId": "s4-gao-jun",
@@ -386,9 +457,71 @@
       {
         "title": "「会后反刍复盘法」：别只把逐字稿丢给 AI 总结就当学完了",
         "summary": "针对两天 21.7 万字超高信息密度如何真正吸收，VIP 群共创出「多轮费曼复盘法」：先结合自己开场写下的核心问题，自己用大白话向强模型复述收获与业务改造想法，再让 AI 对照大会完整逐字稿查漏补缺，把零散灵感沉淀为下周立刻能执行的动作或 Skill，而不是拍照存满相册后「手机学到了、人没学到」。"
+      },
+      {
+        "title": "「GEO 行业高价认证 vs 务实交付」与大厂入局信号",
+        "summary": "11/25–26 群内围绕市面上报价 15 万元的某机构 GEO 认证展开热议，嘉宾与操盘手普遍呼吁理性看待“卖证生意”、把精力放回真实效果与行业自律联盟；同期群内同步了北京电视台投入 7,000 万建设 GEO 平台的行业动态，并有外贸群友实测反馈：参会后落地海外 GEO 竟意外在豆包排到前列，直接收获国内供应链主动询盘。"
+      },
+      {
+        "title": "「个人 Agent 工作流 vs 企业级 SaaS」：工具平权后的真实边界",
+        "summary": "针对 Floatboat 与 DeepSeek Harness 带来的软件重构潮，群内形成清醒辨析：个人整理资料、生成报告与轻量自动化小工具正迅速被“一句话搓出专属 Agent 工作流”替代；但企业采购 SaaS 仍须解决多人协作、权限治理、数据一致性与长期维护，能生成界面与让团队长期可靠运转仍是两件事。"
       }
     ],
     "communityResources": [
+      {
+        "title": "官方全量 23 份嘉宾 PPT 统一汇总页（含 103 公开问题 & 彭超课件）",
+        "provider": "姚金刚 · 大开心（大会主办方）· 11/24 正式发布",
+        "note": "涵盖全两天全部 21 位登台嘉宾课件、开场《参会者的 103 个公开问题》以及彭超《Agentic 之道与 FDE 实践》完整在线阅读与下载入口。",
+        "url": "https://www.geohui.com/ziyuan",
+        "extraUrl": "https://www.geohui.com/pdf-reader.html?talk=pengchao",
+        "extraLabel": "查看彭超《Agentic 与 FDE 实践》↗"
+      },
+      {
+        "title": "《艾奇 GEO 全场景拓词》完整 Agent Skill 压缩包（可直接装入 Claude / Codex）",
+        "provider": "艾奇先生（艾奇在线）· 11/25 群内亲发",
+        "note": "含 14KB 核心 SKILL.md、场景维度词典（scene-dimensions.md）、示例（examples.md）与词包质检脚本（check_packs.py），本站直接提供 .zip 下载。",
+        "url": "assets/tools/aiqi-geo-fullscene-keywords.zip",
+        "extraUrl": "https://www.27geo.com/whitepaper",
+        "extraLabel": "配套算法白皮书 ↗"
+      },
+      {
+        "title": "WaytoAGI 官方知识库收录：第二届 GEO 大会两天全嘉宾实战精华（飞书 Wiki）",
+        "provider": "WaytoAGI 社区（通往 AGI 之路）· 11/23 晚更新",
+        "note": "Day 1 附 15 位讲者避坑与实操清单；Day 2 完整覆盖 8 个主题 + 2 场实操 + 13 轮闭幕答疑，适合飞书用户直接收藏检索。",
+        "url": "https://waytoagi.feishu.cn/wiki/VKJsw7dh7i3FjGkkikWcNyrBnFh",
+        "extraUrl": "https://waytoagi.feishu.cn/wiki/DZJewAUgGig23ZkN7EBckWsnnRc",
+        "extraLabel": "查看 Day 2 实战精华 ↗"
+      },
+      {
+        "title": "《23 份讲稿 30 秒选读导读：个人和公司各看哪几份》在线工具",
+        "provider": "James-许侠客（VIP 1 群共创）· 11/24 发布",
+        "note": "面对 23 份共 600+ 页 PPT 没时间全看完？按个人/企业 AI 应用深浅度 30 秒精准筛选最该先读的几份讲稿。",
+        "url": "https://www.zoho-cloud.com/geo-guide"
+      },
+      {
+        "title": "高军《AI 用户成势，天下未定！》& 曹伟《27 位专家 2 天复盘长文》",
+        "provider": "高军（媒介匣 CEO）/ 曹伟（军锐慧行）· 11/23–25",
+        "note": "两篇高密度一线参会与主讲视角深度复盘长文，分别从品牌治理大势与 27 位专家全景视角提炼实操干货。",
+        "url": "https://mp.weixin.qq.com/s/P51TYis436I74qjV722QGQ",
+        "extraUrl": "https://mp.weixin.qq.com/s?__biz=MzY5NzM3NDk3Mw==&mid=2247483905&idx=1&sn=fe733d5640b79a8b985fc0cd47b19760",
+        "extraLabel": "阅读曹伟全景复盘 ↗"
+      },
+      {
+        "title": "两份社区精选实战 PDF：B2B 外贸独立站 SEO/GEO 体检案例（16P）& 零基础教程（39P）",
+        "provider": "深简 Senjen / 醒得早 GEO · 微信群沉淀",
+        "note": "一份为真实脱敏的 B2B 定制玻璃器皿外贸制造厂官网 SEO/GEO 深度体检报告（4.6 MB），一份为面向品牌运营的零基础 GEO 实战入门教程（2.0 MB），均可直接在线阅读/下载。",
+        "url": "assets/docs/case-study-b2b-glassware-seo-geo.pdf",
+        "extraUrl": "assets/docs/geo-beginner-tutorial-xingdezao.pdf",
+        "extraLabel": "阅读 39 页零基础教程 ↗"
+      },
+      {
+        "title": "群友飞书打包备份（23 份课件镜像）& OpenBMB StaffDeck 数字员工开源",
+        "provider": "Stone 杨平 / 冷洪利推荐 · 11/24–25",
+        "note": "针对部分群友反馈官网下载限流，Stone 杨平同步了飞书 Wiki 备份镜像；冷洪利另在粉丝群力荐开源数字员工框架 StaffDeck。",
+        "url": "https://my.feishu.cn/wiki/NxDEwb1QPirft6kSMwTc3eGyn9d",
+        "extraUrl": "https://github.com/OpenBMB/StaffDeck",
+        "extraLabel": "查看 StaffDeck 开源仓库 ↗"
+      },
       {
         "title": "《第二届 GEO 大会，27 位行业专家，2 天高密度分享，干货合集来了》官方总复盘",
         "provider": "姚金刚（大会发起人）· 11/23 19:03 发布",
@@ -460,6 +593,6 @@
         "extraLabel": "查看 yovoice ↗"
       }
     ],
-    "quietGroupsNote": "截至 2026-11-23 20:08：冷洪利群 18:59 确认返抵西安并转发姚金刚官方总复盘；Berryxia 群 18:41 确认 PPT 尚未放出；GEOFlow 5 群 20:03 提醒纯 AI 直出文章易被头条判定低质垃圾；其余 5 个嘉宾专属群（任强、刘树勋、艾奇先生、陈峥、岳琦-每经科技）尚无群内新增文字答疑或课件文件。主办方（向阳乔木）已确认其余嘉宾授权 PPT 将在逐一核定后统一打包上线，本站将持续跟进补齐。"
+    "quietGroupsNote": "截至 2026-11-26 19:40：11 月 24 日主办方已在 www.geohui.com/ziyuan 统一上线全部 23 份嘉宾授权 PPT（本站全部 21 场正式演讲的课件位现已 100% 点亮），大会官方视频回放亦已在「GEO 大会」视频号/公众号开放；11 月 25 日艾奇先生亲发完整拓词 Skill 包，11 月 26 日晚冷洪利与谭少卿分别开展视频号实操加餐直播。"
   }
 }

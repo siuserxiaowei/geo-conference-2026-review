@@ -2015,16 +2015,20 @@
   "resources": [
     {
       "id": "res-1",
-      "item": "艾奇先生《GEO 全场景词包策划方法论》完整 PDF（26 页）& 拓词 Skill",
-      "provider": "艾奇先生（艾奇在线）",
+      "item": "艾奇先生《GEO 全场景词包策划方法论》26 页 PDF & 全场景拓词 Skill 包（.zip）",
+      "provider": "艾奇先生（艾奇在线 / 27geo.com）",
       "talkId": "s3-2",
       "category": "课件与工作台",
-      "how": "完整 26 页大会 PDF 课件已上线本站支持逐页预览与下载；配套全场景 GEO 拓词 Skill 提示词与白皮书在大会参会群下发。",
-      "url": "assets/ppt/s3-2/slides.pdf",
-      "linkLabel": "下载 26 页完整 PDF ↗",
+      "how": "完整 26 页大会 PDF 课件与 11/25 群内亲发的《艾奇 GEO 全场景拓词》Agent Skill 压缩包（含 SKILL.md、维度词典与校验脚本）均已直接托管本站供下载。",
+      "url": "assets/tools/aiqi-geo-fullscene-keywords.zip",
+      "linkLabel": "下载全场景拓词 Skill（.zip）↗",
       "extraLinks": [
         {
-          "label": "艾奇官网推荐得分算法白皮书 ↗",
+          "label": "下载 26 页完整 PDF ↗",
+          "url": "assets/ppt/s3-2/slides.pdf"
+        },
+        {
+          "label": "27geo 算法白皮书 ↗",
           "url": "https://www.27geo.com/whitepaper"
         }
       ]
@@ -2572,6 +2576,104 @@
         {
           "label": "微信内测「做个小工具」解读 ↗",
           "url": "https://mp.weixin.qq.com/s/hcVjCBem237TFoD4okhwMQ"
+        }
+      ]
+    },
+    {
+      "id": "res-44",
+      "item": "官方全量 23 份嘉宾 PPT 统一汇总页（含 103 公开问题 & 彭超课件）",
+      "provider": "姚金刚 · 大开心（大会主办方）· 11/24 发布",
+      "talkId": "s1-renqiang",
+      "category": "课件与工作台",
+      "how": "11 月 24 日主办方统一开放全部 23 份官方授权课件在线阅读与下载，覆盖全两天全部 21 位登台嘉宾、开场 103 公开问题与彭超《Agentic 之道与 FDE 实践》；大会视频回放亦已在「GEO 大会」视频号上线。",
+      "url": "https://www.geohui.com/ziyuan",
+      "linkLabel": "打开 23 份官方 PPT 汇总页 ↗",
+      "extraLinks": [
+        {
+          "label": "103 个公开问题 PDF ↗",
+          "url": "https://www.geohui.com/pdf-reader.html?talk=opening"
+        },
+        {
+          "label": "彭超《Agentic 与 FDE 实践》↗",
+          "url": "https://www.geohui.com/pdf-reader.html?talk=pengchao"
+        }
+      ]
+    },
+    {
+      "id": "res-45",
+      "item": "WaytoAGI 官方飞书知识库：第二届 GEO 大会两天全嘉宾实战精华",
+      "provider": "WaytoAGI 社区（通往 AGI 之路）· 11/23 更新",
+      "talkId": "s5-aj",
+      "category": "社区共创复盘",
+      "how": "WaytoAGI 社区正式收录本次大会两天完整精华，Day 1 附 15 位讲者避坑与实操清单，Day 2 含 8 主题 + 2 实操 + 13 轮闭幕答疑。",
+      "url": "https://waytoagi.feishu.cn/wiki/VKJsw7dh7i3FjGkkikWcNyrBnFh",
+      "linkLabel": "WaytoAGI Day 1 精华 ↗",
+      "extraLinks": [
+        {
+          "label": "WaytoAGI Day 2 精华 ↗",
+          "url": "https://waytoagi.feishu.cn/wiki/DZJewAUgGig23ZkN7EBckWsnnRc"
+        }
+      ]
+    },
+    {
+      "id": "res-46",
+      "item": "23 份讲稿 30 秒选读导读（按个人/企业 AI 应用深浅度精准导航）",
+      "provider": "James-许侠客（VIP 1 群共创）· 11/24 发布",
+      "talkId": null,
+      "category": "互动复盘工具",
+      "how": "针对 23 份 600+ 页 PPT 打造的交互式阅读导航，30 秒锁定最适合当前团队阶段优先精读的几份讲稿。",
+      "url": "https://www.zoho-cloud.com/geo-guide",
+      "linkLabel": "打开 30 秒讲稿导读 ↗"
+    },
+    {
+      "id": "res-47",
+      "item": "公开脱敏案例：B2B 外贸制造独立站 SEO & GEO 深度体检报告（16 页 PDF）",
+      "provider": "深简 Senjen（微信群精选沉淀）",
+      "talkId": null,
+      "category": "学习手册与三色皮书",
+      "how": "真实项目全脱敏交付案例：拆解某定制玻璃器皿外贸制造厂官网的谷歌 SEO 与 AI 搜索可信度短板与修复方案（4.6 MB）。",
+      "url": "assets/docs/case-study-b2b-glassware-seo-geo.pdf",
+      "linkLabel": "在线阅读 / 下载 16 页案例 PDF ↗"
+    },
+    {
+      "id": "res-48",
+      "item": "《从零开始教你做 GEO》品牌实战零基础入门教程（39 页 PDF）",
+      "provider": "醒得早 GEO（微信群精选沉淀）",
+      "talkId": null,
+      "category": "学习手册与三色皮书",
+      "how": "面向品牌方、市场运营与内容创作者的零基础图解实战教程，系统梳理让品牌被 AI 主动引用的落地步骤（2.0 MB）。",
+      "url": "assets/docs/geo-beginner-tutorial-xingdezao.pdf",
+      "linkLabel": "在线阅读 / 下载 39 页教程 PDF ↗"
+    },
+    {
+      "id": "res-49",
+      "item": "高军《AI 用户成势，天下未定！》& 曹伟大会全景复盘长文",
+      "provider": "高军（媒介匣 CEO）/ 曹伟（军锐慧行）· 11/23–25",
+      "talkId": "s4-gao-jun",
+      "category": "社区共创复盘",
+      "how": "高军会后深度反思 AI 用户趋势与品牌治理格局；曹伟从 27 位专家全景梳理两天核心洞察。",
+      "url": "https://mp.weixin.qq.com/s/P51TYis436I74qjV722QGQ",
+      "linkLabel": "阅读高军会后长文 ↗",
+      "extraLinks": [
+        {
+          "label": "阅读曹伟 27 位专家复盘 ↗",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzY5NzM3NDk3Mw==&mid=2247483905&idx=1&sn=fe733d5640b79a8b985fc0cd47b19760"
+        }
+      ]
+    },
+    {
+      "id": "res-50",
+      "item": "OpenBMB StaffDeck 开源数字员工 & 41财经 100 品牌全球 PR 公益助力计划",
+      "provider": "冷洪利推荐 / 钟添娇（41财经）· 11/22–24",
+      "talkId": "s6-zhongtianjiao",
+      "category": "开源工具与监控系统",
+      "how": "冷洪利在粉丝群力荐的 OpenBMB 开源数字员工程序 StaffDeck；同步收录 41 财经联合大会发起的 100 家出海品牌全球 PR 公益助力计划（第三期）。",
+      "url": "https://github.com/OpenBMB/StaffDeck",
+      "linkLabel": "查看 StaffDeck 开源仓库 ↗",
+      "extraLinks": [
+        {
+          "label": "41财经 100 品牌全球 PR 公益计划 ↗",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg2MzcyMzQwOQ==&mid=2247487153&idx=1&sn=c033671d318bb8f56ca7e100a6739803"
         }
       ]
     }

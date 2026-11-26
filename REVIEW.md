@@ -224,22 +224,14 @@ Day 2 共收录 **3 场飞书录音（8 场正式演讲）+ 开源精校全本�
 ![拔刀刘下午实操课大屏实时演示爱搜AI品牌商品提及监测看板](assets/photos/scene-s7-prac-02.jpg)
 *Day 2 下午实操课①：拔刀刘现场演示 `geo.aidso.com`「品牌商品提及」实时监测看板*
 
-### 5. PPT 课件位、大会手册、三色皮书与开源全本状态说明
-交互学习站已为全部 **28 个单元**（Day 1 18 讲 + Day 2 10 单元）及 **Day 2 下午实操课**统一配置「PPT 课件」区块（由 `data/ppt.json` 管理），并整合开源[两天 21.7 万字完整精校逐字稿](https://github.com/renzheng0415/china-geo-conference-2026)、[任之初 X 长文精华整理+手绘漫画图谱](https://x.com/zen3634421/status/2124502492272808241)、**4 本 PDF 学习手册/三色皮书**及 **参会学习报告一键生成器**：
-- **已上线课件（6 份）**：
-  1. **谭少卿（Floatboat，`s2-tanshaoqing`）**：《如何打造属于自己的超级 Agent 工作台》[在线 PPT（含 7 分钟真机录屏）](https://publisher.floatboat.ai/api/share/p/T7mPfDy-6irrqV9TWs3Jk) & [「GEO 内容生产线」工作台](https://floatboat.ai/workbenchstore/geo-content-pipeline)
-  2. **艾奇先生（艾奇在线，`s3-2`）**：《从关键词到高维场景：AI 时代 GEO 全场景词包策划方法论》26 页完整 PDF 与逐页预览（`assets/ppt/s3-2/slides.pdf`）
-  3. **苍何（前排科技，`s3-3`）**：《GEO 霸榜 AI 搜索分享（新增实战避坑）》42 页完整 PDF 与逐页预览（`assets/ppt/s3-3/slides.pdf`）
-  4. **AJ（WaytoAGI，`s5-aj`）**：《能力溢出之后，我们做什么》[72 页 HTML 在线课件](https://www.waytoagi.com/ai-capability-overflow/)、[个人网站 aaaaaaaj.com](https://aaaaaaaj.com) & [WaytoAGI 飞书社区知识库](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)
-  5. **冷洪利 / 光头牛哥（曝光率 GEO，`s5-lenghongli`）**：《豆包信源 · 视频矩阵怎么做（07 维度）》52 页完整 PDF 与逐页预览（`assets/ppt/s5-lenghongli/slides.pdf`）
-  6. **岚叔（AI Agent 研发者，`s6-lanshu`）**：《GEO 的下一程：如何赢得 AI Agent 的选择 · 现场极简版》[在线互动课件](https://lanshuagent.com/geofenxiang/)（含 17 步拆解与 225 次抽样实测）
-- **已上线手册、三色皮书与互动工具**：
-  - 《GEO 底层方法论学习手册》（59 页 PDF，`assets/docs/geo-methodology-handbook.pdf`）
-  - 《国内 GEO 白皮书：AI 搜索时代的品牌增长新范式》（245 页 / 24 万字 PDF，`assets/docs/geo-whitepaper.pdf`）
-  - 《GEO 蓝皮书：企业与 GEO 服务商合作评估指南》（169 页 PDF，`assets/docs/geo-bluebook.pdf`）
-  - 《GEO 红皮书：生成式引擎优化的伦理边界、作弊风险与治理手册》（204 页 PDF，`assets/docs/geo-redbook.pdf`）
-  - 《2026 深圳 GEO 大会 · 参会学习报告生成器》（离线 HTML 工具，`assets/tools/geo-learning-report.html`）
-- **待上传（其余 22 个单元）**：页面暂展示占位卡片与现场大屏实拍计数，嘉宾授权课件后只需把导出图片/PDF 放入 `assets/ppt/<talkId>/` 并更新 `data/ppt.json` 状态即可上线。
+### 5. PPT 课件位、大会手册、三色皮书与 23 个微信群会后增量说明（更新至 2026-11-26）
+交互学习站已为全部 **29 个单元**（Day 1 18 讲 + Day 2 11 单元，含中午答疑、拔刀刘实操课与 17:50 13 轮闭幕答疑）统一配置「PPT 课件」区块（由 `data/ppt.json` 管理），并整合开源[两天 21.7 万字完整精校逐字稿](https://github.com/renzheng0415/china-geo-conference-2026)、[任之初 X 长文精华整理+手绘漫画图谱](https://x.com/zen3634421/status/2124502492272808241)、[WaytoAGI 飞书官方两天实战精华](https://waytoagi.feishu.cn/wiki/VKJsw7dh7i3FjGkkikWcNyrBnFh)、**7 本 PDF 手册/皮书/案例**、**艾奇全场景拓词 Skill 包**及 **参会学习报告一键生成器**：
+- **全部 21 场正式主题演讲 PPT 已 100% 点亮**（11/24 官方在 [geohui.com/ziyuan](https://www.geohui.com/ziyuan) 统一释放全部 23 份授权课件，含《103 个公开问题》与彭超《Agentic 之道与 FDE 实践》；其中张栖铭 48P、艾奇 26P、苍何 42P、冷洪利 52P 同步支持站内逐页高清缩放与本地 PDF 下载，谭少卿/AJ/岚叔支持原版交互在线预览）。
+- **已上线核心工具与 PDF 资料**：
+  - 《艾奇 GEO 全场景拓词》完整 Agent Skill 压缩包（11/25 艾奇先生群内亲发，`assets/tools/aiqi-geo-fullscene-keywords.zip`）
+  - 《2026 深圳 GEO 大会 · 参会学习报告生成器》（离线 HTML 工具，`assets/tools/geo-learning-report.html`）& [James-许侠客 30 秒讲稿选读导读](https://www.zoho-cloud.com/geo-guide)
+  - 7 本本地 PDF：《GEO 底层方法论学习手册》（59P）、《国内 GEO 白皮书》（245P）、《GEO 蓝皮书》（169P）、《GEO 红皮书》（204P）、《Day 2 全嘉宾实战精华》（HaonanPro）、《B2B 外贸独立站 SEO/GEO 体检报告》（16P 脱敏案例）、《从零开始教你做 GEO》（39P 零基础教程）。
+- **23 个大会微信群持续跟踪（截至 11/26 19:40）**：累计扫描 7,252 条消息，完整记录 12 个嘉宾专属群追答、冷洪利 PDF 高收录与平台防封实测、钟添娇 41 财经 100 品牌全球 PR 公益计划、高军/曹伟会后复盘长文及「GEO 大会」视频号官方回放上线动态。
 
 ---
 

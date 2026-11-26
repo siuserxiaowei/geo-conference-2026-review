@@ -455,6 +455,11 @@
       ],
       "resources": [
         {
+          "item": "《艾奇 GEO 全场景拓词》完整 Agent Skill 压缩包（11/25 群内亲发）",
+          "how": "含 SKILL.md（14KB）、scene-dimensions.md 场景维度词典、examples.md 与 check_packs.py 校验脚本，解压即可接入 Claude/Codex/WorkBuddy",
+          "url": "assets/tools/aiqi-geo-fullscene-keywords.zip"
+        },
+        {
           "item": "《从关键词到高维场景：AI 时代 GEO 全场景词包策划方法论》完整 PDF（26 页）",
           "how": "已收入本站 PPT 课件区，可直接在线逐页预览或下载完整 PDF",
           "url": "assets/ppt/s3-2/slides.pdf"
