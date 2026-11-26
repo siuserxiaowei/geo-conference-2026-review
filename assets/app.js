@@ -966,6 +966,15 @@
               <a class="btn btn-accent" href="assets/tools/geo-learning-report.html" target="_blank" rel="noopener noreferrer">打开报告生成器 ↗</a>
             </div>
           </article>
+          <article class="card d2-theme-card" style="border-color:rgba(200,54,29,0.35)">
+            <div class="five-num">23 份 · 全量课件</div>
+            <h3>官方全量 PPT 汇总 &amp; 艾奇拓词 Skill</h3>
+            <p>11/24 官方释放全部 23 份授权 PPT（本站 21 场演讲已全点亮），同步托管 11/25 艾奇亲发全场景拓词 Skill 包与 30 秒选读导读。</p>
+            <div class="ppt-slot-actions">
+              <a class="btn btn-accent" href="https://www.geohui.com/ziyuan" target="_blank" rel="noopener noreferrer">23 份官方 PPT 汇总 ↗</a>
+              <a class="btn btn-outline" href="assets/tools/aiqi-geo-fullscene-keywords.zip" target="_blank" rel="noopener noreferrer">艾奇拓词 Skill (.zip) ↗</a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -974,18 +983,19 @@
           ? `<section class="reveal reveal-d2" id="groupsHomeSection">
               <div class="section-head">
                 <h2>微信群会后精华补充（${groups.overview.scannedGroups} 个大会群汇总）</h2>
-                <a class="tag tag-accent" href="#/groups">进入 22 群完整精华页 →</a>
+                <a class="tag tag-accent" href="#/groups">进入 ${groups.overview.scannedGroups} 群完整精华页 →</a>
               </div>
               <div class="card group-home-banner">
                 <div class="talk-card-top">
-                  <strong style="font-family:var(--font-serif);font-size:1.1rem">会后新释出课件、嘉宾群内追答、VIP 主群思辨与 4 项事实核校</strong>
+                  <strong style="font-family:var(--font-serif);font-size:1.1rem">全量 23 份官方 PPT、艾奇拓词 Skill、嘉宾追答与 4 项事实核校</strong>
                   <span class="tag tag-ok">更新至 ${esc(groups.overview.updatedAt)}</span>
                 </div>
                 <p style="margin:0.45rem 0 0.7rem;font-size:0.9rem;color:var(--muted)">${esc(groups.overview.summary)}</p>
                 <div class="ppt-slot-actions">
-                  <a class="btn btn-accent" href="#/groups">查看 22 个微信群逐群精华 →</a>
-                  <a class="btn btn-outline" href="#/talk/s1-zhangxinmin">新上线：张栖铭 48 页完整 PDF 课件 →</a>
-                  <a class="btn btn-outline" href="assets/docs/day2-haonan-digest.pdf" target="_blank" rel="noopener noreferrer">Day 2 全嘉宾+两场实操精华 PDF ↗</a>
+                  <a class="btn btn-accent" href="#/groups">查看 ${groups.overview.scannedGroups} 个微信群逐群精华 →</a>
+                  <a class="btn btn-outline" href="https://www.geohui.com/ziyuan" target="_blank" rel="noopener noreferrer">官方 23 份 PPT 总汇总 ↗</a>
+                  <a class="btn btn-outline" href="https://www.zoho-cloud.com/geo-guide" target="_blank" rel="noopener noreferrer">30 秒讲稿选读导读 ↗</a>
+                  <a class="btn btn-outline" href="assets/docs/day2-haonan-digest.pdf" target="_blank" rel="noopener noreferrer">Day 2 全嘉宾+实操精华 PDF ↗</a>
                 </div>
               </div>
             </section>`
@@ -2256,7 +2266,7 @@
         <div class="facts-strip" style="margin-top:0.85rem">
           <div class="fact-cell"><div class="fact-label">扫描覆盖</div><div class="fact-val">${overview.scannedGroups} 个大会微信群（约 ${overview.totalMessagesScanned}+ 条消息）</div></div>
           <div class="fact-cell"><div class="fact-label">实质沉淀群</div><div class="fact-val">${guestGroups.length} 个活跃嘉宾群 + VIP 主群与会务核校</div></div>
-          <div class="fact-cell"><div class="fact-label">新增完整课件</div><div class="fact-val">张栖铭 48 页 PDF 上线（全站达 6 份完整课件）</div></div>
+          <div class="fact-cell"><div class="fact-label">全量完整课件</div><div class="fact-val">全站 ${Object.values(ppt.items || {}).filter((x) => x.status === 'ready').length} 场演讲 PPT 已全点亮（官方 23 份全量上线）</div></div>
           <div class="fact-cell"><div class="fact-label">核校与追答</div><div class="fact-val">${verifications.length} 项事实核校落定 · ${guestGroups.reduce((n, g) => n + (g.qas || []).length, 0)} 组嘉宾群内追答</div></div>
         </div>
         <div class="day-filter" role="group" aria-label="按群类别筛选">
